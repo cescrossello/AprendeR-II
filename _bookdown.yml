@@ -1,0 +1,20 @@
+book_filename: "AprendeR"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    cnj: 'Conjetura '
+    def: 'Definición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración '
+    remark: 'Nota. '
+    solution: 'Solución. '
+  ui:
+    chapter_name: "Lección "
+delete_merged_file: true

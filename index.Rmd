@@ -1,0 +1,41 @@
+--- 
+title: "AprendeR"
+author: "Autores"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+   bookdown::pdf_book: default
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+#github-repo: RicUIB/AprendeR
+description: "Apuntes AprendeR bookdown::gitbook."
+---
+
+```{r global_options, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  fig.width=5, 
+  fig.asp = 1,
+  fig.align="center", 
+  fig.show = "hold",
+  echo=TRUE, 
+  warning=FALSE, 
+  message=FALSE
+)
+knitr::opts_knit$set(global.par = TRUE)
+```
+
+```{r, include=FALSE}
+par(cex.main=0.9,cex.axis=0.8,cex.lab=0.8)
+```
+
+
+# Presentación {-}
+
+Esto es una edición preliminar en línea de la 2a parte del libro "AprendeR".
+
+El libro está escrito en *R Markdown*, usando *RStudio* como editor de texto y el paquete **bookdown** para convertir los ficheros *markdown* en un libro. 
+
+Este trabajo se publica bajo licencia [Atribución-No Comercial-SinDerivadas 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
