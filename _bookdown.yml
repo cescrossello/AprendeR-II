@@ -1,4 +1,5 @@
 book_filename: "AprendeR"
+output_dir: "docs"
 language:
   label:
     fig: 'Figura '
