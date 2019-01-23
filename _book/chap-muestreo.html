@@ -5,19 +5,19 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lección 2 Conceptos básicos de muestreo estadístico | AprendeR</title>
+  <title>Lección 2 Conceptos básicos de muestreo estadístico | AprendeR: Parte II</title>
   <meta name="description" content="Apuntes AprendeR bookdown::gitbook.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Lección 2 Conceptos básicos de muestreo estadístico | AprendeR" />
+  <meta property="og:title" content="Lección 2 Conceptos básicos de muestreo estadístico | AprendeR: Parte II" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="Apuntes AprendeR bookdown::gitbook." />
-  
+  <meta name="github-repo" content="cescrossello/AprendeR-II" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lección 2 Conceptos básicos de muestreo estadístico | AprendeR" />
+  <meta name="twitter:title" content="Lección 2 Conceptos básicos de muestreo estadístico | AprendeR: Parte II" />
   
   <meta name="twitter:description" content="Apuntes AprendeR bookdown::gitbook." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Autores">
 
 
-<meta name="date" content="2019-01-20">
+<meta name="date" content="2019-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="chap-distr.html">
-<link rel="next" href="estimacion.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">AprendeR</a></li>
+<li><a href="./">AprendeR: Parte II</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
@@ -120,21 +120,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#soluciones-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Soluciones sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="estimacion.html"><a href="estimacion.html"><i class="fa fa-check"></i><b>3</b> Estimación puntual</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimacion.html"><a href="estimacion.html#estimacion-maximo-verosimil"><i class="fa fa-check"></i><b>3.1</b> Estimación máximo verosímil</a></li>
-<li class="chapter" data-level="3.2" data-path="estimacion.html"><a href="estimacion.html#guia-rapida-1"><i class="fa fa-check"></i><b>3.2</b> Guía rápida</a></li>
-<li class="chapter" data-level="3.3" data-path="estimacion.html"><a href="estimacion.html#ejercicios-3"><i class="fa fa-check"></i><b>3.3</b> Ejercicios</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="chap-IC.html"><a href="chap-IC.html"><i class="fa fa-check"></i><b>4</b> Intervalos de confianza</a><ul>
-<li class="chapter" data-level="4.1" data-path="chap-IC.html"><a href="chap-IC.html#sec:ICT"><i class="fa fa-check"></i><b>4.1</b> Intervalo de confianza para la media basado en la t de Student</a></li>
-<li class="chapter" data-level="4.2" data-path="chap-IC.html"><a href="chap-IC.html#intervalos-de-confianza-para-la-proporcion-poblacional"><i class="fa fa-check"></i><b>4.2</b> Intervalos de confianza para la proporción poblacional</a></li>
-<li class="chapter" data-level="4.3" data-path="chap-IC.html"><a href="chap-IC.html#sec:ICvar"><i class="fa fa-check"></i><b>4.3</b> Intervalo de confianza para la varianza de una población normal</a></li>
-<li class="chapter" data-level="4.4" data-path="chap-IC.html"><a href="chap-IC.html#bootstrap"><i class="fa fa-check"></i><b>4.4</b> Bootstrap</a></li>
-<li class="chapter" data-level="4.5" data-path="chap-IC.html"><a href="chap-IC.html#guia-rapida-2"><i class="fa fa-check"></i><b>4.5</b> Guía rápida</a></li>
-<li class="chapter" data-level="4.6" data-path="chap-IC.html"><a href="chap-IC.html#ejercicios-4"><i class="fa fa-check"></i><b>4.6</b> Ejercicios</a></li>
-</ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/cescrossello/AprendeR-II" target="blank">Publicado con  bookdown</a></li>
 
 </ul>
 
@@ -145,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">AprendeR</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">AprendeR: Parte II</a>
           </h1>
         </div>
 
@@ -197,7 +184,7 @@ prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:<
   <span class="dt">xlab=</span><span class="st">&quot;n&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;probabilidad&quot;</span>,<span class="dt">xaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">20</span>),<span class="dt">yaxp=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">10</span>))
 <span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.01</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
 <span class="kw">text</span>(<span class="dv">160</span>,<span class="fl">0.04</span>,<span class="dt">labels=</span><span class="st">&quot;probabilidad 0.01&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">cex=</span><span class="fl">0.7</span>)</code></pre></div>
-<p><img src="AprendeR_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>La curva negra representa las probabilidades deseadas. Hemos añadido al gráfico una línea horizontal que marca la probabilidad 0.01, y muestra que la probabilidad de alguna repetición en una m.a.s. de 16 o menos estudiantes de la UIB es inferior al 1%. Así, por ejemplo, una muestra aleatoria sin reposición de 10 estudiantes de la UIB podría haberse obtenido perfectamente tomando los estudiantes con reposición, porque la probabilidad de alguna repetición en una m.a.s. como esta es muy pequeña: 0.004. En cambio, es difícil de creer que una muestra aleatoria de 200 estudiantes diferentes de la UIB sea simple, porque la probabilidad de alguna repetición en una m.a.s. como esta es grande: 0.811.</p>
 <p>La mayoría de fórmulas que daremos en este curso suponiendo que trabajamos con una muestra aleatoria simple las consideraremos igualmente válidas para muestras aleatorias sin reposición, siempre y cuando el tamaño de la población sea muy grande en relación al de la muestra (por dar una regla, como mínimo unas 1000 veces mayor). Si el tamaño de la población es relativamente pequeño por comparación a la muestra, algunas de estas fórmulas se pueden salvar aplicando correcciones adecuadas para compensar el efecto del tamaño de la población, y otras directamente pierden toda validez.</p>
 <p>En todo caso, conviene remarcar que para tomar una muestra aleatoria con o sin reposición de una población, es necesario disponer de una lista completa de todos sus individuos, para sortear a quién vamos a seleccionar. Esto no siempre es posible. ¿Alguien tiene la lista completa de, pongamos, todos los diabéticos de España? ¿Que incluya los que aún no saben que lo son? Por lo tanto, en la vida real no siempre podemos tomar muestras aleatorias en el sentido que hemos explicado.</p>
@@ -234,6 +221,72 @@ prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:<
 <p>En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes ha estado formada por todos los individuos de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de conglomerados, tomar de alguna manera una muestra aleatoria de cada uno de ellos. Por ejemplo, algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Este sería un ejemplo de <strong>muestreo polietápico</strong>, en el que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas.</p>
 <p>Otro ejemplo enrevesado (pero real) de muestreo polietápico sería, para elegir una muestra de adolescentes de una ciudad grande, escoger en primer lugar 4 secciones censales al azar; a continuación, escoger al azar 10 manzanas de cada una de estas secciones censales y una esquina de cada manzana; finalmente, recorrer cada manzana en sentido horario a partir de la esquina seleccionada y visitar un portal de cada tres, entrevistando todos los habitantes de 13 a 19 años en las casas o fincas visitadas. En este proceso, hemos realizado dos muestreos aleatorios sin reposición (de secciones censales y de manzanas) y un muestreo sistemático aleatorio (los portales). Si además los adolescentes que estudiamos al final no son todos los que viven en los portales seleccionados sino solo los que encontramos en casa el día que los visitamos, este muestreo oportunista significaría un cuarto paso en la formación de la muestra.</p>
 <p>Existen otros tipos de muestreo, solo hemos explicado los más comunes. En cualquier caso, lo importante es recordar que el estudio estadístico que se realice <em>a posteriori</em> deberá ser diferente según el muestreo usado. Por ejemplo, no se pueden usar las mismas técnicas para analizar una muestra aleatoria simple que una muestra por conglomerados.</p>
+
+<div class="example">
+<span id="exm:muestreo" class="example"><strong>Ejemplo 2.1  </strong></span>Consideremos la población formada por las 100 bolas de la Figura <a href="chap-muestreo.html#fig:base">2.1</a>. En ella distinguimos dos estratos, uno de 40 bolas y otro de 60 (definidos por los colores de las bolas) y 20 conglomerados de 5 sujetos cada uno (definidos por los rectángulos verticales). Vamos a tomar muestras de tamaño 15 de esta población.
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:base"></span>
+<img src="_figs/base.pdf" alt="Una población de 100 sujetos, con dos estratos y 20 conglomerados"  />
+<p class="caption">
+Figura 2.1: Una población de 100 sujetos, con dos estratos y 20 conglomerados
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:simple">2.2</a> describe una muestra aleatoria simple, formada por las bolas azules; la bola azul más oscuro ha aparecido dos veces en la muestra.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:simple"></span>
+<img src="_figs/simple.pdf" alt="Una muestra aleatoria simple"  />
+<p class="caption">
+Figura 2.2: Una muestra aleatoria simple
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:sinrep">2.3</a> describe una muestra aleatoria sin reposición, formada por las bolas azules.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:sinrep"></span>
+<img src="_figs/sinrep.pdf" alt="Una muestra aleatoria sin reposición"  />
+<p class="caption">
+Figura 2.3: Una muestra aleatoria sin reposición
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:sist">2.4</a> describe una muestra aleatoria sistemática: hemos empezado a escoger por la bola roja oscura, y a partir de ella hemos tomado 1 de cada 7 bolas, reiniciando al llegar al final de la población.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:sist"></span>
+<img src="_figs/sist.pdf" alt="Una muestra aleatoria sistemática"  />
+<p class="caption">
+Figura 2.4: Una muestra aleatoria sistemática
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:estrat">2.5</a> describe una muestra aleatoria estratificada, formada por un 40% de bolas rojas (6) y un 60% de bolas verdes (9).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:estrat"></span>
+<img src="_figs/estrat.pdf" alt="Una muestra aleatoria estratificada"  />
+<p class="caption">
+Figura 2.5: Una muestra aleatoria estratificada
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:clust">2.6</a> describe una muestra aleatoria por conglomerados, formada por 3 conglomerados.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:clust"></span>
+<img src="_figs/cluster.pdf" alt="Una muestra aleatoria por conglomerados"  />
+<p class="caption">
+Figura 2.6: Una muestra aleatoria por conglomerados
+</p>
+</div>
+<ul>
+<li>La Figura <a href="chap-muestreo.html#fig:oport">2.7</a> describe una muestra oportunista: las 15 primeras bolas.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:oport"></span>
+<img src="_figs/oport.pdf" alt="Una muestra oportunista"  />
+<p class="caption">
+Figura 2.7: Una muestra oportunista
+</p>
+</div>
+<p>En el Ejemplo <a href="chap-muestreo.html#exm:muestreo2">2.2</a> damos el código que ha producido las muestras aleatorias anteriores.</p>
 </div>
 </div>
 <div id="muestreo-aleatorio-con-r" class="section level2">
@@ -251,14 +304,14 @@ prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:<
 <p>Los dos primeros parámetros han de entrarse en este orden o igualados a los parámetros <code>x</code> y <code>size</code>, respectivamente.</p>
 <p>Así, por ejemplo, para obtener una m.a.s. de 15 números entre 1 y 100, podemos entrar:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 67 20 86  9 76 67 37 59 73  7 73 56  3 30 22</code></pre>
+<pre><code>##  [1] 93 93 57 50 80  4 89 54 22 56 77 59 47  4  4</code></pre>
 <p>Naturalmente, y como ya nos encontramos en la Lección <a href="chap-distr.html#chap:distr">1</a> cuando generábamos vectores aleatorios con una distribución dada, cada ejecución de <code>sample</code> con los mismos parámetros puede dar lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 82 95 17 88 16 18 43 35 68 42 64 71 30 81 29</code></pre>
+<pre><code>##  [1] 66 34 56 89 95 91  8  1 27 47 16 19 55 24 65</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 43 16 74 99  8 81 64 78 25 23 64 82  6 37 33</code></pre>
+<pre><code>##  [1] 79 89 89 49 64  6 70 55 54 26 19 82 10  2 11</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1]  79 100  56   4  94  46   6  80  88 100  40  90  93  61  58</code></pre>
+<pre><code>##  [1]  8 96 32 37 33 94 78 43 62 56 45 38 15 15 79</code></pre>
 <p>Veamos cómo extraer una m.a.s de una tabla de datos. Recordemos el <em>data frame</em> <code>iris</code>, que recoge medidas de pétalos y sépalos de 150 flores de tres especies de iris.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(iris)</code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
@@ -271,30 +324,30 @@ prob=<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:<
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="kw">sample</span>(<span class="kw">dim</span>(iris)[<span class="dv">1</span>],<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>) <span class="co">#Los índices de la m.a.s.</span>
 muestra_iris=iris[x,] <span class="co">#La m.a.s. de la tabla iris</span>
 muestra_iris</code></pre></div>
-<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 78           6.7         3.0          5.0         1.7 versicolor
-## 103          7.1         3.0          5.9         2.1  virginica
-## 145          6.7         3.3          5.7         2.5  virginica
-## 114          5.7         2.5          5.0         2.0  virginica
-## 105          6.5         3.0          5.8         2.2  virginica
-## 44           5.0         3.5          1.6         0.6     setosa
-## 140          6.9         3.1          5.4         2.1  virginica
-## 95           5.6         2.7          4.2         1.3 versicolor
-## 3            4.7         3.2          1.3         0.2     setosa
-## 79           6.0         2.9          4.5         1.5 versicolor
-## 98           6.2         2.9          4.3         1.3 versicolor
-## 116          6.4         3.2          5.3         2.3  virginica
-## 71           5.9         3.2          4.8         1.8 versicolor
-## 5            5.0         3.6          1.4         0.2     setosa
-## 5.1          5.0         3.6          1.4         0.2     setosa</code></pre>
+<pre><code>##       Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 53             6.9         3.1          4.9         1.5 versicolor
+## 65             5.6         2.9          3.6         1.3 versicolor
+## 122            5.6         2.8          4.9         2.0  virginica
+## 115            5.8         2.8          5.1         2.4  virginica
+## 138            6.4         3.1          5.5         1.8  virginica
+## 92             6.1         3.0          4.6         1.4 versicolor
+## 92.1           6.1         3.0          4.6         1.4 versicolor
+## 3              4.7         3.2          1.3         0.2     setosa
+## 115.1          5.8         2.8          5.1         2.4  virginica
+## 97             5.7         2.9          4.2         1.3 versicolor
+## 138.1          6.4         3.1          5.5         1.8  virginica
+## 101            6.3         3.3          6.0         2.5  virginica
+## 20             5.1         3.8          1.5         0.3     setosa
+## 84             6.0         2.7          5.1         1.6 versicolor
+## 79             6.0         2.9          4.5         1.5 versicolor</code></pre>
 <p>Recordad que <code>dim</code> aplicado a un <code>dataframe</code> nos da un vector con sus dimensiones: sus números de filas y de columnas, en este orden. Por lo tanto, <code>dim(iris)[1]</code> es el número de filas de <code>iris</code>.</p>
 <p>Si solo quisiéramos una muestra aleatoria de longitudes de pétalos, podríamos aplicar directamente la función <code>sample</code> al vector correspondiente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestra_long_pet=<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
 muestra_long_pet</code></pre></div>
-<pre><code>##  [1] 4.7 1.4 4.2 4.7 5.0 1.4 4.1 6.0 6.1 5.8 5.1 5.1 1.4 4.4 5.6</code></pre>
+<pre><code>##  [1] 4.8 5.1 3.9 4.9 1.7 5.6 3.8 3.5 6.1 1.5 5.4 5.9 1.4 1.3 3.5</code></pre>
 <p>El hecho de que funciones como <code>sample</code> o los generadores de vectores aleatorios con una cierta distribución de probabilidad fijada, como <code>rnorm</code> o <code>rbinom</code>, produzcan… pues eso, vectores aleatorios, puede tener inconvenientes a la hora de reproducir una simulación. R permite “fijar” el resultado de una función aleatoria con la instrucción <code>set.seed</code>. Sin entrar en detalles sobre cómo funcionan, los diferentes algoritmos que usa R para generar números aleatorios usan una <strong>semilla de aleatoriedad</strong>, que se modifica después de la ejecución del algoritmo, y por eso cada vez dan un resultado distinto. Pero, para una semilla fija, el algoritmo da el mismo resultado siempre. Lo que hace la función <code>set.seed</code> es igualar esta semilla al valor que le entramos. Si tras aplicar esta función a un número concreto ejecutamos una instrucción que genere un vector aleatorio de una longitud fija con una distribución fija, el resultado será siempre el mismo. Veamos un ejemplo de su efecto, generando muestras aleatorias simples de 10 longitudes de pétalos de flores iris con diferentes semillas de aleatoriedad:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 6.1 1.0 5.9 1.5 3.3 5.1 5.1 4.8 6.4 4.9</code></pre>
+<pre><code>##  [1] 5.6 1.9 1.5 5.1 4.5 1.3 4.7 4.4 1.4 4.2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">20</span>)
 <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##  [1] 6.4 5.3 1.3 3.5 5.7 5.2 1.1 1.5 1.4 4.5</code></pre>
@@ -331,52 +384,52 @@ muestra_long_pet</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 8 4 7</code></pre>
+<pre><code>## [1] 9 3 6</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 8 9 3</code></pre>
+<pre><code>## [1] 1 4 9</code></pre>
 <p>A veces querremos tomar diversas muestras aleatorias de una misma población y calcular algo sobre ellas. Para hacerlo podemos usar la función <code>replicate</code>. La sintaxis básica es</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(n, instrucción)</code></pre></div>
 <p>donde <code>n</code> es el número de repeticiones de la <code>instrucción</code>. Por ejemplo, para tomar 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podemos hacer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestras=<span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>))
 muestras</code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-##  [1,]  6.1  6.7  4.0  1.5  5.0  5.4  4.7  3.5  4.5   1.3
-##  [2,]  6.4  3.3  1.9  3.9  6.1  5.1  1.4  5.0  1.6   1.4
-##  [3,]  4.7  4.5  6.1  3.8  1.5  1.5  4.2  4.5  1.6   4.5
-##  [4,]  4.0  4.1  5.9  4.5  4.7  4.2  4.0  5.6  4.5   4.6
-##  [5,]  4.8  3.3  4.9  5.0  1.5  5.5  3.5  4.7  1.4   5.0
-##  [6,]  3.5  5.1  1.6  6.1  1.7  4.1  4.0  1.5  3.9   5.5
-##  [7,]  1.4  1.5  4.5  5.5  5.5  4.5  4.4  3.0  1.6   4.4
-##  [8,]  4.8  5.7  4.5  5.1  4.1  5.0  4.5  5.0  1.6   6.7
-##  [9,]  1.4  4.6  5.0  1.6  4.0  5.9  1.6  5.5  4.2   4.5
-## [10,]  6.6  5.4  5.4  3.3  3.7  4.5  1.6  1.4  1.6   1.7
-## [11,]  6.3  4.3  1.7  5.8  3.6  5.0  4.9  1.3  5.1   5.7
-## [12,]  5.2  5.9  5.1  4.5  4.4  4.7  1.5  5.1  1.7   1.7
-## [13,]  1.7  1.5  3.7  4.6  1.3  1.5  6.1  1.5  1.4   5.1
-## [14,]  6.4  5.0  1.9  5.9  3.0  6.1  3.6  3.5  1.6   1.2
-## [15,]  5.6  3.6  5.4  5.1  4.0  3.5  4.2  1.5  5.6   4.2</code></pre>
+##  [1,]  1.0  1.3  3.9  4.9  5.9  5.0  3.3  1.4  5.4   5.2
+##  [2,]  5.3  1.3  3.3  5.2  5.5  4.8  1.6  5.5  4.6   6.1
+##  [3,]  5.3  1.5  1.3  1.6  5.9  5.5  4.2  1.9  5.9   6.1
+##  [4,]  4.5  4.8  4.5  1.3  5.2  5.0  5.9  1.5  1.7   4.2
+##  [5,]  5.6  5.1  4.5  1.6  4.0  1.5  6.0  3.9  1.5   1.6
+##  [6,]  1.3  1.4  5.3  1.5  1.7  1.5  1.6  6.7  1.6   4.7
+##  [7,]  1.4  5.8  5.1  6.0  1.2  1.4  1.4  1.1  4.8   1.5
+##  [8,]  5.6  5.3  4.8  1.5  4.5  4.5  4.2  4.6  1.4   4.5
+##  [9,]  5.6  4.2  1.9  4.4  6.0  4.8  5.1  4.5  5.3   4.4
+## [10,]  1.6  4.0  5.4  1.3  5.1  5.2  4.1  5.0  1.0   1.7
+## [11,]  4.5  5.6  1.6  4.5  1.7  4.0  1.5  1.7  1.6   4.7
+## [12,]  4.9  1.7  6.0  4.1  1.5  3.5  5.1  5.2  5.6   4.9
+## [13,]  1.9  1.3  4.1  5.6  5.3  5.1  1.0  3.7  1.3   1.4
+## [14,]  3.3  4.8  5.8  1.5  5.1  1.9  3.5  4.5  5.9   1.2
+## [15,]  3.9  4.5  6.0  1.3  1.5  4.8  1.3  5.8  1.4   1.9</code></pre>
 <p>Observad que R ha organizado los 10 vectores generados con el <code>replicate</code> como columnas de una matriz.</p>
 <p>Si, por ejemplo, solo nos hubiera interesado calcular las medias, redondeadas a 2 cifras decimales, de 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podríamos haber hecho</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">medias=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))
 medias</code></pre></div>
-<pre><code>##  [1] 4.20 4.14 4.45 4.37 3.29 3.40 2.70 3.85 4.07 3.43</code></pre>
+<pre><code>##  [1] 3.49 3.57 3.37 3.95 4.74 4.51 3.95 3.95 4.25 3.65</code></pre>
 <p>En este caso, como el resultado de la instrucción que iteramos es un solo número, los resultados del <code>replicate</code> forman un vector.</p>
 <p>¿Y si quisiéramos la media y la desviación típica muestral de 10 muestras de estas? No podemos usar sin más dos <code>replicate</code>, como en</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 4.00 3.99 4.15 3.96 3.87 3.52 2.79 3.82 3.47 4.27</code></pre>
+<pre><code>##  [1] 4.44 3.75 4.04 4.04 3.79 3.55 3.69 3.99 4.09 3.15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">sd</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 1.91 1.94 1.92 1.09 1.82 1.96 1.73 1.66 1.80 1.74</code></pre>
+<pre><code>##  [1] 1.83 1.81 1.31 1.72 1.79 1.52 1.74 1.90 1.48 1.88</code></pre>
 <p>porque el conjunto de muestras de las que hemos calculado la media en el primer <code>replicate</code> muy probablemente habrá sido diferente del conjunto de muestras de las que hemos calculado la desviación típica en el segundo <code>replicate</code>. Lo más adecuado es definir una función que calcule un vector con estos dos valores, y luego usarla dentro de un único <code>replicate</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">info=<span class="cf">function</span>(x){<span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">mean</span>(x),<span class="kw">sd</span>(x)),<span class="dv">2</span>)}
 info_lp=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">info</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
 info_lp</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-## [1,] 3.57 3.26 4.27 3.11 3.02 3.54 3.07 3.69 3.59  3.17
-## [2,] 2.08 1.77 1.70 1.94 1.91 1.73 1.83 1.44 1.93  1.57</code></pre>
+## [1,] 3.61 4.41 3.51 4.03 3.87 3.62 4.02 3.00 3.67  4.19
+## [2,] 1.79 1.47 1.88 1.60 1.96 1.72 1.92 1.58 1.26  1.86</code></pre>
 <p>En este último caso, R ha organizado la información obtenida como columnas de una matriz: la primera fila son las medias y la segunda las desviaciones típicas.</p>
 <p>Naturalmente, la función <code>set.seed</code> permite “fijar” el resultado de un <code>replicate</code> que incluya la generación de números aleatorios:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1000</span>)
@@ -406,6 +459,45 @@ muestra_sist_iris</code></pre></div>
 ## 4            4.6         3.1          1.5         0.2     setosa
 ## 19           5.7         3.8          1.7         0.3     setosa
 ## 34           5.5         4.2          1.4         0.2     setosa</code></pre>
+
+<div class="example">
+<span id="exm:muestreo2" class="example"><strong>Ejemplo 2.2  </strong></span>El código siguiente ha producido las diferentes muestras aleatorias del Ejemplo <a href="chap-muestreo.html#exm:muestreo">2.1</a>:
+</div>
+
+<ul>
+<li>La muestra aleatoria simple de la Figura <a href="chap-muestreo.html#fig:simple">2.2</a>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">sort</span>(<span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">rep=</span><span class="ot">TRUE</span>))  </code></pre></div>
+<pre><code>##  [1] 14 26 29 46 47 52 65 66 71 72 74 84 92 94 94</code></pre>
+<ul>
+<li>La muestra aleatoria sin reposición de la Figura <a href="chap-muestreo.html#fig:sinrep">2.3</a>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">sort</span>(<span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">rep=</span><span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>##  [1] 13 23 29 40 42 50 61 62 65 70 81 83 91 92 93</code></pre>
+<ul>
+<li>La muestra aleatoria sistemática de la Figura <a href="chap-muestreo.html#fig:sist">2.4</a>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+X0=<span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">1</span>)
+(X0<span class="op">+</span><span class="dv">7</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">14</span>))<span class="op">%%</span><span class="dv">100</span></code></pre></div>
+<pre><code>##  [1] 92 99  6 13 20 27 34 41 48 55 62 69 76 83 90</code></pre>
+<div style="white-space: pre-line;">           El primer elemento elegido, a partir del cual la muestra ha ido avanzando de 7 en 7, ha sido 92.</div>
+<ul>
+<li>La muestra aleatoria estratificada de la Figura <a href="chap-muestreo.html#fig:estrat">2.5</a>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">c</span>(<span class="kw">sort</span>(<span class="kw">sample</span>(<span class="dv">40</span>,<span class="dv">6</span>,<span class="dt">replace=</span><span class="ot">FALSE</span>)),<span class="kw">sort</span>(<span class="kw">sample</span>(<span class="dv">41</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">9</span>, <span class="dt">replace =</span><span class="ot">FALSE</span>))) </code></pre></div>
+<pre><code>##  [1] 11 19 24 31 37 40 48 54 65 66 79 80 81 85 91</code></pre>
+<ul>
+<li>La muestra aleatoria por conglomerados de la Figura <a href="chap-muestreo.html#fig:clust">2.6</a>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+Y=<span class="kw">sort</span>(<span class="kw">sample</span>(<span class="dv">20</span>,<span class="dv">3</span>,<span class="dt">rep=</span><span class="ot">FALSE</span>))  <span class="co">#Los conglomerados</span>
+<span class="kw">sort</span>(<span class="kw">rep</span>(Y,<span class="dt">each=</span><span class="dv">5</span>)<span class="op">+</span><span class="dv">20</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">4</span>))</code></pre></div>
+<pre><code>##  [1]  6 18 19 26 38 39 46 58 59 66 78 79 86 98 99</code></pre>
+<div style="white-space: pre-line;">         Los conglomerados escogidos (ordenados de izquierda a derecha) han sido el 6, el 18 y el 19.</div>
 </div>
 <div id="guia-rapida" class="section level2">
 <h2><span class="header-section-number">2.3</span> Guía rápida</h2>
@@ -505,8 +597,8 @@ Res
           </div>
         </div>
       </div>
-<a href="chap-distr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estimacion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-distr.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -536,14 +628,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Muestreo.Rmd",
+"link": "https://github.com/cescrossello/AprendeR-II/edit/master/02-Muestreo.Rmd",
 "text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["AprendeR.pdf", "AprendeR.epub"],
+"download": ["AprendeR-Parte-II.pdf", "AprendeR-Parte-II.epub"],
 "toc": {
 "collapse": "subsection"
 }
