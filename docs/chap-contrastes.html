@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lección 5 Contrastes de hipótesis | AprendeR: Parte II</title>
+  <meta name="description" content="Apuntes AprendeR bookdown::gitbook.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Lección 5 Contrastes de hipótesis | AprendeR: Parte II" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Apuntes AprendeR bookdown::gitbook." />
+  <meta name="github-repo" content="cescrossello/AprendeR-II" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lección 5 Contrastes de hipótesis | AprendeR: Parte II" />
+  
+  <meta name="twitter:description" content="Apuntes AprendeR bookdown::gitbook." />
+  
+
+<meta name="author" content="Autores">
+
+
+<meta name="date" content="2019-01-22">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chap-IC.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">AprendeR: Parte II</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="part"><span><b>Parte II: Estadística inferencial</b></span></li>
+<li class="chapter" data-level="1" data-path="chap-distr.html"><a href="chap-distr.html"><i class="fa fa-check"></i><b>1</b> Distribuciones de probabilidad</a><ul>
+<li class="chapter" data-level="1.1" data-path="chap-distr.html"><a href="chap-distr.html#ejercicios"><i class="fa fa-check"></i><b>1.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-muestreo.html"><a href="chap-muestreo.html"><i class="fa fa-check"></i><b>2</b> Conceptos básicos de muestreo estadístico</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-muestreo.html"><a href="chap-muestreo.html#tipos-de-muestreo"><i class="fa fa-check"></i><b>2.1</b> Tipos de muestreo</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-muestreo.html"><a href="chap-muestreo.html#muestreo-aleatorio-con-r"><i class="fa fa-check"></i><b>2.2</b> Muestreo aleatorio con R</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-muestreo.html"><a href="chap-muestreo.html#guia-rapida"><i class="fa fa-check"></i><b>2.3</b> Guía rápida</a></li>
+<li class="chapter" data-level="2.4" data-path="chap-muestreo.html"><a href="chap-muestreo.html#ejercicios-1"><i class="fa fa-check"></i><b>2.4</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#modelo-de-test-1"><i class="fa fa-check"></i>Modelo de test</a></li>
+<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#ejercicios-2"><i class="fa fa-check"></i>Ejercicios</a></li>
+<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#respuestas-al-test-1"><i class="fa fa-check"></i>Respuestas al test</a></li>
+<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#soluciones-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Soluciones sucintas a los ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimacion.html"><a href="estimacion.html"><i class="fa fa-check"></i><b>3</b> Estimación puntual</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimacion.html"><a href="estimacion.html#estimacion-maximo-verosimil"><i class="fa fa-check"></i><b>3.1</b> Estimación máximo verosímil</a></li>
+<li class="chapter" data-level="3.2" data-path="estimacion.html"><a href="estimacion.html#guia-rapida-1"><i class="fa fa-check"></i><b>3.2</b> Guía rápida</a></li>
+<li class="chapter" data-level="3.3" data-path="estimacion.html"><a href="estimacion.html#ejercicios-3"><i class="fa fa-check"></i><b>3.3</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap-IC.html"><a href="chap-IC.html"><i class="fa fa-check"></i><b>4</b> Intervalos de confianza</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-IC.html"><a href="chap-IC.html#sec:ICT"><i class="fa fa-check"></i><b>4.1</b> Intervalo de confianza para la media basado en la t de Student</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-IC.html"><a href="chap-IC.html#intervalos-de-confianza-para-la-proporcion-poblacional"><i class="fa fa-check"></i><b>4.2</b> Intervalos de confianza para la proporción poblacional</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-IC.html"><a href="chap-IC.html#sec:ICvar"><i class="fa fa-check"></i><b>4.3</b> Intervalo de confianza para la varianza de una población normal</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-IC.html"><a href="chap-IC.html#bootstrap"><i class="fa fa-check"></i><b>4.4</b> Bootstrap</a></li>
+<li class="chapter" data-level="4.5" data-path="chap-IC.html"><a href="chap-IC.html#guia-rapida-2"><i class="fa fa-check"></i><b>4.5</b> Guía rápida</a></li>
+<li class="chapter" data-level="4.6" data-path="chap-IC.html"><a href="chap-IC.html#ejercicios-4"><i class="fa fa-check"></i><b>4.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-contrastes.html"><a href="chap-contrastes.html"><i class="fa fa-check"></i><b>5</b> Contrastes de hipótesis</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-contrastes.html"><a href="chap-contrastes.html#contrastes-para-medias"><i class="fa fa-check"></i><b>5.1</b> Contrastes para medias</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-contrastes.html"><a href="chap-contrastes.html#contrastes-para-varianzas"><i class="fa fa-check"></i><b>5.2</b> Contrastes para varianzas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/cescrossello/AprendeR-II" target="blank">Publicado con  bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">AprendeR: Parte II</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:contrastes" class="section level1">
+<h1><span class="header-section-number">Lección 5</span> Contrastes de hipótesis</h1>
+<p>En esta lección explicamos algunas instrucciones de R que permiten llevar a cabo de manera rápida contrastes de hipótesis.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> En concreto, las funciones tratadas en esta lección son las siguientes:</p>
+<div id="contrastes-para-medias" class="section level2">
+<h2><span class="header-section-number">5.1</span> Contrastes para medias</h2>
+<p>El test t, para contrastar una o dos medias, está implementado en la función <code>t.test</code>. Este test usa diferentes estadísticos según que el contraste sea de una media o de dos; en este último caso, según se usen muestras emparejadas o independientes; y en este último caso, según las poblaciones tengan varianzas iguales o diferentes. Aunque el test solo es exacto (en el sentido de que da la conclusión con el nivel de significación requerido) cuando las poblaciones involucradas siguen distribuciones normales, el Teorema Central del Límite garantiza que también da resultados aproximadamente correctos cuando las muestras son grandes, aunque las poblaciones no sean normales, por lo que en esta situación también se recomienda su uso. En la práctica, el test t se usa como test “de talla única” para contrastar una o dos medias en cualquier situación, pero hay que tener claro que su resultado es fiable tan solo:</p>
+<ul>
+<li><p>cuando las variables poblacionales involucradas son (aproximadamente) normales, o</p></li>
+<li><p>cuando todas las muestras usadas son grandes.</p></li>
+</ul>
+<p>Al final de la sección explicamos las funciones asociadas a algunos contrastes no paramétricos que pueden usarse cuando estas condiciones no se cumplen.</p>
+<p>La sintaxis básica de la función <code>t.test</code> es</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, y, <span class="dt">mu=</span>..., <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>..., <span class="dt">paired=</span>..., <span class="dt">var.equal=</span>..., <span class="dt">na.omit=</span>...)</code></pre></div>
+<p>donde:</p>
+<ul>
+<li><p><code>x</code> es el vector de datos que forma la muestra que analizamos.</p></li>
+<li><p><code>y</code> es un vector opcional; si lo entramos, R entiende que estamos haciendo un contraste de dos medias, con hipótesis nula la igualdad de estas medias.</p></li>
+<li><p>Podemos sustituir los vectores <code>x</code> e <code>y</code> por una fórmula <code>variable1~variable2</code> que indique que separamos la variable numérica <code>variable1</code> en dos vectores definidos por los niveles de un factor <code>variable2</code> de dos niveles (o de otra variable asimilable a un factor de dos niveles, como por ejemplo una variable numérica que solo tome dos valores diferentes). Con esta construcción, R entenderá estos vectores como ordenados por el orden natural de los niveles de <code>variable2</code>: <code>x</code> será el vector correspondiente al primer nivel, e <code>y</code> el correspondiente al segundo. Hay que tener esto en cuenta a la hora de especificar la hipótesis alternativa si es unilateral. Si las dos variables de la fórmula son columnas de un <em>dataframe</em>, se puede usar el parámetro <code>data=...</code> para indicarlo.</p></li>
+<li><p>El valor del parámetro <code>mu</code> solo lo tenemos que especificar si hemos entrado una sola muestra, y en este caso es el valor <span class="math inline">\(\mu_0\)</span> que queremos contrastar.</p></li>
+<li><p>El parámetro <code>alternative</code> puede tomar tres valores: <code>&quot;two.sided&quot;</code>, para contrastes bilaterales, y <code>&quot;less&quot;</code> y <code>&quot;greater&quot;</code>, para contrastes unilaterales; en esta función, y en todas las que explicamos en esta lección, su valor por defecto, que no hace falta especificar, es <code>&quot;two.sided&quot;</code>. El significado de estos valores depende del tipo de test que efectuemos:</p>
+<pre><code>*  Si el test es de una sola muestra,  `&quot;two.sided&quot;` representa la hipótesis alternativa $H_1: \mu\neq \mu_0$, `&quot;less&quot;` corresponde a  $H_1: \mu&lt; \mu_0$, y `&quot;greater&quot;` corresponde a  $H_1: \mu&gt; \mu_0$. </code></pre>
+<ul>
+<li>Si hemos entrado dos muestras y llamamos <span class="math inline">\(\mu_x\)</span> y <span class="math inline">\(\mu_y\)</span> a las medias de las poblaciones de las que hemos extraído las muestras <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, respectivamente, entonces <code>&quot;two.sided&quot;</code> representa la hipótesis alternativa <span class="math inline">\(H_1: \mu_x \neq \mu_y\)</span>; <code>&quot;less&quot;</code>, indica que la hipótesis alternativa es <span class="math inline">\(H_1: \mu_x&lt; \mu_y\)</span>; y <code>&quot;greater&quot;</code>, que la hipótesis alternativa es <span class="math inline">\(H_1: \mu_x&gt; \mu_y\)</span>.</li>
+</ul></li>
+<li><p>El valor del parámetro <code>conf.level</code> es el nivel de confianza <span class="math inline">\(1-\alpha\)</span>. En esta función, y en todas las que explicamos en esta lección, su valor por defecto, que no es necesario especificar, es 0.95, que corresponde a un nivel de confianza del 95%, es decir, a un nivel de significación <span class="math inline">\(\alpha=0.05\)</span>.</p></li>
+<li><p>El parámetro <code>paired</code> solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias. En este caso, con <code>paired=TRUE</code> indicamos que las muestras son emparejadas, y con <code>paired=FALSE</code> (que es su valor por defecto), que son independientes. Si se trata de muestras emparejadas, los vectores <code>x</code> e <code>y</code> tienen que tener la misma longitud, naturalmente.</p></li>
+<li><p>El parámetro <code>var.equal</code> solo lo tenemos que especificar si llevamos a cabo un contraste de dos medias de poblaciones independientes, y en este caso sirve para indicar si queremos considerar las dos varianzas iguales (igualándolo a TRUE) o diferentes (igualándolo a FALSE, que es su valor por defecto).</p></li>
+<li><p>El parámetro <code>na.action</code> sirve para especificar qué queremos hacer con los valores NA. Es un parámetro genérico que se puede usar en casi todas las funciones de estadística inferencial y análisis de datos. Sus valores más útiles son:</p>
+<pre><code>*  `na.omit`, su valor por defecto, elimina las entradas  NA de los vectores (o los pares que contengan algún  NA, en el caso de muestras emparejadas). Por ahora, esta opción por defecto es la adecuada, por lo que no hace falta usar este parámetro, pero conviene saber que hay alternativas.
+
+*  `na.fail` hace que la ejecución pare si hay algún NA en los vectores.
+
+*  `na.pass` no hace  nada con los NA y permite que las operaciones internas de la función sigan su curso y los manejen como les corresponda.</code></pre></li>
+</ul>
+<p>La función <code>t.test</code> tiene otros parámetros que se pueden consultar en su Ayuda.</p>
+<p>Veamos varios ejemplos de uso de esta función.</p>
+
+<div class="example">
+<span id="exm:norm1bis" class="example"><strong>Ejemplo 5.1  </strong></span>Tenemos el vector siguiente de longitud 25:
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="kw">c</span>(<span class="fl">2.2</span>,<span class="fl">2.66</span>,<span class="fl">2.74</span>,<span class="fl">3.41</span>,<span class="fl">2.46</span>,<span class="fl">2.96</span>,<span class="fl">3.34</span>,<span class="fl">2.16</span>,<span class="fl">2.46</span>,<span class="fl">2.71</span>,<span class="fl">2.04</span>,
+  <span class="fl">3.74</span>,<span class="fl">3.24</span>,<span class="fl">3.92</span>,<span class="fl">2.38</span>,<span class="fl">2.82</span>,<span class="fl">2.2</span>,<span class="fl">2.42</span>,<span class="fl">2.82</span>,<span class="fl">2.84</span>,<span class="fl">4.22</span>,<span class="fl">3.64</span>,<span class="fl">1.77</span>,
+  <span class="fl">3.44</span>,<span class="fl">1.53</span>)</code></pre></div>
+<p>Supongamos que esta muestra ha sido extraída de una población normal. Postulamos que el valor medio <span class="math inline">\(\mu\)</span> de la población no es 2. Para confirmarlo, vamos realizar el contraste <span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=2\\
+H_{1}:\mu\neq 2
+\end{array}\right.
+\]</span> con nivel de significación <span class="math inline">\(\alpha=0.05\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">2</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 5.912, df = 24, p-value = 4.232e-06
+## alternative hypothesis: true mean is not equal to 2
+## 95 percent confidence interval:
+##  2.523844 3.085756
+## sample estimates:
+## mean of x 
+##    2.8048</code></pre>
+<p>(Como los parámetros <code>alternative=&quot;two.sided&quot;</code> y <code>conf.level=0.95</code> eran los que toma R por defecto, en realidad no hacía falta especificarlos.) Observad la información que obtenemos con esta instrucción:</p>
+<ul>
+<li><p>Información sobre la muestra <span class="math inline">\(x\)</span>: su media muestral (<code>mean of x</code>) <span class="math inline">\(\overline{x}=2.8048\)</span>.</p></li>
+<li><p>La hipótesis alternativa (<code>alternative hypothesis</code>), en este caso <code>true mean is not equal to 2</code>: la media verdadera, o poblacional, <span class="math inline">\(\mu\)</span> es diferente de 2.</p></li>
+<li><p>El valor <code>t</code> que toma el estadístico <span class="math inline">\(T=\frac{\overline{X}-\mu_0}{\widetilde{S}_X/\sqrt{n}}\)</span> sobre la muestra, en este caso <span class="math inline">\(5.912\)</span>, y los grados de libertad <code>df</code> (<em>degrees of freedom</em>, en inglés) de su distribución t de Student cuando la hipótesis nula es verdadera, <code>df = 24</code>.</p></li>
+<li><p>El p-valor (<code>p-value</code>) de nuestro test, en este caso <code>4.232e-06</code>, es decir, <span class="math inline">\(4.232\cdot 10^{-6}\)</span>.</p></li>
+<li><p>Un intervalo de confianza de nivel <span class="math inline">\(100(1-\alpha)\%\)</span> (en nuestro caso, <code>95 percent confidence interval</code>) para la <span class="math inline">\(\mu\)</span> en este test: en nuestro ejemplo, <span class="math inline">\([2.524,3.086]\)</span>.</p></li>
+</ul>
+<p>Lo único que no nos dice directamente es si tenemos que rechazar o no la hipótesis nula, pero esto lo deducimos del p-valor: como es más pequeño que el nivel de significación (de hecho, es <em>muy</em> pequeño), podemos rechazar la hipótesis nula, <span class="math inline">\(\mu=2\)</span>, en favor de la alternativa <span class="math inline">\(\mu \neq 2\)</span>. Es decir, hay evidencia estadísticamente significativa de que <span class="math inline">\(\mu \neq 2\)</span>. Otra manera de decidir si rechazamos o no la hipótesis nula es mirar si el valor que contrastamos pertenece al intervalo de confianza. Puesto que <span class="math inline">\(2 \notin [2.524,3.086]\)</span>, podemos rechazar la hipótesis nula en favor de la alternatalternativaiva y concluir que <span class="math inline">\(\mu\neq 2\)</span>.</p>
+<p>Repitamos ahora el test cambiando la hipótesis alternativa por <span class="math inline">\(H_{1}:\mu&lt; 3\)</span>, es decir,</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=3\\
+H_{1}:\mu&lt; 3
+\end{array}\right.
+\]</span> y tomando como nivel de significación <span class="math inline">\(\alpha=0.1\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">3</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">conf.level=</span><span class="fl">0.9</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = -1.4339, df = 24, p-value = 0.08225
+## alternative hypothesis: true mean is less than 3
+## 90 percent confidence interval:
+##      -Inf 2.984195
+## sample estimates:
+## mean of x 
+##    2.8048</code></pre>
+<p>En este caso, el p-valor es <span class="math inline">\(0.08225\)</span>, por lo que podemos rechazar la hipótesis nula con un nivel de significación del 10% y concluir, con este nivel de significación (es decir, asumiendo esta probabilidad de equivocarnos), que <span class="math inline">\(\mu&lt;3\)</span>; pero fijaos en que con un nivel de significación del 5% no podríamos rechazar la hipótesis nula. El intervalo de confianza es ahora <span class="math inline">\(( -\infty,2.984]\)</span> (<code>Inf</code> representa <span class="math inline">\(\infty\)</span>). Que no contenga el 3 (aunque por muy poco) también indica que podemos rechazar la hipótesis nula <span class="math inline">\(\mu=3\)</span> en favor de la alternativa <span class="math inline">\(\mu&lt; 3\)</span>.</p>
+<p>El p-valor y el intervalo de confianza se pueden obtener directamente, añadiendo a la instrucción <code>t.test</code> los sufijos <code>$p.value</code> o <code>$conf.int</code>, respectivamente.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">2</span>)<span class="op">$</span>p.value</code></pre></div>
+<pre><code>## [1] 4.231586e-06</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">2</span>)<span class="op">$</span>conf.int</code></pre></div>
+<pre><code>## [1] 2.523844 3.085756
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">2</span>)<span class="op">$</span>conf.int[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 2.523844</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(x, <span class="dt">mu=</span><span class="dv">2</span>)<span class="op">$</span>conf.int[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 3.085756</code></pre>
+<p>Podéis consultar los sufijos necesarios para obtener las otras componentes del resultado en la Ayuda de la función.</p>
+
+<div class="example">
+<span id="exm:colesterol" class="example"><strong>Ejemplo 5.2  </strong></span>Queremos contrastar si el valor medio del nivel de colesterol en una población es de 220 mg/dl o no, a un nivel de significación del 5%. Es decir, si llamamos <span class="math inline">\(\mu\)</span> a la media de la variable aleatoria “Nivel de colesterol de un individuo de esta población, en mg/dl”, queremos realizar el contraste bilateral <span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu=220\\
+H_{1}:\mu \neq 220
+\end{array}\right.
+\]</span>
+</div>
+
+<p>Para ello, hemos tomado una muestra del nivel de colesterol en plasma de 9 individuos de la población. Los datos obtenidos, en mg/dl, son</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">colesterol=<span class="kw">c</span>(<span class="dv">203</span>,<span class="dv">229</span>,<span class="dv">215</span>,<span class="dv">220</span>,<span class="dv">223</span>,<span class="dv">233</span>,<span class="dv">208</span>,<span class="dv">228</span>,<span class="dv">209</span>)</code></pre></div>
+<p>Suponemos que el nivel de colesterol en plasma sigue una ley normal. Por lo tanto, nos vamos a fiar del resultado de un test t:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(colesterol, <span class="dt">mu=</span><span class="dv">220</span>)</code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  colesterol
+## t = -0.38009, df = 8, p-value = 0.7138
+## alternative hypothesis: true mean is not equal to 220
+## 95 percent confidence interval:
+##  210.5774 226.7560
+## sample estimates:
+## mean of x 
+##  218.6667</code></pre>
+<p>El p-valor es 0.7138, muy grande y en particular superior a 0.05, por lo tanto no podemos rechazar la hipótesis nula de que el valor medio sea 220 mg/dl. Además, el intervalo de confianza del 95% del contraste es <span class="math inline">\([210.58,226.76]\)</span>, y contiene holgadamente el valor 220.</p>
+<p>Más adelante en esta misma sección discutiremos qué podemos hacer si el nivel de colesterol en plasma no sigue una ley aproximadamente normal, en cuyo caso el resultado de este test t no sirve para nada.</p>
+
+<div class="example">
+<p><span id="exm:iris" class="example"><strong>Ejemplo 5.3  </strong></span>Recordad el <em>dataframe</em> `iris}, que recoge datos de las flores de 50 ejemplares de cada una de tres especies de iris.</p>
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(iris)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>Queremos estudiar si la longitud media <span class="math inline">\(\mu_v\)</span> de los sépalos de las <em>Iris virginica</em> es mayor que la longitud media <span class="math inline">\(\mu_s\)</span> de los sépalos de las <em>Iris setosa</em> usando las muestras contenidas en esta tabla de datos. Para ello realizamos el contraste</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_s=\mu_v\\
+H_{1}:\mu_s&lt; \mu_v
+\end{array}\right.
+\]</span> En este caso, se trata de un contraste de dos muestras independientes. Como las muestras son grandes, podemos usar con garantías un test t.</p>
+<p>Como no sabemos nada de las varianzas, y no nos supone apenas esfuerzo realizar los tests, llevaremos a cabo el contraste en los dos casos: varianzas iguales y varianzas diferentes.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> Más adelante, en el Ejemplo <a href="chap-contrastes.html#exm:variris">5.10</a>, explicamos cómo contrastar si estas varianzas son iguales o diferentes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">S=iris[iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;setosa&quot;</span>,]<span class="op">$</span>Sepal.Length
+V=iris[iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;virginica&quot;</span>,]<span class="op">$</span>Sepal.Length
+<span class="kw">t.test</span>(S, V, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>) <span class="co">#Suponiendo varianzas iguales</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  S and V
+## t = -15.386, df = 98, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##       -Inf -1.411263
+## sample estimates:
+## mean of x mean of y 
+##     5.006     6.588</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(S, V, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>) <span class="co">#Suponiendo varianzas diferentes</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  S and V
+## t = -15.386, df = 76.516, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##       -Inf -1.410804
+## sample estimates:
+## mean of x mean of y 
+##     5.006     6.588</code></pre>
+<p>En los dos casos el p-valor es prácticamente 0 y por lo tanto podemos rechazar la hipótesis nula: tenemos evidencia muy significativa de que, en promedio, las flores de la especie setosa tienen sépalos más cortos que las de la especie virginica. El intervalo de confianza del 95% para la diferencia de medias <span class="math inline">\(\mu_s-\mu_v\)</span> en este contraste es en ambos casos <span class="math inline">\((-\infty, -1.41]\)</span> y no contiene el 0, que sería el valor de esta diferencia si la hipótesis nula <span class="math inline">\(\mu_s=\mu_v\)</span> fuera verdad.</p>
+
+<div class="example">
+<span id="exm:sueño" class="example"><strong>Ejemplo 5.4  </strong></span>En un experimento clásico de la primera década del siglo XX, Student quiso comparar el efecto de dos compuestos químicos, la hiosciamina y la hioscina, sobre el sueño: la hipótesis a contrastar era que la hioscina tiene un mayor efecto somnífero que la hiosciamina. Para contrastarlo, tomó 10 sujetos, midió su promedio de horas de sueño durante períodos de entre 3 y 9 días en condiciones normales, tomando antes de acostarse 0.6 mg de hiosciamina y tomando antes de acostarse 0.6 mg de hioscina, y apuntó para cada sujeto y cada compuesto la diferencia “promedio de horas de sueño tomando el compuesto menos promedio en condiciones normales”. Las diferencias obtenidas fueron las siguientes:<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>
+
+Una manera de comparar el efecto en las horas de sueño de estos compuestos es comparando las medias de estas diferencias en promedios de horas de sueño: una diferencia mayor significa que el compuesto “ha añadido” más horas de sueño al promedio normal. Digamos <span class="math inline">\(\mu_1\)</span> a la media de las diferencias individuales del promedio de horas de sueño tomando hiosciamina menos el promedio en condiciones normales y <span class="math inline">\(\mu_2\)</span> a la media de las diferencias individuales del promedio de horas de sueño tomando hioscina menos el promedio en condiciones normales. Tomaremos como hipótesis nula <span class="math inline">\(H_0: \mu_1= \mu_2\)</span> (ambos compuestos tienen el mismo efecto medio sobre las horas de sueño de los individuos) e hipótesis alternativa <span class="math inline">\(H_1: \mu_1&lt;\mu_2\)</span> (la hioscina aumenta más las horas de sueño que la hiosciamina). Si podemos rechazar la hipótesis nula en favor de la alternativa, concluiremos que la hioscina tiene un mayor efecto somnífero que la hiosciamina.
+</div>
+
+<p>Observad que se trata de un contraste de dos muestras emparejadas, porque los datos refieren a los mismos 10 pacientes. Vamos a suponer (Student así lo hizo) que las diferencias medias en horas de sueño en ambos casos siguen leyes normales y que, por lo tanto, el resultado de un test t es fiable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Hiosciamina=<span class="kw">c</span>(<span class="fl">0.7</span>,<span class="op">-</span><span class="fl">1.6</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="op">-</span><span class="fl">1.2</span>,<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">3.4</span>,<span class="fl">3.7</span>,<span class="fl">0.8</span>,<span class="dv">0</span>,<span class="fl">2.0</span>)
+Hioscina=<span class="kw">c</span>(<span class="fl">1.9</span>,<span class="fl">0.8</span>,<span class="fl">1.1</span>,<span class="fl">0.1</span>,<span class="op">-</span><span class="fl">0.1</span>,<span class="fl">4.4</span>,<span class="fl">5.5</span>,<span class="fl">1.6</span>,<span class="fl">4.6</span>,<span class="fl">3.4</span>)
+<span class="kw">t.test</span>(Hiosciamina, Hioscina, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  Hiosciamina and Hioscina
+## t = -4.0621, df = 9, p-value = 0.001416
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.8669947
+## sample estimates:
+## mean of the differences 
+##                   -1.58</code></pre>
+<p>El p-valor es <span class="math inline">\(0.001\)</span>, mucho menor que 0.05, y por lo tanto podemos rechazar la hipótesis nula con un nivel de significación del 5%. Observad también que el intervalo de confianza del 95% para la diferencia de medias <span class="math inline">\(\mu_1-\mu_2\)</span> es <span class="math inline">\((-\infty,-0.867]\)</span> y está totalmente a la izquierda del 0. La conclusión es, pues, que efectivamente la hioscina tiene un mayor efecto somnífero que la hiosciamina.</p>
+
+<div class="example">
+<span id="exm:fumar" class="example"><strong>Ejemplo 5.5  </strong></span>Veamos un ejemplo de aplicación de <code>t.test</code> a una fórmula. Queremos contrastar si es cierto que fumar durante el embarazo está asociado a un peso menor del recién nacido. Si llamamos <span class="math inline">\(\mu_n\)</span> y <span class="math inline">\(\mu_f\)</span> al peso medio de un recién nacido de madre no fumadora y fumadora, respectivamente, el contraste que queremos realizar es <span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_n=\mu_f\\
+H_{1}:\mu_n&gt; \mu_f
+\end{array}\right.
+\]</span> Vamos a usar los datos recogidos en la tabla de datos <code>birthwt</code> incluida en el paquete <code>MASS</code>, que recoge algunos datos sobre una muestra de madres y sus hijos.
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(MASS)
+<span class="kw">str</span>(birthwt)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    189 obs. of  10 variables:
+##  $ low  : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ age  : int  19 33 20 21 18 21 22 17 29 26 ...
+##  $ lwt  : int  182 155 105 108 107 124 118 103 123 113 ...
+##  $ race : int  2 3 1 1 1 3 1 3 1 1 ...
+##  $ smoke: int  0 0 1 1 1 0 0 0 1 1 ...
+##  $ ptl  : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ ht   : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ ui   : int  1 0 0 1 1 0 0 0 0 0 ...
+##  $ ftv  : int  0 3 1 2 0 0 1 1 1 0 ...
+##  $ bwt  : int  2523 2551 2557 2594 2600 2622 2637 2637 2663 2665 ...</code></pre>
+<p>En la Ayuda de <code>birthwt</code> nos enteramos de que la variable <code>smoke</code> indica si la madre ha fumado durante el embarazo (1) o no (0), y que la variable <code>bwt</code> da el peso del recién nacido en gramos. Lo primero que haremos será mirar si las muestras de madres fumadoras y no fumadoras contenidas en esta tabla son lo suficientemente grandes como para que el resultado del test t sea fiable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(birthwt<span class="op">$</span>smoke)</code></pre></div>
+<pre><code>## 
+##   0   1 
+## 115  74</code></pre>
+<p>Vemos que sí, que ambas son suficientemente grandes.</p>
+<p>Para entrar en la instrucción <code>t.test</code> los vectores de pesos de hijos de fumadoras y no fumadoras, usaremos la fórmula <code>bwt~smoke</code> especificando que <code>data=birthwt</code>. Fijaos en que los valores de <code>smoke</code> son 0 y 1, y que R los considera ordenados en este orden (basta ver el resultado de la función <code>table</code> anterior). Por consiguiente, <code>bwt~smoke</code> representa, en este orden, el vector de pesos de recién nacidos de madres no fumadoras (<code>smoke=0</code>) y el vector de pesos de recién nacidos de madres fumadoras (<code>smoke=1</code>). Como la hipótesis alternativa es <span class="math inline">\(\mu_n&gt;\mu_f\)</span>, deberemos especificar en la función <code>t.test</code> que <code>alternative=&quot;greater&quot;</code>.</p>
+<p>Como en el Ejemplo <a href="chap-contrastes.html#exm:iris">5.3</a>, vamos a llevar a cabo el test t suponiendo que las varianzas son iguales y que son diferentes, y cruzaremos los dedos para que la conclusión sea la misma. Otra posibilidad es contrastar antes la igualdad de estas varianzas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(bwt<span class="op">~</span>smoke, <span class="dt">data=</span>birthwt, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  bwt by smoke
+## t = 2.6529, df = 187, p-value = 0.004333
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  106.9528      Inf
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        3055.696        2771.919</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(bwt<span class="op">~</span>smoke, <span class="dt">data=</span>birthwt, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  bwt by smoke
+## t = 2.7299, df = 170.1, p-value = 0.003501
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  111.8548      Inf
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        3055.696        2771.919</code></pre>
+<p>En ambos casos hemos obtenido un p-valor inferior a 0.05, lo que nos permite concluir que, en efecto, las madres no fumadoras tienen en promedio hijos más grandes que las fumadoras.</p>
+<p>En vez de especificar los vectores de pesos con <code>bwt~smoke,data=birthwt</code>, hubiéramos podido usar <code>birthwt$bwt~birthwt$smoke</code>. Por ejemplo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(birthwt<span class="op">$</span>bwt<span class="op">~</span>birthwt<span class="op">$</span>smoke, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  birthwt$bwt by birthwt$smoke
+## t = 2.6529, df = 187, p-value = 0.004333
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  106.9528      Inf
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        3055.696        2771.919</code></pre>
+<p>Cuando comparamos dos medias, o una media con un valor, usando un test t sobre muestras pequeñas, suponemos que las variables poblacionales que han producido las muestras son normales. En la próxima lección estudiaremos los contrastes que nos permiten aceptar o rechazar que una muestra provenga de una variable aleatoria con una distribución concreta, pero en estos momentos ya tendría que ser claro que nos podemos encontrar con conjuntos de datos para los cuales el supuesto de normalidad de la variable poblacional no esté justificado: por ejemplo, porque sean datos cuantitativos discretos o porque la variable sea claramente muy asimétrica. En las situaciones en las que no estamos seguros de que las variables poblacionales satisfacen aproximadamente las hipótesis de los teoremas que nos garantizan la fiabilidad de las conclusiones de un contraste, por ejemplo de un test t, una salida razonable es usar un <strong>test no paramétrico</strong> alternativo.</p>
+<p>En el caso de los contrastes de medias, los tests no paramétricos para comparar medias en realidad lo que comparan son las medianas. Los más populares son los siguientes:</p>
+<ul>
+<li><p>El <strong>test de signos</strong>, que permite contrastar si la mediana de una variable aleatoria cualquiera (incluso ordinal) es un valor dado <span class="math inline">\(M_0\)</span> estudiando la distribución de los signos de las diferencias entre los valores de una muestra y <span class="math inline">\(M_0\)</span> (si la mediana fuera <span class="math inline">\(M_0\)</span>, los números de diferencias positivas y negativas seguirían distribuciones binomiales con <span class="math inline">\(p=0.5\)</span>). En R está implementado en la función <code>SIGN.test</code> del paquete <code>BSDA</code>. Su sintaxis es similar a la de <code>t.test</code> para una muestra, cambiando el parámetro <code>mu</code>, que en <code>t.test</code> sirve para especificar el valor de la media que contrastamos, por <code>md</code>, que en <code>SIGN.test</code> sirve para especificar el valor de la <strong>mediana</strong> que contrastamos. Esta función también se puede aplicar a dos muestras emparejadas: en este caso, la hipótesis nula del contraste que realiza es que “la mediana de las diferencias de las dos variables es 0”.</p></li>
+<li><p>El <strong>test de Wilcoxon</strong> para comparar la media de una variable continua simétrica con un valor dado o las medias de dos variables continuas cuya diferencia sea simétrica por medio de muestras emparejadas. En R está implementado en la función <code>wilcox.test</code> y su sintaxis es la misma que la de <code>t.test</code> para una muestra o para dos muestras emparejadas (en este último caso, hay que especificar <code>paired=TRUE</code>).</p></li>
+<li><p>El <strong>test de Mann-Whitney</strong> para comparar las medianas de dos variables aleatorias por medio de muestras independientes. En R también está implementado en la función <code>wilcox.test</code> y su sintaxis es la misma que la de <code>t.test</code> para dos muestras independientes (especificando <code>paired=FALSE</code>), salvo que aquí no hay que especificar si las varianzas son iguales o diferentes, puesto que esto no se usa en este test.</p></li>
+</ul>
+
+<div class="example">
+<span id="exm:wilcox-colesterol" class="example"><strong>Ejemplo 5.6  </strong></span>Si los niveles de colesterol no siguen una distribución normal, el test t realizado en el Ejemplo <a href="chap-contrastes.html#exm:colesterol">5.2</a> no sirve para nada. Una posibilidad es entonces no contrastar si el nivel medio de colesterol es 220, sino si el nivel <em>mediano</em> de colesterol es 220 con un test de signos. Los parámetros <code>alternative=&quot;two.sided&quot;</code> y <code>conf.level=0.95</code> son los que esta función usa por defecto, así que no haría falta especificarlos; los incluimos para que los veáis.
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(BSDA)
+<span class="kw">SIGN.test</span>(colesterol, <span class="dt">md=</span><span class="dv">220</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</code></pre></div>
+<pre><code>## 
+##  One-sample Sign-Test
+## 
+## data:  colesterol
+## s = 4, p-value = 1
+## alternative hypothesis: true median is not equal to 220
+## 95 percent confidence interval:
+##  208.0778 228.9222
+## sample estimates:
+## median of x 
+##         220 
+## 
+## Achieved and Interpolated Confidence Intervals: 
+## 
+##                   Conf.Level   L.E.pt   U.E.pt
+## Lower Achieved CI     0.8203 209.0000 228.0000
+## Interpolated CI       0.9500 208.0778 228.9222
+## Upper Achieved CI     0.9609 208.0000 229.0000</code></pre>
+<p>Observad que la salida de la función es muy similar a la de <code>t.test</code> (salvo por los últimos intervalos de confianza, que no vamos a explicar). El p-valor ha dado directamente 1 y el intervalo de confianza al 95% para la mediana ha dado <span class="math inline">\([208.1,228.9]\)</span>: por lo tanto, no podemos rechazar que la mediana del nivel de colesterol en la población de la que hemos extraído la muestra sea 220.</p>
+<p>Si supiéramos que el nivel de colesterol en sangre tiene una distribución simétrica (de manera que, en particular, su media y su mediana coincidieran), también podríamos usar el test de Wilcoxon para realizar este contraste:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(colesterol, <span class="dt">mu=</span><span class="dv">220</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">conf.level=</span><span class="fl">0.95</span>)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(colesterol, mu = 220, alternative =
+## &quot;two.sided&quot;, : cannot compute exact p-value with zeroes</code></pre>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  colesterol
+## V = 15, p-value = 0.7263
+## alternative hypothesis: true location is not equal to 220</code></pre>
+<p>El p-valor es 0.7263, la conclusión es la misma. El mensaje de advertencia nos avisa de que la muestra ha contenido valores iguales al valor contrastado de la media, por lo que el p-valor obtenido no es exacto. Solo os tenéis que preocupar de un mensaje como este si el p-valor fuera muy cercano al nivel de significación deseado, que no es el caso.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-114" class="example"><strong>Ejemplo 5.7  </strong></span>Si las diferencias en promedios de horas de sueño no siguen distribuciones normales, el test t realizado en el Ejemplo <a href="chap-contrastes.html#exm:sueño">5.4</a> no sirve para nada. En este caso, vamos a suponer que estas diferencias se distribuyen de manera simétrica, y vamos a usar un test de Wilcoxon para muestras emparejadas.
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(Hiosciamina, Hioscina, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,
+   <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(Hiosciamina, Hioscina, alternative =
+## &quot;less&quot;, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(Hiosciamina, Hioscina, alternative =
+## &quot;less&quot;, : cannot compute exact p-value with zeroes</code></pre>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  Hiosciamina and Hioscina
+## V = 0, p-value = 0.004545
+## alternative hypothesis: true location shift is less than 0</code></pre>
+<p>En este caso R nos avisa de nuevo de que el p-valor no es exacto, pero esto no afecta a la conclusión dado que el p-valor es muy pequeño: rechazamos la hipótesis nula en favor de la alternativa y también concluimos con este test no paramétrico que la hioscina tiene un mayor efecto somnífero que la hiosciamina.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-116" class="example"><strong>Ejemplo 5.8  </strong></span>Nos preguntamos si los hijos de madres de 20 años tienen el mismo peso medio al nacer que los de madres de 30 años, o no. Vamos a responder esta pregunta con un contraste bilateral de estos pesos medios usando la muestra recogida en la tabla de datos <code>birthwt</code>, que contiene la variable `age} con la edad de las madres.
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hijos.<span class="dv">20</span>=birthwt[birthwt<span class="op">$</span>age<span class="op">==</span><span class="dv">20</span>,<span class="st">&quot;bwt&quot;</span>]
+hijos.<span class="dv">30</span>=birthwt[birthwt<span class="op">$</span>age<span class="op">==</span><span class="dv">30</span>,<span class="st">&quot;bwt&quot;</span>]
+<span class="kw">c</span>(<span class="kw">length</span>(hijos.<span class="dv">20</span>),<span class="kw">length</span>(hijos.<span class="dv">30</span>))</code></pre></div>
+<pre><code>## [1] 18  7</code></pre>
+<p>Las muestras no son lo suficientemente grandes como para usar un test t si no estamos seguros de que las variables poblacionales sean normales. Como las muestras son independientes, vamos a usar un test de Mann-Whitney para comparar los pesos medianos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(hijos.<span class="dv">20</span>, hijos.<span class="dv">30</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="dt">paired=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## Warning in wilcox.test.default(hijos.20, hijos.30, alternative =
+## &quot;two.sided&quot;, : cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  hijos.20 and hijos.30
+## W = 43.5, p-value = 0.2501
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>El p-valor es 0.25, por lo que no podemos rechazar que las medianas de los pesos al nacer de los hijos de madres de 20 años y de 30 sean iguales.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="contrastes-para-varianzas" class="section level2">
+<h2><span class="header-section-number">5.2</span> Contrastes para varianzas</h2>
+<p>El test <span class="math inline">\(\chi^2\)</span> para comparar la varianza <span class="math inline">\(\sigma^2\)</span> (o la desviación típica <span class="math inline">\(\sigma\)</span>) de una población normal con un valor dado <span class="math inline">\(\sigma_0^2\)</span> usa el estadístico <span class="math display">\[
+\frac{(n-1)\widetilde{S}_X^2}{\sigma_0^2}
+\]</span> que, si la hipótesis nula <span class="math inline">\(\sigma^2=\sigma_0^2\)</span> es verdadera, sigue una distribución <span class="math inline">\(\chi^2_{n-1}\)</span>, de ahí su nombre. Dicho test está convenientemente implementado en la función <code>sigma.test</code> del paquete <strong>TeachingDemos</strong>. Su sintaxis es la misma que la de la función <code>t.test</code> para una muestra, substituyendo el parámetro <code>mu</code> de <code>t.test</code> por el parámetro <code>sigma</code> (para especificar el valor de la desviación típica que contrastamos, <span class="math inline">\(\sigma_0\)</span>) o <code>sigmasq</code> (para especificar el valor de la varianza que contrastamos, <span class="math inline">\(\sigma_0^2\)</span>). Como siempre, los valores por defecto de <code>alternative</code> y <code>conf.level</code> son <code>&quot;two.sided&quot;</code> y 0.95, respectivamente. La salida de la función es también similar a la de <code>t.test</code>. Veamos un ejemplo.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-119" class="example"><strong>Ejemplo 5.9  </strong></span>Se ha realizado un experimento para estudiar el tiempo <span class="math inline">\(X\)</span> (en minutos) que tarda un lagarto del desierto en llegar a los 45<sup>o</sup> partiendo de su temperatura normal mientras está a la sombra. Los tiempos obtenidos (en minutos) en una muestra aleatoria de lagartos fueron
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TL45=<span class="kw">c</span>(<span class="fl">10.1</span>,<span class="fl">12.5</span>,<span class="fl">12.2</span>,<span class="fl">10.2</span>,<span class="fl">12.8</span>,<span class="fl">12.1</span>,<span class="fl">11.2</span>,<span class="fl">11.4</span>,<span class="fl">10.7</span>,<span class="fl">14.9</span>,<span class="fl">13.9</span>,<span class="fl">13.3</span>)</code></pre></div>
+<p>Supongamos que estos tiempos siguen una ley normal. ¿Aporta este experimento evidencia de que la desviación típica <span class="math inline">\(\sigma\)</span> de <span class="math inline">\(X\)</span> es inferior a 1.5 minutos? Para responder esta pregunta, hemos de realizar el contraste <span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\sigma\geq 1.5 \\
+H_{1}:\sigma&lt; 1.5
+\end{array}\right.
+\]</span> Para ello, usaremos la función <code>sigma.test}</code> aplicada a esta muestra y a <code>sigma=1.5</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(TeachingDemos)
+<span class="kw">sigma.test</span>(TL45, <span class="dt">sigma=</span><span class="fl">1.5</span>, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</code></pre></div>
+<pre><code>## 
+##  One sample Chi-squared test for variance
+## 
+## data:  TL45
+## X-squared = 10.689, df = 11, p-value = 0.5303
+## alternative hypothesis: true variance is less than 2.25
+## 95 percent confidence interval:
+##  0.000000 5.256863
+## sample estimates:
+## var of TL45 
+##    2.186288</code></pre>
+<p>El p-valor que obtenemos es 0.5303, muy grande, por lo que no tenemos evidencia que nos permita rechazar la hipótesis nula en favor de <span class="math inline">\(\sigma&lt;1.5\)</span>.</p>
+<p>El test <span class="math inline">\(\chi^2\)</span> no se usa mucho en la práctica. En parte, porque realmente es poco interesante ya que suele ser difícil conjeturar la desviación típica a contrastar, y en parte porque su validez depende fuertemente de la hipótesis de que la variable aleatoria poblacional sea normal. En cambio, el contraste de las desviaciones típicas de dos poblaciones sí que es muy utilizado. Por ejemplo, en un contraste de dos medias usando dos muestras independientes, nos puede interesar conocer <em>a priori</em> si las varianzas poblacionales son iguales o diferentes, en lugar de realizar el test bajo ambas suposiciones. Si no las conocemos, ¿cómo podemos saber cuál es el caso? Si las dos variables poblacionales son normales, podemos contrastar la igualdad de las varianzas con el <strong>test F</strong>, basado en el estadístico <span class="math display">\[
+\frac{\widetilde{S}_{X_1}^2} {\widetilde{S}_{X_2}^2}
+\]</span> que, si las dos poblaciones tienen la misma varianza, sigue una distribución F de Fisher-Snedecor. Por desgracia, este test es también muy sensible a la no normalidad de las poblaciones objeto de estudio: a la que una de ellas se aleja un poco de la normalidad, el test deja de dar resultados fiables.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p>La función para efectuar este test es <code>var.test</code> y su sintaxis básica es la misma que la de <code>t.test</code> para dos muestras:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var.test</span>(x, y, <span class="dt">alternative=</span>..., <span class="dt">conf.level=</span>...)</code></pre></div>
+<p>donde <code>x</code> e <code>y</code> son los dos vectores de datos, que se pueden especificar mediante una fórmula como en el caso de <code>t.test</code>, y el parámetro <code>alternative</code> puede tomar los tres mismos valores que en los tests anteriores: su valor por defecto es, como siempre, <code>&quot;two.sided&quot;</code>, que es el que nos permite contrastar si las varianzas son iguales o diferentes.</p>
+
+<div class="example">
+<span id="exm:variris" class="example"><strong>Ejemplo 5.10  </strong></span>Suponiendo que las longitudes de los sépalos de las flores de las diferentes especies de iris siguen leyes normales, ¿hubiéramos podido considerar <em>a priori</em> iguales las varianzas de las dos muestras en el Ejemplo @ref{exm:iris}? Veamos:
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">S=iris[iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;setosa&quot;</span>,]<span class="op">$</span>Sepal.Length
+V=iris[iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;virginica&quot;</span>,]<span class="op">$</span>Sepal.Length
+<span class="kw">var.test</span>(S,V)</code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  S and V
+## F = 0.30729, num df = 49, denom df = 49, p-value = 6.366e-05
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.1743776 0.5414962
+## sample estimates:
+## ratio of variances 
+##          0.3072862</code></pre>
+<p>El p-valor es <span class="math inline">\(6.366\cdot 10^{-5}\)</span>, muy pequeño. Por lo tanto, podemos rechazar la hipótesis nula de que las dos varianzas son iguales, en favor de la hipótesis alternativa de que las dos varianzas son diferentes. Así, pues, bastaba realizar solo el <code>t.test</code> con <code>var.equal=FALSE</code>.</p>
+<p>Observemos también que <code>var.test</code> nos da el intervalo de confianza al nivel especificado (o al 95% si usamos el nivel de confianza por defecto) para <em>el cociente de las varianzas</em> <span class="math inline">\(\sigma^2_x/\sigma^2_y\)</span>. En este caso, el intervalo de confianza al 95% es <span class="math inline">\([0.174, 0.541]\)</span> y como no contiene el 1, confirma la evidencia de que <span class="math inline">\(\sigma^2_x\neq \sigma^2_y\)</span>.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-124" class="example"><strong>Ejemplo 5.11  </strong></span>Queremos contrastar si los gatos adultos macho pesan más que los gatos adultos hembra. Para ello usaremos los datos recogidos en el <em>dataframe</em> <code>cats</code> del paquete <strong>MASS</strong>, que contiene información sobre el peso de una muestra de gatos adultos, separados por su sexo.
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cats)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    144 obs. of  3 variables:
+##  $ Sex: Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Bwt: num  2 2 2 2.1 2.1 2.1 2.1 2.1 2.1 2.1 ...
+##  $ Hwt: num  7 7.4 9.5 7.2 7.3 7.6 8.1 8.2 8.3 8.5 ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(cats<span class="op">$</span>Sex)</code></pre></div>
+<pre><code>## 
+##  F  M 
+## 47 97</code></pre>
+<p>Consultando la Ayuda de <code>cats</code> nos enteramos de que la variable <code>Bwt</code> contiene el peso de cada gato en kg, y la variable <code>Sex</code> contiene el sexo de cada gato: F para hembra (<em>female</em>) y M para macho (<em>male</em>). Como vemos en la tabla de frecuencias, los números de ejemplares de cada sexo son diferentes y grandes.</p>
+<p>Así pues, si llamamos <span class="math inline">\(\mu_m\)</span> al peso medio de un gato macho adulto y <span class="math inline">\(\mu_h\)</span> al peso medio de un gato hembra adulto, el contraste que vamos a realizar es <span class="math display">\[
+\left\{\begin{array}{l}
+H_{0}:\mu_m=\mu_h\\
+H_{1}:\mu_m&gt;\mu_h
+\end{array}\right.
+\]</span> y para ello antes vamos a contrastar si las varianzas de ambas poblaciones son iguales o diferentes, para luego poder aplicar el <code>t.test</code> con el valor de <code>var.equal</code> adecuado. Vamos a suponer que los pesos en ambos sexos siguen leyes normales. Para que el contraste de las varianzas sea fiable es necesario que esta suposición sea cierta; para el de los pesos medios, no, ya que ambas muestras son grandes. El contraste de la igualdad de varianzas es el siguiente:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">var.test</span>(Bwt<span class="op">~</span>Sex, <span class="dt">data=</span>cats)</code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  Bwt by Sex
+## F = 0.3435, num df = 46, denom df = 96, p-value = 0.0001157
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.2126277 0.5803475
+## sample estimates:
+## ratio of variances 
+##          0.3435015</code></pre>
+<p>El p-valor es <span class="math inline">\(10^{-5}\)</span>, y por lo tanto podemos rechazar la hipótesis nula de que las varianzas son iguales y concluir que son diferentes. Así que en el test t las consideraremos diferentes.</p>
+<p>Recordemos ahora que la hipótesis alternativa que queremos contrastar es <span class="math inline">\(H_{1}:\mu_m&gt;\mu_h\)</span>. En el factor <code>cats$Sex</code>, la F (hembra) va antes que la M (macho), y, por tanto, si entramos los vectores de pesos mediante <code>Bwt~Sex,data=cats</code>, el primer vector corresponderá a las gatas y el segundo a los gatos. Así pues, la hipótesis alternativa que hemos de especificar es que la media del primer vector es inferior a la media del segundo vector: <code>alternative=&quot;less&quot;</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(Bwt<span class="op">~</span>Sex, <span class="dt">data=</span>cats, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>,<span class="dt">var.equal=</span><span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Bwt by Sex
+## t = -8.7095, df = 136.84, p-value = 4.416e-15
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.4376663
+## sample estimates:
+## mean in group F mean in group M 
+##        2.359574        2.900000</code></pre>
+<p>Como el p-valor es prácticamente 0, podemos concluir que, efectivamente, de media, los gatos macho adultos pesan más que los gatos hembra adultos.</p>
+<p>Hemos insistido en que el test F solo es válido si las dos poblaciones cuyas varianzas comparamos son normales. ¿Qué podemos hacer si dudamos de su normalidad? Usar un test no paramétrico que no presuponga esta hipótesis. Hay diversos tests no paramétricos para realizar contrastes bilaterales de dos varianzas. Aquí os recomendamos el <strong>test de Fligner-Killeen</strong>, implementado en la función <code>fligner.test</code>. Se aplica o bien a una <code>list</code> formada por las dos muestras, o bien a una fórmula que separe un vector numérico en dos muestras por medio de un factor de dos niveles.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-128" class="example"><strong>Ejemplo 5.12  </strong></span>Si queremos contrastar si las varianzas de las longitudes de los sépalos de las flores iris setosa y virginica son iguales o no sin presuponer que siguen leyes normales, podemos usar el test de Fligner-Killeen de la manera siguiente:
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(<span class="kw">list</span>(S,V))</code></pre></div>
+<pre><code>## 
+##  Fligner-Killeen test of homogeneity of variances
+## 
+## data:  list(S, V)
+## Fligner-Killeen:med chi-squared = 9.9838, df = 1, p-value =
+## 0.001579</code></pre>
+<p>El p-valor es <span class="math inline">\(0.0016\)</span>, por lo que podemos concluir que las varianzas son diferentes.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-130" class="example"><strong>Ejemplo 5.13  </strong></span>Si queremos contrastar si las varianzas de los pesos de los gatos y las gatas adultos son iguales o no sin presuponer que dichos pesos tienen distribuciones normales, podemos usar el test de Fligner-Killeen de la manera siguiente:
+</div>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(Bwt<span class="op">~</span>Sex, <span class="dt">data=</span>cats)</code></pre></div>
+<pre><code>## 
+##  Fligner-Killeen test of homogeneity of variances
+## 
+## data:  Bwt by Sex
+## Fligner-Killeen:med chi-squared = 16.909, df = 1, p-value =
+## 3.921e-05</code></pre>
+<p>El p-valor es <span class="math inline">\(4\cdot 10^{-5}\)</span>, por lo que podemos concluir que las varianzas son diferentes.</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><strong>¡Atención!</strong> Las fórmulas que hemos explicado en el curso son las más sencillas posibles. En algunos tests, R usa versiones optimizadas y más sofisticadas de estas fórmulas, que no siempre dan el mismo resultado que si hacemos el test “a mano”, usando la fórmula vista en el curso.<a href="chap-contrastes.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>En realidad, se sabe que si las dos muestras provienen de poblaciones normales y son del mismo tamaño, el test t tiende a dar la misma conclusión tanto si se supone que las dos varianzas son iguales como si se supone que son diferentes (véase C. A. Markowski y E. P. Markowski, “Conditions for the Effectiveness of a Preliminary Test of Variance,” <em>The American Statistician</em> 44 (1990), pp. 322-326). Por lo tanto, si en este caso supiéramos que estas longitudes tienen distribuciones normales, bastaría realizar uno de los dos tests.<a href="chap-contrastes.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Las podéis encontrar en el <em>dataframe</em> `sleep}.<a href="chap-contrastes.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>En realidad, la hipótesis nula de este test, la que no rechazamos, es que “Es igual de probable que un hijo de madre de 20 años pese más que un hijo de madre de 30 años que al revés”, pero no vamos a entrar en este nivel de precisión. Ambas hipótesis nulas quieren representar lo que realmente nos interesa confirmar o desmentir: “Los hijos de madres de 20 años pesan lo mismo que los de madres de 30 años”.<a href="chap-contrastes.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>Véanse: E. S. Pearson, “The analysis of variance in cases of non-normal variation,” <em>Biometrika</em> 23 (1931), pp. 114-133; G. E. P. Box, “Non-normality and tests on variances,” <em>Biometrika</em> 40 (1953), pp. 318-335.<a href="chap-contrastes.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-IC.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cescrossello/AprendeR-II/edit/master/05-CcontrastesI.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["AprendeR-Parte-II.pdf", "AprendeR-Parte-II.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

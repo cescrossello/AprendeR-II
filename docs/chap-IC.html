@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="estimacion.html">
-
+<link rel="next" href="chap-contrastes.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,6 +132,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4" data-path="chap-IC.html"><a href="chap-IC.html#bootstrap"><i class="fa fa-check"></i><b>4.4</b> Bootstrap</a></li>
 <li class="chapter" data-level="4.5" data-path="chap-IC.html"><a href="chap-IC.html#guia-rapida-2"><i class="fa fa-check"></i><b>4.5</b> Guía rápida</a></li>
 <li class="chapter" data-level="4.6" data-path="chap-IC.html"><a href="chap-IC.html#ejercicios-4"><i class="fa fa-check"></i><b>4.6</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-contrastes.html"><a href="chap-contrastes.html"><i class="fa fa-check"></i><b>5</b> Contrastes de hipótesis</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-contrastes.html"><a href="chap-contrastes.html#contrastes-para-medias"><i class="fa fa-check"></i><b>5.1</b> Contrastes para medias</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-contrastes.html"><a href="chap-contrastes.html#contrastes-para-varianzas"><i class="fa fa-check"></i><b>5.2</b> Contrastes para varianzas</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cescrossello/AprendeR-II" target="blank">Publicado con  bookdown</a></li>
@@ -313,8 +317,8 @@ X=<span class="kw">replicate</span>(<span class="dv">1000</span>,<span class="kw
 IC.boot=<span class="kw">c</span>(<span class="kw">quantile</span>(X,<span class="fl">0.025</span>),<span class="kw">quantile</span>(X,<span class="fl">0.975</span>))
 <span class="kw">round</span>(IC.boot,<span class="dv">1</span>)</code></pre></div>
 <pre><code>##   2.5%  97.5% 
-## 3009.5 3344.9</code></pre>
-<p>El intervalo obtenido en este caso es (3009.5, 3344.9); como se trata de un método basado en una simulación aleatoria, seguramente cada ejecución daría un intervalo diferente. Para comparar, recordad que el intervalo de confianza obtenido con la fórmula basada en la t de Student ha sido (2997.8, 3355).</p>
+## 3020.5 3354.2</code></pre>
+<p>El intervalo obtenido en este caso es (3020.5, 3354.2); como se trata de un método basado en una simulación aleatoria, seguramente cada ejecución daría un intervalo diferente. Para comparar, recordad que el intervalo de confianza obtenido con la fórmula basada en la t de Student ha sido (2997.8, 3355).</p>
 <p>El paquete <strong>boot</strong> dispone de la función <code>boot</code> para llevar a cabo simulaciones <em>bootstrap.</em> Aplicando luego la función <code>boot.ci</code> al resultado de la función <code>boot</code> obtenemos diversos intervalos de confianza basados en el enfoque <em>bootstrap</em>. La sintaxis básica de la función <code>boot</code> es</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boot</span>(X,estadístico,R)</code></pre></div>
 <p>donde:</p>
@@ -408,8 +412,8 @@ conf.level=<span class="fl">0.95</span>
           </div>
         </div>
       </div>
-<a href="estimacion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="estimacion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-contrastes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
