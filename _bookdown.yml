@@ -1,4 +1,5 @@
-book_filename: "AprendeR"
+book_filename: "AprendeR-Parte-II"
+output_dir: docs
 language:
   label:
     fig: 'Figura '

@@ -2,7 +2,7 @@
 
 # Distribuciones de probabilidad {#chap:distr}
 
-R conoce las distribuciones de probabilidad más importantes, incluyendo las que mostramos en la  tabla siguiente: 
+R conoce los tipos de distribución de probabilidad más importantes, incluyendo las que mostramos en la  tabla siguiente: 
 
 
 ```{r, echo=FALSE}
@@ -45,13 +45,14 @@ $$
 \textbf{Distribución} & {\textbf{Nombre en R}} & {\textbf{Parámetros}}\\ \hline
 \mbox{Binomial} &{\texttt{binom}} & \mbox{medida de la muestra $n$, probabilidad $p$}\\
 \mbox{Geométrica} & {\texttt{geom}} & \mbox{$p$}\\
-\mbox{Hipergeométrica} & {\texttt{hyper}} & N,M,n\\
+\mbox{Hipergeométrica} & {\texttt{hyper}} & \mbox{tamaño de la población $N$, número poblacional}\\[-0.75ex] 
+& & \mbox{de éxitos $M$, tamaño de la muestra $n$}\\
 \mbox{Poisson} & {\texttt{pois}} & \mbox{esperanza $\lambda$}\\
 \mbox{Uniforme} & {\texttt{unif}} & \mbox{mínimo, máximo}\\
 \mbox{Exponencial} & {\texttt{exp}} & \lambda\\
 \mbox{Normal} & {\texttt{norm}} & \mbox{media $\mu$, desviación típica $\sigma$}\\
-\mbox{Khi cuadrado} & {\texttt{chisq}} & \mbox{número de grados de libertad}\\
-\mbox{t de Student} & {\texttt{t}} & \mbox{número de grados de libertad}\\
+\mbox{Khi cuadrado} & {\texttt{chisq}} & \mbox{número de grados de libertad $df$}\\
+\mbox{t de Student} & {\texttt{t}} & \mbox{número de grados de libertad $df$}\\
 \mbox{F de Fisher} & {\texttt{f}} & \mbox{los dos números de  grados de libertad}
 \\ \hline
 \end{array}
@@ -59,15 +60,15 @@ $$
 
 Para cada una de estas distribuciones, R sabe calcular cuatro funciones, que se obtienen añadiendo un prefijo al nombre de la distribución: 
 
-* la función de densidad, añadiendo el prefijo **d**
+* La función de densidad, con el prefijo **d**.
 
-* la función de distribución de probabilidad, añadiendo el prefijo **p**; esta función dispone además del parámetro `lower.tail` que igualado a `FALSE` calcula la **función de distribución de cola superior**: la probabilidad de que una variable aleatoria con esta distribución de probabilidad tome un valor estrictamente mayor que uno dado
+* La función de distribución de probabilidad, con el prefijo **p**; esta función dispone además del parámetro `lower.tail` que igualado a `FALSE` calcula la **función de distribución de cola superior**: la probabilidad de que una variable aleatoria con esta distribución de probabilidad tome un valor estrictamente mayor que uno dado.
 
-* los cuantiles, añadiendo el prefijo **q**
+* Los cuantiles, con el prefijo **q**.
 
-* vectores de números aleatorios con esta distribución, añadiendo el prefijo **r**
+* Vectores de números aleatorios con esta distribución, con el prefijo **r**.
 
-La función correspondiente se aplica entonces al valor al que queremos aplicar la función y a los parámetros de la distribución (en este orden, y los parámetros en el orden en que los damos en la tabla anterior, cuando hay más de uno).
+La función correspondiente se aplica entonces al valor sobre el que queremos calcular la función y a los parámetros de la distribución (en este orden, y los parámetros en el orden en que los damos en la tabla anterior, cuando hay más de uno).
 
 Por ejemplo, sea $X$ una variable aleatoria binomial $B(20,0.3)$, es decir,  de tamaño $n=20$ y probabilidad $p=0.3$,  y sean $f_X$ su función de densidad y $F_X$ su función de distribución. Calculemos algunos valores de funciones asociadas a esta variable aleatoria.
 
@@ -124,7 +125,7 @@ pbinom(8,20,0.3,lower.tail=FALSE)
 
 
 
-* El cuantil $0.5$ de $X$, o sea, su mediana: el valor $x$ más pequeño tal que $P(X\leq x)\geq 0.5$
+* El cuantil de orden $0.5$ de $X$, o sea, su **mediana**: el valor $x$ más pequeño tal que $P(X\leq x)\geq 0.5$
 
 ```{r}
 qbinom(0.5,20,0.3)  
@@ -138,7 +139,7 @@ pbinom(qbinom(0.5,20,0.3)-1,20,0.3)
 ```
 
 
-* El cuantil $0.25$ de $X$, es decir, su primer cuartil:
+* El cuantil de orden $0.25$ de $X$, es decir, su **primer cuartil**:
 
 
 ```{r}
@@ -177,7 +178,7 @@ dpois(8,5)
 ppois(8,5) 
 ```
 
-* El cuantil 0.6 de $Y$:
+* El cuantil de orden 0.6 de $Y$:
 
 ```{r}
 qpois(0.6,5)
@@ -199,12 +200,12 @@ dnorm(0.3,0,1)
 
 Las funciones densidad y distribución de una variable aleatoria se pueden dibujar con la función `curve`.
 
-```{r}
-curve(dnorm(x,0,1.5),-5,5,xlab="",ylab="",main="Función densidad de N(0,1)",cex.main=0.9)
+```{r, fig.cap="Función densidad de una variable N(0,1)"}
+curve(dnorm(x,0,1.5),-5,5,xlab="",ylab="",main="")
 ```
 
-```{r}
-curve(pnorm(x,0,1.5),-5,5,xlab="",ylab="",main="Función distribución de N(0,1)",cex.main=0.9)
+```{r, fig.cap="Función distribución de una variable N(0,1)"}
+curve(pnorm(x,0,1.5),-5,5,xlab="",ylab="",main="")
 ```
 
 ## Ejercicios
