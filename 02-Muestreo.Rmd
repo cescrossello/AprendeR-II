@@ -49,7 +49,7 @@ Hay dos tipos  básicos de muestreo aleatorio que vale la pena distinguir.   Par
 
 
 ```{r, echo=FALSE, label=base,fig.cap="Una urna de 100 bolas"}
-knitr::include_graphics("_figs/basev.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/basev.png")
 ```
 
 
@@ -57,7 +57,7 @@ Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la
 
 
 ```{r, echo=FALSE, label=simple,fig.cap="Una muestra aleatoria simple"}
-knitr::include_graphics("_figs/simplev.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/simplev.png")
 ```
 
 
@@ -65,7 +65,7 @@ Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sac
 
 
 ```{r, echo=FALSE, label=sinrep,fig.cap="Una muestra aleatoria sin reposición"}
-knitr::include_graphics("_figs/sinrepv.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/sinrepv.png")
 ```
 
 
@@ -100,7 +100,7 @@ Una manera muy sencilla de obtener una muestra de una población cuando disponem
 
 
 ```{r, echo=FALSE, label=sist,fig.cap="Una muestra aleatoria sistemática"}
-knitr::include_graphics("_figs/sistv.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/sistv.png")
 ```
 
 
@@ -125,7 +125,7 @@ Por continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de
 
 
 ```{r, echo=FALSE, label=estratprevi,fig.cap="Nuestra urna ahora tiene 2 estratos"}
-knitr::include_graphics("_figs/estratprevi.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/estratprevi.png")
 ```
  
 
@@ -135,7 +135,7 @@ Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como es
 
 
 ```{r, echo=FALSE, label=estrat,fig.cap="Una muestra aleatoria estratificada"}
-knitr::include_graphics("_figs/estrat.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/estrat.png")
 ```
  
 
@@ -154,7 +154,7 @@ Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20
 
 
 ```{r, echo=FALSE, label=clustprevi,fig.cap="Nuestra urna ahora tiene 2 estratos y 20 conglomerados"}
-knitr::include_graphics("_figs/clusterprevi.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/clusterprevi.png")
 ```
 
 Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamos al azar 3 conglomerados y la muestra estaría formada por sus bolas. 
@@ -162,7 +162,7 @@ Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamo
 
 
 ```{r, echo=FALSE, label=clust,fig.cap="Una muestra aleatoria por conglomerados"}
-knitr::include_graphics("_figs/cluster.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/cluster.png")
 ```
 
 
@@ -197,7 +197,7 @@ options(scipen=0)
 
 
 ```{r, echo=FALSE, label=oport,fig.cap="Una muestra oportunista"}
-knitr::include_graphics("_figs/oport.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/oport.png")
 ```
 
 
@@ -209,7 +209,7 @@ En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes ha
 
 
 ```{r, echo=FALSE, label=poli,fig.cap="Una muestra polietápica"}
-knitr::include_graphics("_figs/poli.png")
+knitr::include_graphics("AprendeR-Parte-II_files/figure-html/poli.png")
 ```
 
 

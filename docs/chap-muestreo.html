@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-01-24">
+<meta name="date" content="2019-01-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -188,21 +188,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Un <strong>muestreo aleatorio</strong> consiste en seleccionar una muestra de la población de manera que todas las muestras del mismo tamaño sean <strong>equiprobables</strong>; es decir, que si fijamos el número de individuos de la muestra, cualquier conjunto de ese número de individuos tenga la misma probabilidad de ser seleccionado.</p>
 <p>Hay dos tipos básicos de muestreo aleatorio que vale la pena distinguir. Para ilustrarlos, supongamos que disponemos de una urna con 100 bolas numeradas del 1 al 100, de la que queremos extraer una muestra de 15 bolas. La Figura <a href="chap-muestreo.html#fig:base">2.1</a> representa dicha urna.</p>
 <div class="figure" style="text-align: center"><span id="fig:base"></span>
-<img src="_figs/basev.png" alt="Una urna de 100 bolas"  />
+<img src="AprendeR-Parte-II_files/figure-html/basev.png" alt="Una urna de 100 bolas"  />
 <p class="caption">
 Figura 2.1: Una urna de 100 bolas
 </p>
 </div>
 <p>Una manera de hacerlo sería repetir 15 veces el proceso de sacar una bola de la urna, anotar su número y devolverla a la urna. El tipo de muestra obtenida de esta manera recibe el nombre de <strong>muestra aleatoria con reposición</strong>, o <strong>simple</strong> (una <strong>m.a.s.</strong>, para abreviar). Observad que con este procedimiento una misma bola puede aparecer varias veces en una muestra, y que todos los subconjuntos de 15 bolas “con posibles repeticiones” tienen la misma probabilidad de obtenerse. Un posible resultado serían las bolas azules de la Figura <a href="chap-muestreo.html#fig:simple">2.2</a>; la bola azul más oscuro ha sido escogida dos veces en la muestra.</p>
 <div class="figure" style="text-align: center"><span id="fig:simple"></span>
-<img src="_figs/simplev.png" alt="Una muestra aleatoria simple"  />
+<img src="AprendeR-Parte-II_files/figure-html/simplev.png" alt="Una muestra aleatoria simple"  />
 <p class="caption">
 Figura 2.2: Una muestra aleatoria simple
 </p>
 </div>
 <p>Otra manera de extraer nuestra muestra sería repetir 15 veces el proceso de sacar una bola de la urna pero ahora sin devolverla. Esto es equivalente a extraer de golpe 15 bolas de la urna. Estas muestras no tienen bolas repetidas, y cualquier selección de 15 bolas diferentes tiene la misma probabilidad de ser la obtenida. En este caso se habla de una <strong>muestra aleatoria sin reposición</strong>. Un posible resultado serían las bolas azules de la Figura <a href="chap-muestreo.html#fig:sinrep">2.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:sinrep"></span>
-<img src="_figs/sinrepv.png" alt="Una muestra aleatoria sin reposición"  />
+<img src="AprendeR-Parte-II_files/figure-html/sinrepv.png" alt="Una muestra aleatoria sin reposición"  />
 <p class="caption">
 Figura 2.3: Una muestra aleatoria sin reposición
 </p>
@@ -231,7 +231,7 @@ Figura 2.4: Probabilidad de repetición en una m.a.s. de n estudiantes de la UIB
 <h4>Muestreo sistemático</h4>
 <p>Una manera muy sencilla de obtener una muestra de una población cuando disponemos de una lista ordenada de sus individuos es tomarlos a intervalos constantes: cada quinto individuo, cada décimo individuo. Podemos añadir una componente aleatoria escogiendo al azar el primer individuo que elegimos, y a partir del cual empezamos a contar. Así, por ejemplo, si de una clase de 100 estudiantes quisiéramos escoger una muestra de 10, podríamos elegir un estudiante al azar, y a partir de él, por orden alfabético, elegir el décimo estudiante, el vigésimo, el trigésimo, etc.; si al llegar al final de la lista de clase no hubiéramos completado la muestra, volveríamos al principio de la misma. A esta técnica se la llama <strong>muestreo sistemático</strong>, <strong>aleatorio</strong> si además el primer sujeto se escoge de manera aleatoria. Por ejemplo, la Figura <a href="chap-muestreo.html#fig:sist">2.5</a> describe una muestra aleatoria sistemática de 15 bolas de nuestra urna de 100 bolas: hemos empezado a escoger por la bola roja oscura, que ha sido elegida al azar, y a partir de ella hemos tomado 1 de cada 7 bolas, volviendo al principio cuando hemos llegado al final de la lista de bolas</p>
 <div class="figure" style="text-align: center"><span id="fig:sist"></span>
-<img src="_figs/sistv.png" alt="Una muestra aleatoria sistemática"  />
+<img src="AprendeR-Parte-II_files/figure-html/sistv.png" alt="Una muestra aleatoria sistemática"  />
 <p class="caption">
 Figura 2.5: Una muestra aleatoria sistemática
 </p>
@@ -247,14 +247,14 @@ Figura 2.5: Una muestra aleatoria sistemática
 <p>Este tipo de muestreo se utiliza cuando la población está clasificada en <strong>estratos</strong> que son de interés para la propiedad estudiada. En este caso, se toma una muestra aleatoria de cada estrato y se unen en una muestra global. A este proceso se le llama <strong>muestreo aleatorio estratificado</strong>. Normalmente, se impone que la composición por estratos de la muestra global mantenga las proporciones de la población original; es decir, que el tamaño de la muestra de cada estrato represente el mismo porcentaje del total de la muestra que el estrato correspondiente en la población completa. Por ejemplo, los estratos podrían ser grupos de edad, y entonces la muestra de cada grupo de edad se tomaría proporcional a la fracción que representa dicho grupo de edad en la población total. O podrían ser los sexos anatómicos, y procuraríamos que nuestra muestra estuviera formada por un 50% de hombres y un 50% de mujeres. O, en las Islas Baleares, los estratos podrían ser las islas, de manera que la muestra tomada en cada isla fuera proporcional a la población relativa de la misma dentro del conjunto total de la comunidad autónoma.</p>
 <p>Por continuar con nuestra urna de 100 bolas, supongamos que contiene 40 bolas de un color y 60 de otro color según muestra la Figura <a href="chap-muestreo.html#fig:estratprevi">2.6</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:estratprevi"></span>
-<img src="_figs/estratprevi.png" alt="Nuestra urna ahora tiene 2 estratos"  />
+<img src="AprendeR-Parte-II_files/figure-html/estratprevi.png" alt="Nuestra urna ahora tiene 2 estratos"  />
 <p class="caption">
 Figura 2.6: Nuestra urna ahora tiene 2 estratos
 </p>
 </div>
 <p>Para tomar una muestra aleatoria estratificada de 15 bolas, considerando como estratos los dos colores, tomaríamos una muestra aleatoria de 6 bolas del primer color y una muestra aleatoria de 9 bolas del segundo color. De esta manera, los porcentajes de colores en la muestra serían los mismos que en la urna. La Figura <a href="chap-muestreo.html#fig:estrat">2.7</a> describe una muestra obtenida de esta manera.</p>
 <div class="figure" style="text-align: center"><span id="fig:estrat"></span>
-<img src="_figs/estrat.png" alt="Una muestra aleatoria estratificada"  />
+<img src="AprendeR-Parte-II_files/figure-html/estrat.png" alt="Una muestra aleatoria estratificada"  />
 <p class="caption">
 Figura 2.7: Una muestra aleatoria estratificada
 </p>
@@ -268,14 +268,14 @@ Figura 2.7: Una muestra aleatoria estratificada
 <p>Efectuamos también un muestreo por conglomerados cuando para medir algunas características de los ejemplares de una planta en un bosque concreto, cuadriculamos la superficie del bosque, escogemos una muestra aleatoria de sectores de la cuadrícula (serían los conglomerados de este ejemplo) y estudiamos las plantas de interés contenidas en los sectores elegidas.</p>
 <p>Volviendo de nuevo a nuestra urna, supongamos que sus 100 bolas se agrupan en 20 conglomerados de 5 bolas cada uno según las franjas verticales de la Figura <a href="chap-muestreo.html#fig:clustprevi">2.8</a> (donde mantenemos la clasificación en dos colores para poder comparar el resultado del muestreo por conglomerados con el estratificado).</p>
 <div class="figure" style="text-align: center"><span id="fig:clustprevi"></span>
-<img src="_figs/clusterprevi.png" alt="Nuestra urna ahora tiene 2 estratos y 20 conglomerados"  />
+<img src="AprendeR-Parte-II_files/figure-html/clusterprevi.png" alt="Nuestra urna ahora tiene 2 estratos y 20 conglomerados"  />
 <p class="caption">
 Figura 2.8: Nuestra urna ahora tiene 2 estratos y 20 conglomerados
 </p>
 </div>
 <p>Para obtener una muestra aleatoria por conglomerados de tamaño 15, escogeríamos al azar 3 conglomerados y la muestra estaría formada por sus bolas. La Figura <a href="chap-muestreo.html#fig:clust">2.9</a> describe una muestra obtenida de esta manera: los conglomerados escogidos están marcados en azul.</p>
 <div class="figure" style="text-align: center"><span id="fig:clust"></span>
-<img src="_figs/cluster.png" alt="Una muestra aleatoria por conglomerados"  />
+<img src="AprendeR-Parte-II_files/figure-html/cluster.png" alt="Una muestra aleatoria por conglomerados"  />
 <p class="caption">
 Figura 2.9: Una muestra aleatoria por conglomerados
 </p>
@@ -295,7 +295,7 @@ Figura 2.9: Una muestra aleatoria por conglomerados
 \frac{40\times 39\times \cdots\times 26+60\times 59\times \cdots\times 46}{100\times 99\times \cdots\times 86}=0
 \]</span></p>
 <div class="figure" style="text-align: center"><span id="fig:oport"></span>
-<img src="_figs/oport.png" alt="Una muestra oportunista"  />
+<img src="AprendeR-Parte-II_files/figure-html/oport.png" alt="Una muestra oportunista"  />
 <p class="caption">
 Figura 2.10: Una muestra oportunista
 </p>
@@ -306,7 +306,7 @@ Figura 2.10: Una muestra oportunista
 <h4>Muestreo polietápico</h4>
 <p>En el ejemplo de los estudiantes de Primaria, la muestra final de estudiantes ha estado formada por todos los individuos de las aulas elegidas. Otra opción podría haber sido, tras seleccionar la muestra aleatoria de conglomerados, tomar de alguna manera una muestra aleatoria de cada uno de ellos. Por ejemplo, algunos estudios poblacionales a nivel estatal se realizan solamente en algunas provincias escogidas aleatoriamente, en las que luego se encuesta una muestra aleatoria de habitantes. Este sería un ejemplo de <strong>muestreo polietápico</strong>, en el que la muestra no se obtiene en un solo paso, sino mediante diversas elecciones sucesivas. La Figura <a href="chap-muestreo.html#fig:poli">2.11</a> muestra un ejemplo sencillo de muestreo polietápico de nuestra urna: hemos elegido al azar 5 conglomerados (marcados en azul) y de cada uno de ellos hemos elegido 3 bolas al azar sin reposición.</p>
 <div class="figure" style="text-align: center"><span id="fig:poli"></span>
-<img src="_figs/poli.png" alt="Una muestra polietápica"  />
+<img src="AprendeR-Parte-II_files/figure-html/poli.png" alt="Una muestra polietápica"  />
 <p class="caption">
 Figura 2.11: Una muestra polietápica
 </p>
@@ -330,14 +330,14 @@ Figura 2.11: Una muestra polietápica
 <p>Los dos primeros parámetros han de entrarse en este orden o igualados a los parámetros <code>x</code> y <code>size</code>, respectivamente.</p>
 <p>Así, por ejemplo, para obtener una m.a.s. de 15 números entre 1 y 100, podemos entrar:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1]  15  28  13  44  76  57  76   1  89  64  33  48  44 100  39</code></pre>
+<pre><code>##  [1]  2 91 91 30 71 19 29  7 12 40 12 56 18 49  2</code></pre>
 <p>Naturalmente, y como ya nos encontramos en la Lección <a href="chap-distr.html#chap:distr">1</a> cuando generábamos vectores aleatorios con una distribución dada, cada ejecución de <code>sample</code> con los mismos parámetros puede dar lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 94  4 99 74 77 46 79 50 91 59 35 30  3 69 92</code></pre>
+<pre><code>##  [1]  1 47  6 49 13 14  2 16 52 43 82 85 52 70 41</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 23 29 69 10 44 43  8 15 22 86 90 36 71 29 63</code></pre>
+<pre><code>##  [1]  7 55 27 63 93 89 83 77 56 71 48 33  1 97 94</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1]  86  30  33 100  85  21  11  13  23  90  35  70  50  45   9</code></pre>
+<pre><code>##  [1] 68  6 37 20 92 31 13 53 65 55  9 14 68  7 74</code></pre>
 <p>Veamos cómo extraer una m.a.s de una tabla de datos. Recordemos el <em>data frame</em> <code>iris</code>, que recoge medidas de pétalos y sépalos de 150 flores de tres especies de iris.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(iris)</code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
@@ -350,30 +350,30 @@ Figura 2.11: Una muestra polietápica
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="kw">sample</span>(<span class="kw">dim</span>(iris)[<span class="dv">1</span>],<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>) <span class="co">#Los índices de la m.a.s.</span>
 muestra_iris=iris[x,] <span class="co">#La m.a.s. de la tabla iris</span>
 muestra_iris</code></pre></div>
-<pre><code>##      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 39            4.4         3.0          1.3         0.2     setosa
-## 108           7.3         2.9          6.3         1.8  virginica
-## 24            5.1         3.3          1.7         0.5     setosa
-## 86            6.0         3.4          4.5         1.6 versicolor
-## 67            5.6         3.0          4.5         1.5 versicolor
-## 121           6.9         3.2          5.7         2.3  virginica
-## 149           6.2         3.4          5.4         2.3  virginica
-## 67.1          5.6         3.0          4.5         1.5 versicolor
-## 105           6.5         3.0          5.8         2.2  virginica
-## 8             5.0         3.4          1.5         0.2     setosa
-## 85            5.4         3.0          4.5         1.5 versicolor
-## 15            5.8         4.0          1.2         0.2     setosa
-## 95            5.6         2.7          4.2         1.3 versicolor
-## 40            5.1         3.4          1.5         0.2     setosa
-## 98            6.2         2.9          4.3         1.3 versicolor</code></pre>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 119          7.7         2.6          6.9         2.3  virginica
+## 118          7.7         3.8          6.7         2.2  virginica
+## 88           6.3         2.3          4.4         1.3 versicolor
+## 15           5.8         4.0          1.2         0.2     setosa
+## 39           4.4         3.0          1.3         0.2     setosa
+## 100          5.7         2.8          4.1         1.3 versicolor
+## 55           6.5         2.8          4.6         1.5 versicolor
+## 17           5.4         3.9          1.3         0.4     setosa
+## 85           5.4         3.0          4.5         1.5 versicolor
+## 117          6.5         3.0          5.5         1.8  virginica
+## 14           4.3         3.0          1.1         0.1     setosa
+## 99           5.1         2.5          3.0         1.1 versicolor
+## 22           5.1         3.7          1.5         0.4     setosa
+## 108          7.3         2.9          6.3         1.8  virginica
+## 42           4.5         2.3          1.3         0.3     setosa</code></pre>
 <p>Recordad que <code>dim</code> aplicado a un <code>dataframe</code> nos da un vector con sus dimensiones: sus números de filas y de columnas, en este orden. Por lo tanto, <code>dim(iris)[1]</code> es el número de filas de <code>iris</code>.</p>
 <p>Si solo quisiéramos una muestra aleatoria de longitudes de pétalos, podríamos aplicar directamente la función <code>sample</code> al vector correspondiente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestra_long_pet=<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
 muestra_long_pet</code></pre></div>
-<pre><code>##  [1] 1.5 3.0 5.4 4.5 1.2 4.5 1.6 3.9 5.8 1.4 1.3 1.5 4.4 6.9 6.1</code></pre>
+<pre><code>##  [1] 1.1 1.3 1.3 5.1 5.7 5.0 3.6 4.9 1.3 1.2 3.3 1.4 6.1 1.4 1.5</code></pre>
 <p>El hecho de que funciones como <code>sample</code> o los generadores de vectores aleatorios con una cierta distribución de probabilidad fijada, como <code>rnorm</code> o <code>rbinom</code>, produzcan… pues eso, vectores aleatorios, puede tener inconvenientes a la hora de reproducir una simulación. R permite “fijar” el resultado de una función aleatoria con la instrucción <code>set.seed</code>. Sin entrar en detalles sobre cómo funcionan, los diferentes algoritmos que usa R para generar números aleatorios usan una <strong>semilla de aleatoriedad</strong>, que se modifica después de la ejecución del algoritmo, y por eso cada vez dan un resultado distinto. Pero, para una semilla fija, el algoritmo da el mismo resultado siempre. Lo que hace la función <code>set.seed</code> es igualar esta semilla al valor que le entramos. Si tras aplicar esta función a un número concreto ejecutamos una instrucción que genere un vector aleatorio de una longitud fija con una distribución fija, el resultado será siempre el mismo. Veamos un ejemplo de su efecto, generando muestras aleatorias simples de 10 longitudes de pétalos de flores iris con diferentes semillas de aleatoriedad:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 3.9 4.8 4.7 1.3 5.6 1.0 5.0 6.3 3.0 1.4</code></pre>
+<pre><code>##  [1] 1.2 4.4 4.9 1.3 1.7 4.7 1.5 6.0 5.6 1.5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">20</span>)
 <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##  [1] 6.4 5.3 1.3 3.5 5.7 5.2 1.1 1.5 1.4 4.5</code></pre>
@@ -410,52 +410,52 @@ muestra_long_pet</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 2 8 4</code></pre>
+<pre><code>## [1] 10  7  2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1]  3 10  4</code></pre>
+<pre><code>## [1]  1 10  7</code></pre>
 <p>A veces querremos tomar diversas muestras aleatorias de una misma población y calcular algo sobre ellas. Para hacerlo podemos usar la función <code>replicate</code>. La sintaxis básica es</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(n, instrucción)</code></pre></div>
 <p>donde <code>n</code> es el número de repeticiones de la <code>instrucción</code>. Por ejemplo, para tomar 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podemos hacer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestras=<span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>))
 muestras</code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-##  [1,]  1.4  4.2  1.6  6.6  4.5  1.5  3.3  1.3  4.0   6.7
-##  [2,]  4.4  5.2  1.4  4.0  4.9  6.4  5.6  4.9  4.9   5.1
-##  [3,]  6.7  1.5  5.8  4.9  5.9  1.4  6.1  4.2  1.4   4.8
-##  [4,]  4.1  1.5  4.1  5.1  5.6  1.9  1.4  6.1  6.0   1.2
-##  [5,]  3.9  5.6  5.6  5.0  4.2  3.9  4.5  1.3  1.7   1.5
-##  [6,]  4.0  5.0  4.5  4.5  4.9  1.7  3.0  4.0  1.2   3.9
-##  [7,]  5.6  5.7  3.3  4.8  6.1  3.3  1.6  5.4  5.7   1.4
-##  [8,]  1.9  4.7  5.6  4.1  3.9  4.8  5.9  1.6  4.9   5.5
-##  [9,]  5.8  1.6  6.1  6.0  5.6  1.4  4.3  5.8  5.8   6.7
-## [10,]  5.7  5.0  3.0  4.5  1.7  1.2  1.5  4.4  1.5   4.0
-## [11,]  5.5  1.3  4.2  5.0  4.0  5.5  1.2  1.4  6.7   1.5
-## [12,]  1.9  1.5  1.6  1.1  5.9  4.7  5.8  4.1  1.4   4.5
-## [13,]  1.5  4.9  3.3  4.9  1.4  4.7  6.0  6.6  5.1   3.3
-## [14,]  4.8  5.5  1.4  4.9  1.4  1.5  4.9  5.2  3.9   1.4
-## [15,]  1.3  5.8  6.4  5.1  6.4  1.5  3.9  5.0  4.9   1.5</code></pre>
+##  [1,]  5.1  1.7  1.3  4.5  1.4  1.9  6.1  1.5  1.5   3.9
+##  [2,]  1.0  5.1  5.6  5.7  6.1  4.7  1.3  1.5  1.7   1.6
+##  [3,]  4.6  4.1  4.9  4.4  5.0  1.5  6.0  5.1  1.6   1.6
+##  [4,]  5.1  1.5  4.2  4.9  5.8  6.1  4.1  1.5  3.5   1.2
+##  [5,]  4.9  4.2  1.4  3.6  1.5  6.1  4.2  1.4  5.7   5.7
+##  [6,]  5.4  1.5  6.1  3.3  5.1  1.6  4.9  1.5  5.3   1.7
+##  [7,]  1.7  4.1  3.8  1.5  4.5  5.0  1.0  1.4  1.3   5.2
+##  [8,]  1.9  1.4  5.0  1.3  1.3  1.7  4.4  6.1  1.4   1.4
+##  [9,]  5.0  5.5  3.9  4.3  5.3  5.9  5.1  4.1  4.4   5.8
+## [10,]  4.7  4.5  4.5  5.7  1.5  4.9  4.1  1.6  5.5   5.0
+## [11,]  4.8  3.6  5.1  3.6  1.6  5.0  1.4  4.9  4.8   3.9
+## [12,]  3.3  4.6  3.3  5.6  4.8  4.3  1.4  4.0  4.5   4.9
+## [13,]  1.7  5.2  5.0  1.3  4.4  4.2  1.5  1.6  3.6   5.6
+## [14,]  1.6  4.2  5.6  1.4  1.6  5.8  5.8  1.4  5.0   4.7
+## [15,]  1.3  1.5  6.6  3.5  4.1  1.6  5.8  1.3  4.7   5.1</code></pre>
 <p>Observad que R ha organizado los 10 vectores generados con el <code>replicate</code> como columnas de una matriz.</p>
 <p>Si solo nos hubiera interesado calcular las medias, redondeadas a 2 cifras decimales, de 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podríamos haber hecho</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">medias=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))
 medias</code></pre></div>
-<pre><code>##  [1] 3.54 4.49 3.60 4.19 2.80 4.15 3.75 3.97 4.39 3.01</code></pre>
+<pre><code>##  [1] 4.09 3.83 3.77 3.23 3.54 3.70 4.07 3.53 3.54 4.23</code></pre>
 <p>En este caso, como el resultado de la instrucción que iteramos es un solo número, los resultados del <code>replicate</code> forman un vector.</p>
 <p>¿Y si quisiéramos la media y la desviación típica muestral de 10 muestras de estas? No podemos usar sin más dos <code>replicate</code>, como en</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 3.55 2.97 4.07 3.93 4.46 3.98 3.23 2.91 3.45 3.23</code></pre>
+<pre><code>##  [1] 3.76 3.15 3.65 3.79 4.36 3.58 3.79 3.69 3.93 3.59</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">sd</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 1.95 2.13 1.43 1.56 1.66 1.80 1.61 1.75 1.55 1.61</code></pre>
+<pre><code>##  [1] 2.04 1.68 1.91 1.79 1.84 1.75 1.82 1.71 1.50 1.97</code></pre>
 <p>porque el conjunto de muestras de las que hemos calculado la media en el primer <code>replicate</code> muy probablemente habrá sido diferente del conjunto de muestras de las que hemos calculado la desviación típica en el segundo <code>replicate</code>. Lo más adecuado es definir una función que calcule un vector con estos dos valores, y luego usarla dentro de un único <code>replicate</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">info=<span class="cf">function</span>(x){<span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">mean</span>(x),<span class="kw">sd</span>(x)),<span class="dv">2</span>)}
 info_lp=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">info</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
 info_lp</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-## [1,] 3.69 3.81 3.63 3.94 3.51 4.49 3.75 3.97 3.15  3.74
-## [2,] 1.75 1.65 2.07 1.52 1.73 1.72 1.80 1.95 1.61  1.69</code></pre>
+## [1,] 4.21 3.92 4.29 2.90 2.85 3.79 2.93 3.09 3.69  4.01
+## [2,] 1.68 2.10 1.72 1.36 1.66 1.50 1.94 1.87 1.89  1.69</code></pre>
 <p>En este último caso, R ha organizado la información obtenida como columnas de una matriz: la primera fila son las medias y la segunda las desviaciones típicas.</p>
 <p>Naturalmente, la función <code>set.seed</code> permite “fijar” el resultado de un <code>replicate</code> que incluya la generación de números aleatorios:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1000</span>)
