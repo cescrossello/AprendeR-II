@@ -45,6 +45,7 @@ Este trabajo se publica bajo licencia [Atribución-No Comercial-SinDerivadas 4.0
 
 ### Historial {-}
 
+* 19-01-28: Definitiva para mí Lección 5 (Cesc)
 * 19-01-24: Definitivos para mí Lecciones 1, 2, 3, 4 (Cesc)
 
 ### Preguntas {-}
