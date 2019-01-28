@@ -15,6 +15,8 @@ description: "Apuntes AprendeR bookdown::gitbook."
 
 ```{r global_options, include=FALSE}
 library(knitr)
+#library(xtable)
+#library(printr)
 knitr::opts_chunk$set(
   fig.width=5, 
   fig.asp = 1,
