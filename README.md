@@ -1,4 +1,4 @@
-Estes el respositorio GitHub de la edición preliminar en línea de la 2a parte del libro "AprendeR".
+Este es el respositorio GitHub de la edición preliminar en línea de la 2a parte del libro "AprendeR".
 
 El libro está escrito en *R Markdown*, usando *RStudio* como editor de texto y el paquete **bookdown** para convertir los ficheros *markdown* en un libro. 
 
