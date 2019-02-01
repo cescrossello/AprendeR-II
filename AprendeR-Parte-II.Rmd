@@ -1,6 +1,119 @@
+--- 
+title: "AprendeR: Parte II"
+author: "The AprendeR team"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+   bookdown::pdf_book: default
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: cescrossello/AprendeR-II
+description: "Apuntes AprendeR bookdown::gitbook."
+---
+
+# Presentación {-}
+
+Placeholder
+
+
+### Historial {-}
+### Preguntas {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# (PART\*) Parte II: Estadística inferencial {-}
+# Distribuciones de probabilidad {#chap:distr}
+
+Placeholder
+
+
+## Ejercicios
+#### Modelo de test {-}
+#### Respuestas al test {-}
+
+<!--chapter:end:01-Distribuciones.Rmd-->
+
+
+# Conceptos básicos de muestreo {#chap:muestreo}
+
+Placeholder
+
+
+## Tipos de muestreo {#sec:muestreo}
+#### Muestreo aleatorio con y sin reposición {-}
+#### Muestreo sistemático {-}
+#### Muestreo aleatorio estratificado {-}
+#### Muestreo por conglomerados {-}
+#### Muestreos no aleatorios {-}
+#### Muestreo polietápico {-}
+## Muestreo aleatorio con R
+## Guía rápida
+## Ejercicios
+### Modelo de test {-}
+### Ejercicios {-}
+### Respuestas al test {-}
+### Soluciones sucintas a los ejercicios {-}
+
+<!--chapter:end:02-Muestreo.Rmd-->
+
+
+# Estimación puntual {#estimacion}
+
+Placeholder
+
+
+## Estimación máximo verosímil
+## Guía rápida
+## Ejercicios
+#### Modelo de test {-}
+#### Respuestas al test {-}
+
+<!--chapter:end:03-Estimacion_Puntual.Rmd-->
+
+
+# Intervalos de confianza {#chap:IC}
+
+Placeholder
+
+
+## Intervalo de confianza para la media basado en la t de Student {#sec:ICT}
+## Intervalos de confianza para la proporción poblacional
+## Intervalo de confianza para la varianza de una población normal {#sec:ICvar}
+## Bootstrap
+## Guía rápida
+## Ejercicios 
+#### Modelo de test {-}
+#### Respuestas al test {-}
+
+<!--chapter:end:04-Intervalos_de_confianza.Rmd-->
+
+
+# Contrastes de hipótesis {#chap:contrastes}
+
+Placeholder
+
+
+## Contrastes para medias
+### El test t {-}
+### Tests no paramétricos {-}
+## Contrastes para varianzas
+## Contrastes para proporciones
+## Cálculo de la potencia de un contraste 
+## Guía rápida
+## Ejercicios
+### Modelo de test {-}
+### Ejercicios {-}
+### Respuestas al test {-}
+### Respuestas sucintas a los ejercicios {-}
+
+<!--chapter:end:05-ContrastesI.Rmd-->
+
 # Bondad de ajuste {#chap:bondad}
 
-####Lin 500
+####Lin 387
 
 Una de las condiciones  habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución  de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído sigue una determinada
 distribución. En la Lección \@ref(chap:agrup) del primer volumen comprobábamos
@@ -384,60 +497,66 @@ barplot(rbind(prop.table(table(myoglobin.todos.nuc)),
 El gráfico que obtenemos confirma que las frecuencias relativas de las bases en el exón 2 se ajustan bastante a las globales.
 
 
-```{example}
+\begin{exemple}
 Ahora vamos a llevar a cabo el experimento siguiente. Queremos contrastar si la aparición de pares "cg" en la mioglobina humana es aleatoria, en el sentido de que se debe simplemente a las apariciones al azar de sus dos bases, o si por el contrario hay algún otro mecanismo que los produce.
-
-```
-
-Para ello, tomaremos la secuencia completa de la mioglobina humana, que tenemos almacenada en `myoglobin.todos.nuc`, y repetiremos 100 veces el proceso siguiente: extraemos una muestra aleatoria simple de 20 posiciones  de la secuencia y contamos cuántas de ellas contienen el par de bases "cg". Luego contrastaremos si la muestra así obtenida proviene de una distribución binomial con la probabilidad de aparición de "cg" como si las dos bases fueran independientes.
+Para ello, tomaremos la secuencia completa de la mioglobina humana, que tenemos almacenada en `myoglobin.todos.nuc}, y repetiremos 100 veces el proceso siguiente: extraemos una muestra aleatoria simple de 20 posiciones  de la secuencia y contamos cuántas de ellas contienen el par de bases "cg". Luego contrastaremos si la muestra así obtenida proviene de una distribución binomial con la probabilidad de aparición de "cg" como si las dos bases fueran independientes.
 
 Fijamos la semilla de aleatoriedad para que se pueda reproducir el experimento. El código, que luego explicamos, y el resultado son los siguientes:
-  
-```{r}
-cg.in.sample=function(x,S){#x un vector, S vector de índices
+  ```{r}
+> cg.in.sample=function(x,S){#x un vector, S vector de índices
   length(which(x[S]=="c" & x[S+1]=="g"))
 }
-set.seed(1660)  #Año de nacimiento de D. Defoe
-muestra=replicate(100, cg.in.sample(myoglobin.todos.nuc, 
-            sample(1:(length(myoglobin.todos.nuc)-1), 20,replace=TRUE)))
-muestra
+> set.seed(1660)  #Año de nacimiento de D. Defoe
+> muestra=replicate(100, cg.in.sample(myoglobin.todos.nuc, 
+                                      sample(1:(length(myoglobin.todos.nuc)-1), 20, 
+                                             replace=TRUE)))
+> muestra
+[1] 2 1 1 0 0 0 0 2 1 0 2 0 0 0 2 0 0 0 1 0 1 0 1 1 0 0 0 0 0
+[30] 0 0 1 0 2 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 1 0 0 0 0 1 1 0
+[59] 0 0 1 0 1 1 0 0 1 0 0 1 1 0 0 0 1 0 0 0 0 2 0 0 0 0 1 0 0
+[88] 0 0 1 1 0 1 0 0 0 1 0 0 0
 ```
-La función `cg.in.sample` que hemos definido toma un vector `x` y un vector de índices `S` y cuenta el número de índices `s` en los que `x[s] es `c` y x[s+1] es `g`. Entonces, con el `replicate`, hemos repetido 100 veces el proceso de extraer una muestra aleatoria simple  de índices de `myoglobin.todos.nuc` (excluyendo el último, para que sean posiciones donde empieza un par de letras) y aplicar la función `cg.in.sample` a `myoglobin.todos.nuc` y a esta muestra de índices.
+La función `cg.in.sample} que hemos definido toma un vector $x$ y un vector de índices $S$ y cuenta el número de índices $s\in S$ en los que $x[s]$ es `c} y $x[s+1]$ es `g}. Entonces, con el `replicate}, hemos repetido 100 veces el proceso de extraer una muestra aleatoria simple  de índices de `myoglobin.todos.nuc} (excluyendo el último, para que sean posiciones donde empieza un par de letras) y aplicar la función `cg.in.sample} a `myoglobin.todos.nuc} y a esta muestra de índices.
 
 Queremos determinar si esta muestra sigue una distribución binomial. En concreto, vamos a plantear tres casos de esta pregunta:
-
-* Con probabilidad de aparición de la pareja "cg" $0.25\cdot 0.25=0.0625$, que correspondería al hecho de que las dos bases aparecieran de manera equiprobable e independiente.
-
-* Con probabilidad de aparición de la pareja "cg" el producto de  las frecuencias relativas de las bases en la secuencia global, que correspondería al hecho de que las dos bases aparecieran de manera independiente, pero no equiprobable sino con sus probabilidades dentro de la secuencia de la mioglobina. 
-
-* Estimando el valor "real" de $p$, lo que correspondería al hecho de que su probabilidad de aparición no tuviera nada que ver con las probabilidades individuales de sus dos bases.
+  \begin{itemize}
+\item Con probabilidad de aparición de la pareja "cg" $0.25\cdot 0.25=0.0625$, que correspondería al hecho de que las dos bases aparecieran de manera equiprobable e independiente.
+\item Con probabilidad de aparición de la pareja "cg" el producto de  las frecuencias relativas de las bases en la secuencia global, que correspondería al hecho de que las dos bases aparecieran de manera independiente, pero no equiprobable sino con sus probabilidades dentro de la secuencia de la mioglobina. 
+\item Estimando el valor "real" de $p$, lo que correspondería al hecho de que su probabilidad de aparición no tuviera nada que ver con las probabilidades individuales de sus dos bases.
 
 
-Empezamos con el primer caso. Calculemos las frecuencias con las que aparecen los diferentes resultados en la muestra, y las frecuencias esperadas con las que deberían aparecer si siguieran una distribución B(20,0.0625).
-
+Empezamos con el primer caso. Calculemos las frecuencias con las que aparecen los diferentes resultados en la muestra, y las frecuencias esperadas con las que deberían aparecer si siguieran una distribución $B(20,0.0625)$.
 ```{r}
-table(muestra)
-round(dbinom(0:20,20,0.0625)*100,2)  #Frecuencias teóricas
+> table(muestra)
+muestra
+0  1  2 
+68 26  6 
+> round(dbinom(0:20,20,0.0625)*100,2)  #Frecuencias teóricas
+[1] 27.51 36.67 23.23  9.29  2.63  0.56  0.09  0.01  0.00  0.00
+[11]  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00
+[21]  0.00
 ```
 Las frecuencias teóricas a partir de 4 son inferiores a 5, y además su suma es inferior a 5. Por lo tanto, vamos a agrupar en una sola clase los resultados mayores o iguales que 3. La nueva tabla de frecuencias esperadas es:
-
-```{r}
-round(c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))*100,2)
+  ```{r}
+> round(c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))*100,2)
+[1] 27.51 36.67 23.23 12.59
 ```
 Ahora tenemos dos opciones: o bien tomamos como resultados posibles "0", "1", "2" y "3 o más", en cuyo caso contaríamos que hemos observado 0 veces este último resultado en nuestra muestra, o bien tomamos como resultados posibles "0", "1",  y "2 o más", que se corresponde con los valores observados. Como norma general, es recomendable usar el mayor número de clases, ya que de esta manera aumenta la potencia del contraste. Por consiguiente, vamos a optar por la primera estrategia: 4 clases y no 3.
 ```{r}
-freq.obs=c(table(muestra),0)
-prob.teor=c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))
-chisq.test(freq.obs,p=prob.teor)$p.value
+> freq.obs=c(table(muestra),0)
+> prob.teor=c(dbinom(0:2,20,0.0625),1-pbinom(2,20,0.0625))
+> chisq.test(freq.obs,p=prob.teor)$p.value
+[1] 5.628013e-19
 ```
-El p-valor es prácticamente 0, por lo que podemos concluir que la muestra no sigue una distribución B(20,0.0625): las apariciones de los pares "cg" no se explican por la aparición de sus dos bases de manera independiente y equiprobable.
+El p-valor es prácticamente 0, por lo que podemos concluir que la muestra no sigue una distribución $B(20,0.0625)$: las apariciones de los pares "cg" no se explican por la aparición de sus dos bases de manera independiente y equiprobable.
 
 
 ¿Hubiera variado la conclusión si hubiéramos optado por sólo considerar tres clases?
-```{r}
-freq.obs=table(muestra)
-prob.teor=c(dbinom(0:1,20,0.0625),1-pbinom(1,20,0.0625))
-chisq.test(freq.obs,p=prob.teor)$p.value
+  ```{r}
+> freq.obs=table(muestra)
+> prob.teor=c(dbinom(0:1,20,0.0625),1-pbinom(1,20,0.0625))
+> chisq.test(freq.obs,p=prob.teor)$p.value
+[1] 9.759239e-20
 ```
 El p-valor es prácticamente el mismo, la conclusión es la misma.
 
@@ -447,56 +566,77 @@ El p-valor es prácticamente el mismo, la conclusión es la misma.
 Pasemos al segundo caso de nuestro problema. Vamos a calcular la frecuencia relativa de "c" y "g" en la secuencia completa de la mioglobina humana y tomaremos como probabilidad $p$ el producto de ambas frecuencias relativas.
 
 ```{r}
-prop.table(table(myoglobin.todos.nuc))
-p=prod(prop.table(table(myoglobin.todos.nuc))[2:3])
-p
+> prop.table(table(myoglobin.todos.nuc))
+myoglobin.todos.nuc
+a         c         g         t 
+0.2568396 0.2172223 0.3018388 0.2240993 
+> p=prod(prop.table(table(myoglobin.todos.nuc))[2:3])
+> p
+[1] 0.06556613
 ```
 Calculemos ahora las frecuencias esperadas tomando esta $p$:
-
-```{r}
-round(dbinom(0:20,20,p)*100,2)
+  ```{r}
+> round(dbinom(0:20,20,p)*100,2)
+[1] 25.76 36.15 24.10 10.15  3.03  0.68  0.12  0.02  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00
+[17]  0.00  0.00  0.00  0.00  0.00
 ```
 
 Vamos a tener que agrupar de nuevo en una sola clase los resultados mayores o iguales que 3.
 ```{r}
-freq.obs=c(table(muestra),0)
-prob.teor=c(dbinom(0:2,20,p),1-pbinom(2,20,p))
-chisq.test(freq.obs,p=prob.teor)$p.value
+> freq.obs=c(table(muestra),0)
+> prob.teor=c(dbinom(0:2,20,p),1-pbinom(2,20,p))
+> chisq.test(freq.obs,p=prob.teor)$p.value
+[1] 1.816248e-21
 ```
 Obtenemos de nuevo un valor prácticamente 0: las apariciones de los pares "cg" no se explican por la aparición de sus dos bases de manera independiente.
 
 
 
-Finalmente, vamos a estimar el parámetro $p$. La binomial es otra de las distribuciones no cubiertas por `fitdistr`, por lo que tendremos que apelar a lo que sabemos de teoría para hacerlo. 
+Finalmente, vamos a estimar el parámetro $p$. La binomial es otra de las distribuciones no cubiertas por `fitdistr}, por lo que tendremos que apelar a lo que sabemos de teoría para hacerlo. 
 Como el valor esperado de una variable aleatoria $X\sim B(n,p)$ es $np$,  estimaremos  $p$ mediante $\overline{X}/n$. De hecho, éste es el estimador máximo verosímil de $p$ cuando $n$ es conocida.
 ```{r}
-mean(muestra)/20
+> mean(muestra)/20
+[1] 0.019
 ```
 Repetimos el proceso: calculemos las frecuencias teóricas
 ```{r}
-round(dbinom(0:20,20,0.019)*100,2)
+> round(dbinom(0:20,20,0.019)*100,2)
+[1] 68.14 26.39  4.86  0.56  0.05  0.00  0.00  0.00  0.00
+[10]  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00
+[19]  0.00  0.00  0.00
 ```
 En este caso, hemos  de agrupar  los resultados en "0", "1" y "2 o más", para que las frecuencias teóricas sean mayores que 5. 
 Coincide con los diferentes valores observados en la muestra.
 ```{r}
-freq.obs=table(muestra)
-prob.teor=c(dbinom(0:1,20,0.019),1-pbinom(1,20,0.019))
-chisq.test(freq.obs,p=prob.teor)
+> freq.obs=table(muestra)
+> prob.teor=c(dbinom(0:1,20,0.019),1-pbinom(1,20,0.019))
+> chisq.test(freq.obs,p=prob.teor)
+
+Chi-squared test for given probabilities
+
+data:  freq.obs
+X-squared = 0.0575, df = 2, p-value = 0.9717
 ```
 ¡Cuidado! Este p-valor no es el correcto. Hemos estimado un parámetro, pero R no lo sabe. Por lo tanto tenemos que bajar en 1 los grados de libertad y calcular el p-valor a mano, mediante
 $$
-  1-P(\chi_1^2\geq  X^2)=1-P(\chi_1^2\geq  `r round(chisq.test(freq.obs,p=prob.teor)$statistic),3)`
+  1-P(\chi_1^2\geq  X^2)=1-P(\chi_1^2\geq  0.0575)
 $$
-```{r}
-1-pchisq(0.0575,1)
+  ```{r}
+> 1-pchisq(0.0575,1)
+[1] 0.8104918
 ```
 El p-valor es  grande. Por lo tanto, no podemos rechazar la hipótesis nula de que
 las apariciones de "cg" en muestras aleatorias de 20 posiciones sigan una ley binomial de parámetro $p=0.019$. 
 
 
-## El test $\chi^2$ para distribuciones continuas
+\subsection{El test $\chi^2$ para distribuciones continuas}
 
-El procedimiento de contraste de bondad de ajuste mediante el test $\chi^2$ para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El proceso es similar al que estudiamos^[En  las Lecciones 19 y 20 de la primera parte.] para dibujar histogramas. Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias absolutas observadas,  y con las funciones `cut` y `table` obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.
+El procedimiento de contraste de bondad de ajuste mediante el test $\chi^2$ para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los
+intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El
+proceso es similar al que estudiamos\footnote{\hspace*{0.5ex} En  las Lecciones 19 y 20 del primer volumen.} para dibujar histogramas.
+Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias
+absolutas observadas,  y con las funciones `cut} y `table}
+obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.
 
 Para obtener los intervalos podemos seguir dos estrategias razonables:  reutilizar  los generados por la
 función `hist}, o dividir el rango de la variable en un número prefijado $K$ de intervalos  de amplitud fija.
@@ -529,7 +669,7 @@ Ahora se nos presenta el problema de que los intervalos que definen estos puntos
 [1] -Inf  4.5  5.0  5.5  6.0  6.5  7.0  7.5  Inf
 ```
 Ahora podemos calcular las frecuencias de la muestra en los intervalos definidos por estos puntos de corte:
-```{r}
+  ```{r}
 > freq.obs=table(cut(iris.sl,breaks=breaks2))
 > freq.obs
 (-Inf,4.5]    (4.5,5]    (5,5.5]    (5.5,6] 
@@ -552,7 +692,7 @@ intervalo.
 [1] 4.5 5.0 5.5 6.0 6.5 7.0 7.5 Inf
 ```
 Ahora podemos calcular las probabilidades y las frecuencias esperadas de todos los intervalos de golpe:
-```{r}
+  ```{r}
 > probs.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma) #Probabilidades teóricas
 > probs.teor
 [1] 0.05179549 0.10163069 0.18527528 0.23657724 0.21160908
@@ -574,14 +714,14 @@ data:  freq.obs2
 X-squared = 11.1196, df = 6, p-value = 0.08475
 ```
 Recordemos que el p-valor obtenido no es el del test que realizamos: como hemos estimado dos parámetros, lo tenemos que  calcular con una $\chi^2$ con 4 grados de libertad (dos menos de los que ha usado `chisq.test}):
-```{r}
+  ```{r}
 > 1-pchisq(11.1196, 4)
 [1] 0.02525225
 ```
 El p-valor es inferior a 0.05, por tanto obtenemos evidencia de que la muestra no proviene de una población normal, es decir, de que las longitudes de los sépalos de las flores iris no siguen una ley normal.
 
 Podríamos automatizar el cálculo del p-valor verdadero de la manera siguiente:
-```{r}
+  ```{r}
 > test.iris=chisq.test(freq.obs2,p=probs.teor2)
 > 1-pchisq(test.iris$statistic,test.iris$parameter-2)
 X-squared 
@@ -630,7 +770,7 @@ Calculemos, como en el ejemplo anterior, las frecuencias observadas, las probabi
 [1] 11.37 12.51 19.20 24.44 25.79 22.56 16.37  9.85  4.91  2.99
 ```
 Agruparemos las frecuencias de los dos últimos intervalos y aplicaremos el test $\chi^2$ con el número adecuado de grados de libertad:
-```{r}
+  ```{r}
 > frec.obs2=c(frec.obs[1:8], sum(frec.obs[9:10]))
 > prob.teor2=c(prob.teor[1:8], sum(prob.teor[9:10]))
 > test.iris.2=chisq.test(frec.obs2,p=prob.teor2)
@@ -669,7 +809,7 @@ ejemplo `mean=0, sd=1} para una distribución normal estándar.
 
 \begin{exemple}
 Efectuemos el test de Kolmogorov-Smirnov para contrastar si las longitudes de sépalos de flores iris siguen una distribución normal de media y desviación típica sus estimaciones máximo verosímiles a partir la muestra:
-```{r}
+  ```{r}
 > iris.sl=iris$Sepal.Length
 > mu=fitdistr(iris.sl,"normal")$estimate[1]
 > sigma=fitdistr(iris.sl,"normal")$estimate[2]
@@ -746,7 +886,7 @@ Warning message:
   p-value will be approximate in the presence of ties
 ```
 El p-valor pequeño nos permite rechazar que los salarios de hombres y mujeres sigan la misma distribución. Si dibujamos un boxplot de los salarios según el sexo, obtenemos la Figura \ref{fig:bpsal}, que muestra que los sueldos de los hombres tienen mayor mediana y variabilidad que los de las mujeres, incluyendo algunos valores atípicos grandes (¿el rector y otros altos cargos académicos?). Si cancelamos este efecto, estandarizando las muestras, ¿siguen saliendo distribuciones diferentes?
-```{r}
+  ```{r}
 > ks.test(scale(sal.male),scale(sal.female))
 
 Two-sample Kolmogorov-Smirnov test
@@ -794,7 +934,7 @@ El p-valor es muy pequeño, y nos permite rechazar que la muestra provenga de un
 
 La ventaja del test K-S-L es que es muy conocido, ya que es una variante del K-S (incluso usa el mismo estadístico), pero tiene un inconveniente: aunque es muy sensible a las diferencias entre la muestra y la distribución teórica alrededor de sus valores medios, le cuesta detectar diferencias prominentes en un extremo u otro de la distribución. Esto afecta su potencia. Por ejemplo, sabemos que una t de Student se parece bastante a una normal estándar, pero su densidad es algo más aplanada y hace que en los dos extremos esté por encima de la de la normal.
 Al test K-S-L le cuesta detectar esta discrepancia, como podemos ver en el siguiente ejemplo:
-```{r}
+  ```{r}
 > set.seed(100)
 > x=rt(50,3)   #Una muestra de una t de Student con 3 g.l.
 > lillie.test(x)
@@ -817,7 +957,7 @@ data:  iris.sl
 A = 0.8892, p-value = 0.02251
 ```
 De nuevo obtenemos un p-valor muy pequeño. Veamos ahora que este test sí que detecta que la muestra anterior de una t de Student con 3 grados de libertad no proviene de una normal:
-```{r}
+  ```{r}
 > set.seed(100)
 > x=rt(50,3)
 > ad.test(x)
@@ -854,7 +994,7 @@ W = 0.8949, p-value = 0.0003285
 
 Un último inconveniente que afecta a todos los tests explicados hasta ahora es el de los empates. Sus estadísticos  tienen las distribuciones que se usan para calcular los p-valores cuando la muestra no tiene datos repetidos, y por lo tanto, si hay muchos, el p-valor puede no tener ningún significado. De los tres, el menos sensible a repeticiones es el S-W, pero si hay muchas es conveniente usar un test que no sea sensible a éstas, como por ejemplo el \emph{test omnibus de D'Agostino-Pearson}. Este test se encuentra implementado en la función `dagoTest} del paquete `fBasics}, y lo que hace es cuantificar lo diferentes que son la asimetría y la curtosis de la muestra (dos parámetros estadísticos relacionados con la forma de una distribución)  respecto de los esperados en una distribución normal, y resume esta discrepancia en un p-valor con el significado usual.
   
-```{r}
+  ```{r}
   > #Instalamos y cargamos el paquete "fBasics"
   ...
   > dagoTest(iris.sl)
@@ -875,7 +1015,7 @@ Un último inconveniente que afecta a todos los tests explicados hasta ahora es 
   El p-valor relevante es el del "Omnibus test", en este caso 0.05682, cae en la zona de penumbra.
   
   Queremos hacer una última advertencia en esta sección. Aunque los tests que hemos explicado se pueden aplicar a muestras pequeñas, es muy difícil rechazar la normalidad de una muestra  muy pequeña. Por ejemplo, una muestra de 10 valores escogidos con distribución uniforme entre 0 y 5 pasa holgadamente todos los tests de normalidad (salvo el de D'Agostino-Pearson, que requiere una muestra de al menos 20 elementos):
-                                                                                ```{r}
+                                                                                  ```{r}
 set.seed(100)
 x=runif(10,0,5)
 lillie.test(x)
@@ -1102,4 +1242,7 @@ dagoTest(x)
                                                                                           \newpage
                                                                                           \thispagestyle{empty}
                                                                                           
+
+
+<!--chapter:end:07-BondadAjuste.Rmd-->
 
