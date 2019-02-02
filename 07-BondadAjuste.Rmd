@@ -1,6 +1,6 @@
 # Bondad de ajuste {#chap:bondad}
 
-####Lin 500
+####Lin 625
 
 Una de las condiciones  habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución  de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído sigue una determinada
 distribución. En la Lección \@ref(chap:agrup) del primer volumen comprobábamos
@@ -498,151 +498,131 @@ las apariciones de "cg" en muestras aleatorias de 20 posiciones sigan una ley bi
 
 El procedimiento de contraste de bondad de ajuste mediante el test $\chi^2$ para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El proceso es similar al que estudiamos^[En  las Lecciones 19 y 20 de la primera parte.] para dibujar histogramas. Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias absolutas observadas,  y con las funciones `cut` y `table` obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.
 
-Para obtener los intervalos podemos seguir dos estrategias razonables:  reutilizar  los generados por la
-función `hist}, o dividir el rango de la variable en un número prefijado $K$ de intervalos  de amplitud fija.
-Vamos a ver en detalle un ejemplo de cada tipo.
+Para obtener los intervalos podemos seguir dos estrategias razonables:  reutilizar  los generados por la función `hist`, o dividir el rango de la variable en un número prefijado $K$ de intervalos  de amplitud fija. Vamos a ver en detalle un ejemplo de cada tipo.
 
-\begin{exemple}\label{ex:test.norm.iris1}
-Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos `iris} siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo \ref{ex:irisqq} mostraba evidencia de que no la siguen.
+```{example, label="test.norm.iris1"}
+Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos `iris` siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo \@ref(exm:irisqq) mostraba evidencia de que no la siguen.
+
+
+```
 
 Primero vamos a estimar de nuevo la media y la desviación típica de la distribución de estas longitudes.
 ```{r}
-> iris.sl=iris$Sepal.Length
-> mu=fitdistr(iris.sl,"normal")$estimate[1]
-> sigma=fitdistr(iris.sl,"normal")$estimate[2]
-> round(c(mu,sigma),3)
-mean    sd 
-5.843 0.825 
+iris.sl=iris$Sepal.Length
+mu=fitdistr(iris.sl,"normal")$estimate[1]
+sigma=fitdistr(iris.sl,"normal")$estimate[2]
+round(c(mu,sigma),3)
 ```
-En este ejemplo, usaremos los intervalos en los que agrupa por defecto estos datos la función `hist}.
+
+En este ejemplo, usaremos los intervalos en los que agrupa por defecto estos datos la función `hist`.
+
 ```{r}
-> h=hist(iris.sl, plot=FALSE)
-> h$breaks
-[1] 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0
+h=hist(iris.sl, plot=FALSE)
+h$breaks
 ```
-Ahora se nos presenta el problema de que los intervalos que definen estos puntos de corte  (*breaks}) no cubren toda la recta real, que es el  espacio muestral de una variable aleatoria normal. Así que hemos de reemplazar los extremos de este vector de `breaks} por los límites del  espacio muestral de la variable, que en este caso son $-\infty$ e $\infty$.
+
+Ahora se nos presenta el problema de que los intervalos que definen estos puntos de corte  (*breaks}) no cubren toda la recta real, que es el  espacio muestral de una variable aleatoria normal. Así que tenemos que reemplazar los extremos de este vector de `breaks` por los límites del  espacio muestral de la variable, que en este caso son $-\infty$ e $\infty$.
+
 ```{r}
-> breaks2=h$breaks
-> breaks2[1]=-Inf    #Cambiamos el 4 por -Infinito
-> breaks2[length(breaks2)]=Inf   #Cambiamos el 8 por Infinito
-> breaks2
-[1] -Inf  4.5  5.0  5.5  6.0  6.5  7.0  7.5  Inf
+breaks2=h$breaks
+breaks2[1]=-Inf    #Cambiamos el 4 por -Infinito
+breaks2[length(breaks2)]=Inf   #Cambiamos el 8 por Infinito
+breaks2
 ```
+
 Ahora podemos calcular las frecuencias de la muestra en los intervalos definidos por estos puntos de corte:
 ```{r}
-> freq.obs=table(cut(iris.sl,breaks=breaks2))
-> freq.obs
-(-Inf,4.5]    (4.5,5]    (5,5.5]    (5.5,6] 
-5         27         27         30 
-(6,6.5]    (6.5,7]    (7,7.5] (7.5, Inf] 
-31         18          6          6 
+freq.obs=table(cut(iris.sl,breaks=breaks2))
+freq.obs
 ```
 Ahora calcularemos las probabilidades teóricas. Para cada intervalo $(x,y]$ en los que hemos cortado la recta real, tenemos que calcular
 $$
   P(x < X\leq y)= P(X\leq y)-P( X\leq x)=\mbox{`pnorm(y,mu,sigma)-pnorm(x,mu,sigma)}}.
 $$
-  Definimos dos vectores que nos den los extremos izquierdos y derechos de cada
+Definimos dos vectores que nos den los extremos izquierdos y derechos de cada
 intervalo.
 ```{r}
-> extremo.izq=breaks2[-length(breaks2)]
-> extremo.der=breaks2[-1]
-> extremo.izq
-[1] -Inf  4.5  5.0  5.5  6.0  6.5  7.0  7.5
-> extremo.der
-[1] 4.5 5.0 5.5 6.0 6.5 7.0 7.5 Inf
+extremo.izq=breaks2[-length(breaks2)]
+extremo.der=breaks2[-1]
+extremo.izq
+extremo.der
 ```
 Ahora podemos calcular las probabilidades y las frecuencias esperadas de todos los intervalos de golpe:
 ```{r}
-> probs.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma) #Probabilidades teóricas
-> probs.teor
-[1] 0.05179549 0.10163069 0.18527528 0.23657724 0.21160908
-[6] 0.13258117 0.05817473 0.02235633
-> freq.esp=probs.teor*length(iris.sl) #Frecuencias esperadas
-> round(freq.esp,3)
-[1]  7.769 15.245 27.791 35.487 31.741 19.887  8.726  3.353
+probs.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma) #Probabilidades teóricas
+probs.teor
+freq.esp=probs.teor*length(iris.sl) #Frecuencias esperadas
+round(freq.esp,3)
 ```
-La frecuencia esperada de la última clase es inferior a 5, así que vamos a agruparla con la penúltima y así la clase resultante tendrá una frecuencia esperada superior a 5. 
+
+La frecuencia esperada de la última clase es inferior a 5, así que vamos a fundirla con la penúltima y así la clase resultante tendrá una frecuencia esperada superior a 5. 
+
 ```{r}
-> k=length(probs.teor)
-> probs.teor2=c(probs.teor[1:(k-2)],sum(probs.teor[(k-1):k])) #Nuevas probabilidades teóricas
-> freq.obs2=c(freq.obs[1:(k-2)],sum(freq.obs[(k-1):k])) #Nuevas frecuencias observadas
-> chisq.test(freq.obs2,p=probs.teor2)
-
-Chi-squared test for given probabilities
-
-data:  freq.obs2
-X-squared = 11.1196, df = 6, p-value = 0.08475
+k=length(probs.teor)
+probs.teor2=c(probs.teor[1:(k-2)],sum(probs.teor[(k-1):k])) #Nuevas probabilidades teóricas
+freq.obs2=c(freq.obs[1:(k-2)],sum(freq.obs[(k-1):k])) #Nuevas frecuencias observadas
+chisq.test(freq.obs2,p=probs.teor2)
 ```
 Recordemos que el p-valor obtenido no es el del test que realizamos: como hemos estimado dos parámetros, lo tenemos que  calcular con una $\chi^2$ con 4 grados de libertad (dos menos de los que ha usado `chisq.test}):
 ```{r}
-> 1-pchisq(11.1196, 4)
-[1] 0.02525225
+1-pchisq(11.1196, 4)
 ```
 El p-valor es inferior a 0.05, por tanto obtenemos evidencia de que la muestra no proviene de una población normal, es decir, de que las longitudes de los sépalos de las flores iris no siguen una ley normal.
 
 Podríamos automatizar el cálculo del p-valor verdadero de la manera siguiente:
 ```{r}
-> test.iris=chisq.test(freq.obs2,p=probs.teor2)
-> 1-pchisq(test.iris$statistic,test.iris$parameter-2)
-X-squared 
-0.02525177 
+test.iris=chisq.test(freq.obs2,p=probs.teor2)
+1-pchisq(test.iris$statistic,test.iris$parameter-2)
 ```
 
 
-\begin{exemple}
+```{example}
 Vamos a repetir el estudio del ejemplo anterior, pero ahora calculando a mano los intervalos.
 En general, el número de intervalos debe ser suficiente para cubrir toda la forma de la
-distribución, pero tampoco conviene que haya muchos para evitar frecuencias esperadas  pequeñas que obliguen a agrupar intervalos.  Para una distribución normal  se recomienda tomar entre $5$ y $15$ intervalos. Otra posibilidad es decidir el número de intervalos con alguna de las reglas explicadas en la Lección 19 del primer volumen.
+distribución, pero tampoco conviene que haya muchos para evitar frecuencias esperadas  pequeñas que obliguen a agrupar intervalos.  Para una distribución normal  se recomienda tomar entre 5 y 15 intervalos. Otra posibilidad es decidir el número de intervalos con alguna de las reglas explicadas en la Lección 19 de la primera parte.
+
+
+```
+
 
 En nuestro ejemplo, vamos a usar 10 intervalos. Para calcularlos, tomamos el máximo y el mínimo de las observaciones, los restamos y dividimos por el número de intervalos (y, si fuera necesario, redondearíamos adecuadamente).
 ```{r}
-> Ampl=(max(iris.sl)-min(iris.sl))/10
-> Ampl
-[1] 0.36
+Ampl=(max(iris.sl)-min(iris.sl))/10
+Ampl
 ```
-Los extremos de los intervalos en los que dividimos la muestra forman la secuencia que empieza en el
-mínimo y va sumando la amplitud hasta definir los $k=10$ intervalos. Luego hay que adecuar los dos extremos para que cubran el dominio de la densidad de la distribución teórica, en nuestro caso la recta real.
+Los extremos de los intervalos en los que dividimos la muestra forman la secuencia que empieza en el mínimo y va sumando la amplitud hasta definir los $k=10$ intervalos. Luego hay que adecuar los dos extremos para que cubran el dominio de la densidad de la distribución teórica, en nuestro caso la recta real.
 ```{r}
-> breaks=min(iris.sl)+Ampl*(0:10)
-> breaks
-[1] 4.30 4.66 5.02 5.38 5.74 6.10 6.46 6.82 7.18 7.54 7.90
-> breaks2=breaks
-> breaks2[1]=-Inf
-> breaks2[length(breaks2)]=Inf
-> breaks2
-[1] -Inf 4.66 5.02 5.38 5.74 6.10 6.46 6.82 7.18 7.54  Inf
+breaks=min(iris.sl)+Ampl*(0:10)
+breaks
+breaks2=breaks
+breaks2[1]=-Inf
+breaks2[length(breaks2)]=Inf
+breaks2
 ```
 Calculemos, como en el ejemplo anterior, las frecuencias observadas, las probabilidades teóricas y las frecuencias esperadas.
 ```{r}
-> frec.obs=table(cut(iris.sl,breaks=breaks2))
-> frec.obs
-(-Inf,4.66] (4.66,5.02] (5.02,5.38] (5.38,5.74]  (5.74,6.1] 
-9          23          14          27          22 
-(6.1,6.46] (6.46,6.82] (6.82,7.18] (7.18,7.54] (7.54, Inf] 
-20          18           6           5           6 
-> mu=fitdistr(iris.sl,"normal")$estimate[1]
-> sigma=fitdistr(iris.sl,"normal")$estimate[2]
-> extremo.izq=breaks2[-length(breaks2)]
-> extremo.der=breaks2[-1]
-> prob.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma)
-> frec.esp=round(prob.teor*length(iris.sl),2)
-> frec.esp
-[1] 11.37 12.51 19.20 24.44 25.79 22.56 16.37  9.85  4.91  2.99
+frec.obs=table(cut(iris.sl,breaks=breaks2))
+frec.obs
+mu=fitdistr(iris.sl,"normal")$estimate[1]
+sigma=fitdistr(iris.sl,"normal")$estimate[2]
+extremo.izq=breaks2[-length(breaks2)]
+extremo.der=breaks2[-1]
+prob.teor=pnorm(extremo.der,mu,sigma)-pnorm(extremo.izq,mu,sigma)
+frec.esp=round(prob.teor*length(iris.sl),2)
+frec.esp
 ```
 Agruparemos las frecuencias de los dos últimos intervalos y aplicaremos el test $\chi^2$ con el número adecuado de grados de libertad:
 ```{r}
-> frec.obs2=c(frec.obs[1:8], sum(frec.obs[9:10]))
-> prob.teor2=c(prob.teor[1:8], sum(prob.teor[9:10]))
-> test.iris.2=chisq.test(frec.obs2,p=prob.teor2)
-> 1-pchisq(test.iris.2$statistic, test.iris.2$parameter-2)
-X-squared 
-0.02277336 
+frec.obs2=c(frec.obs[1:8], sum(frec.obs[9:10]))
+prob.teor2=c(prob.teor[1:8], sum(prob.teor[9:10]))
+test.iris.2=chisq.test(frec.obs2,p=prob.teor2)
+1-pchisq(test.iris.2$statistic, test.iris.2$parameter-2)
 ```
 El p-valor es de nuevo inferior a 0.05: volvemos a obtener evidencia significativa  de que la muestra no proviene de una población normal.
 
 
 
-\subsection{El test de Kolgomorov-Smirnov}
+## El test de Kolgomorov-Smirnov
 El test de Kolgomorov-Smirnov (K-S) es un test genérico para contrastar la bondad de ajuste a
 distribuciones continuas.  Se puede usar con muestras pequeñas (se suele recomendar 5 elementos como el tamaño mínimo para que el resultado sea significativo), pero  la muestra no puede contener valores repetidos: si los contiene, la distribución del estadístico de contraste bajo la hipótesis nula  no es la que predice la teoría sino que solo se aproxima a ella, y por lo tanto los p-valores que se obtienen son aproximados. 
 
@@ -670,13 +650,13 @@ ejemplo `mean=0, sd=1} para una distribución normal estándar.
 \begin{exemple}
 Efectuemos el test de Kolmogorov-Smirnov para contrastar si las longitudes de sépalos de flores iris siguen una distribución normal de media y desviación típica sus estimaciones máximo verosímiles a partir la muestra:
 ```{r}
-> iris.sl=iris$Sepal.Length
-> mu=fitdistr(iris.sl,"normal")$estimate[1]
-> sigma=fitdistr(iris.sl,"normal")$estimate[2]
-> round(c(mu,sigma),3)
+iris.sl=iris$Sepal.Length
+mu=fitdistr(iris.sl,"normal")$estimate[1]
+sigma=fitdistr(iris.sl,"normal")$estimate[2]
+round(c(mu,sigma),3)
 mean    sd 
 5.843 0.825 
-> ks.test(iris.sl, "pnorm", mean=mu, sd=sigma)
+ks.test(iris.sl, "pnorm", mean=mu, sd=sigma)
 
 One-sample Kolmogorov-Smirnov test
 
@@ -694,9 +674,9 @@ Warning message:
 Obtenemos un p-valor de 0.1812, que no nos permite rechazar la hipótesis de que siguen una ley $N(5.843,0.825)$. Pero R nos avisa de que hay empates. ¿Hay muchos? 
   La función `unique} aplicada a un vector nos da la lista de sus elementos sin repeticiones. 
 ```{r}
-> length(unique(iris.sl))
+length(unique(iris.sl))
 [1] 35
-> 1-length(unique(iris.sl))/length(iris.sl)
+1-length(unique(iris.sl))/length(iris.sl)
 [1] 0.7666667
 ```
 Por tanto, el vector (de 150 entradas) de longitudes de sépalos sólo tiene 35 valores diferentes. El resto, un 76.67\%, son valores repetidos. Hay muchos empates, y el resultado de este test en este caso es poco significativo. 
@@ -707,8 +687,8 @@ Como hemos comentado, el test K-S también se puede usar para contrastar si dos 
 \begin{exemple}
 La tabla de datos `Salaries} del paquete `car} contiene información sobre los sueldos de  397 profesores de una universidad norteamericana en el curso 2008-09.
 ```{r}
-> library(car)
-> str(Salaries)
+library(car)
+str(Salaries)
 'data.frame':	397 obs. of  6 variables:
   $ rank         : Factor w/ 3 levels "AsstProf","AssocProf",..: 3 3 1 3 3 2 3 3 3 3 ...
 $ discipline   : Factor w/ 2 levels "A","B": 2 2 2 2 2 2 2 2 2 2 ...
@@ -719,18 +699,18 @@ $ salary       : int  139750 173200 79750 115000 141500 97000 175000 147765 1192
 ```
 La variable `sex} nos da el sexo del profesor y la variable `salary} su sueldo anual en dólares. Queremos contrastar si los sueldos de hombres y mujeres siguen la misma distribución. Para ello, vamos a suponer que provienen de distribuciones continuas y usaremos el test K-S. Primero miraremos si hay muchos empates.
 ```{r}
-> sal.female=Salaries[Salaries$sex=="Female",]$salary
-> sal.male=Salaries[Salaries$sex=="Male",]$salary
-> 1-length(unique(sal.female))/length(sal.female)
+sal.female=Salaries[Salaries$sex=="Female",]$salary
+sal.male=Salaries[Salaries$sex=="Male",]$salary
+1-length(unique(sal.female))/length(sal.female)
 [1] 0.05128205
-> 1-length(unique(sal.male))/length(sal.male)
+1-length(unique(sal.male))/length(sal.male)
 [1] 0.05027933
-> 1-length(unique(Salaries$salary))/length(Salaries$salary)
+1-length(unique(Salaries$salary))/length(Salaries$salary)
 [1] 0.06549118
 ```
 Las repeticiones en cada lista significan alrededor del 5\% de los datos, y en total un 6.5\%. No son muchas, así que vamos a arriesgarnos con el test K-S.
 ```{r}
-> ks.test(sal.male,sal.female)
+ks.test(sal.male,sal.female)
 
 Two-sample Kolmogorov-Smirnov test
 
@@ -747,7 +727,7 @@ Warning message:
 ```
 El p-valor pequeño nos permite rechazar que los salarios de hombres y mujeres sigan la misma distribución. Si dibujamos un boxplot de los salarios según el sexo, obtenemos la Figura \ref{fig:bpsal}, que muestra que los sueldos de los hombres tienen mayor mediana y variabilidad que los de las mujeres, incluyendo algunos valores atípicos grandes (¿el rector y otros altos cargos académicos?). Si cancelamos este efecto, estandarizando las muestras, ¿siguen saliendo distribuciones diferentes?
 ```{r}
-> ks.test(scale(sal.male),scale(sal.female))
+ks.test(scale(sal.male),scale(sal.female))
 
 Two-sample Kolmogorov-Smirnov test
 
@@ -780,10 +760,10 @@ El más conocido es el \emph{test de normalidad de Kolmogorov-Smirnov-Lilliefors
 
 Vamos a usar el test K-S-L para contrastar si las longitudes de los sépalos de las iris siguen una ley normal. 
 ```{r}
-> #Instalamos y cargamos el paquete "nortest"
+#Instalamos y cargamos el paquete "nortest"
   ...
-> iris.sl=iris$Sepal.Length
-> lillie.test(iris.sl)
+iris.sl=iris$Sepal.Length
+lillie.test(iris.sl)
 
 Lilliefors (Kolmogorov-Smirnov) normality test
 
@@ -795,9 +775,9 @@ El p-valor es muy pequeño, y nos permite rechazar que la muestra provenga de un
 La ventaja del test K-S-L es que es muy conocido, ya que es una variante del K-S (incluso usa el mismo estadístico), pero tiene un inconveniente: aunque es muy sensible a las diferencias entre la muestra y la distribución teórica alrededor de sus valores medios, le cuesta detectar diferencias prominentes en un extremo u otro de la distribución. Esto afecta su potencia. Por ejemplo, sabemos que una t de Student se parece bastante a una normal estándar, pero su densidad es algo más aplanada y hace que en los dos extremos esté por encima de la de la normal.
 Al test K-S-L le cuesta detectar esta discrepancia, como podemos ver en el siguiente ejemplo:
 ```{r}
-> set.seed(100)
-> x=rt(50,3)   #Una muestra de una t de Student con 3 g.l.
-> lillie.test(x)
+set.seed(100)
+x=rt(50,3)   #Una muestra de una t de Student con 3 g.l.
+lillie.test(x)
 
 Lilliefors (Kolmogorov-Smirnov) normality test
 
@@ -809,7 +789,7 @@ D = 0.1033, p-value = 0.2013
 Este inconveniente del test K-S-L lo resuelve el \emph{test de normalidad de Anderson-Darling} (A-D).  Para realizarlo podemos usar la función `ad.test} del paquete `nortest}. Encontraréis los detalles del estadístico que usa en la Ayuda de la función.
 
 ```{r}
-> ad.test(iris.sl)
+ad.test(iris.sl)
 
 Anderson-Darling normality test
 
@@ -818,9 +798,9 @@ A = 0.8892, p-value = 0.02251
 ```
 De nuevo obtenemos un p-valor muy pequeño. Veamos ahora que este test sí que detecta que la muestra anterior de una t de Student con 3 grados de libertad no proviene de una normal:
 ```{r}
-> set.seed(100)
-> x=rt(50,3)
-> ad.test(x)
+set.seed(100)
+x=rt(50,3)
+ad.test(x)
 
 Anderson-Darling normality test
 
@@ -836,15 +816,15 @@ Este test es importante, porque un experimento reciente ha mostrado evidencia si
 De nuevo, los detalles del estadístico que usa los encontraréis en la Ayuda de la función.
 
 ```{r}
-> shapiro.test(iris.sl)
+shapiro.test(iris.sl)
 
 Shapiro-Wilk normality test
 
 data:  iris.sl
 W = 0.9761, p-value = 0.01018
-> set.seed(100)
-> x=rt(50,3)
-> shapiro.test(x)
+set.seed(100)
+x=rt(50,3)
+shapiro.test(x)
 
 Shapiro-Wilk normality test
 
@@ -855,9 +835,9 @@ W = 0.8949, p-value = 0.0003285
 Un último inconveniente que afecta a todos los tests explicados hasta ahora es el de los empates. Sus estadísticos  tienen las distribuciones que se usan para calcular los p-valores cuando la muestra no tiene datos repetidos, y por lo tanto, si hay muchos, el p-valor puede no tener ningún significado. De los tres, el menos sensible a repeticiones es el S-W, pero si hay muchas es conveniente usar un test que no sea sensible a éstas, como por ejemplo el \emph{test omnibus de D'Agostino-Pearson}. Este test se encuentra implementado en la función `dagoTest} del paquete `fBasics}, y lo que hace es cuantificar lo diferentes que son la asimetría y la curtosis de la muestra (dos parámetros estadísticos relacionados con la forma de una distribución)  respecto de los esperados en una distribución normal, y resume esta discrepancia en un p-valor con el significado usual.
   
 ```{r}
-  > #Instalamos y cargamos el paquete "fBasics"
+  #Instalamos y cargamos el paquete "fBasics"
   ...
-  > dagoTest(iris.sl)
+  dagoTest(iris.sl)
   
   Title:
   D'Agostino Normality Test
@@ -990,8 +970,8 @@ dagoTest(x)
                                                                                   
                                                                                   \item  \verb?2.116?
                                                                                     
-                                                                                    %> x=c(2.46, 2.28, 1.7, 0.62, 0.87, 2.81, 2.35, 2.08, 2.11, 1.72)
-                                                                                    %> fitdistr(x,"weibull")
+                                                                                    %x=c(2.46, 2.28, 1.7, 0.62, 0.87, 2.81, 2.35, 2.08, 2.11, 1.72)
+                                                                                    %fitdistr(x,"weibull")
                                                                                     %     shape       scale  
                                                                                     %  3.4318544   2.1164593 
                                                                                     % (0.9393450) (0.2028442)
@@ -999,10 +979,10 @@ dagoTest(x)
                                                                                     
                                                                                     \item \verb?0.02 SI?
                                                                                       
-                                                                                      %> x=c(65,95,87,70,193)
-                                                                                      %> sum(x)/6
+                                                                                      %x=c(65,95,87,70,193)
+                                                                                      %sum(x)/6
                                                                                       %[1] 85
-                                                                                      %> chisq.test(x,p=c(1,1,1,1,2),rescale.p=T)
+                                                                                      %chisq.test(x,p=c(1,1,1,1,2),rescale.p=T)
                                                                                       %
                                                                                       %	Chi-squared test for given probabilities
                                                                                       %
@@ -1012,57 +992,57 @@ dagoTest(x)
                                                                                       
                                                                                       \item \verb?1.753 0.064 SI?
                                                                                         
-                                                                                        %> fitdistr(rep(0:4,x),"poisson")
+                                                                                        %fitdistr(rep(0:4,x),"poisson")
                                                                                       %    lambda  
                                                                                       %  1.7529412 
                                                                                       % (0.1436065)
-                                                                                      %> c(dpois(0:3,1.753),1-ppois(3,1.753))*85
+                                                                                      %c(dpois(0:3,1.753),1-ppois(3,1.753))*85
                                                                                       %[1] 14.726539 25.815623 22.627394 13.221940  8.608503
-                                                                                      %> chisq.test(x,p=c(dpois(0:3,1.753),1-ppois(3,1.753)))
+                                                                                      %chisq.test(x,p=c(dpois(0:3,1.753),1-ppois(3,1.753)))
                                                                                       %
                                                                                       %	Chi-squared test for given probabilities
                                                                                       %
                                                                                       %data:  x
                                                                                       %X-squared = 7.2603, df = 4, p-value = 0.1228
                                                                                       %
-                                                                                      %> 1-pchisq(7.2603,3)
+                                                                                      %1-pchisq(7.2603,3)
                                                                                       %[1] 0.06404803
                                                                                       
                                                                                       
                                                                                       \item \verb?8.2 3.18 0.692 NO?
                                                                                         
-                                                                                        %> x=c(9,27,51,46,17)
-                                                                                        %> sum(x)
+                                                                                        %x=c(9,27,51,46,17)
+                                                                                        %sum(x)
                                                                                         %[1] 150
-                                                                                        %> mostra=rep(c(1.5,4.5,7.5,10.5,13.5),x)
-                                                                                        %> fitdistr(mostra,"normal")
+                                                                                        %mostra=rep(c(1.5,4.5,7.5,10.5,13.5),x)
+                                                                                        %fitdistr(mostra,"normal")
                                                                                         %     mean         sd    
                                                                                         %  8.2000000   3.1827661 
                                                                                         % (0.2598718) (0.1837571)
-                                                                                        %> left=c(-Inf,3,6,9,12)
-                                                                                        %> right=c(3,6,9,12,Inf)
-                                                                                        %> mu=8.2
-                                                                                        %> sigma=3.18
-                                                                                        %> probs=pnorm(right,mu,sigma)-pnorm(left,mu, sigma)
-                                                                                        %> sum(probs)
+                                                                                        %left=c(-Inf,3,6,9,12)
+                                                                                        %right=c(3,6,9,12,Inf)
+                                                                                        %mu=8.2
+                                                                                        %sigma=3.18
+                                                                                        %probs=pnorm(right,mu,sigma)-pnorm(left,mu, sigma)
+                                                                                        %sum(probs)
                                                                                         %[1] 1
-                                                                                        %> probs*sum(x)
+                                                                                        %probs*sum(x)
                                                                                         %[1]  7.650218 29.028376 53.218532 42.695425 17.407449
-                                                                                        %> chisq.test(x,p=probs)
+                                                                                        %chisq.test(x,p=probs)
                                                                                         %
                                                                                         %	Chi-squared test for given probabilities
                                                                                         %
                                                                                         %data:  x
                                                                                         %X-squared = 0.7377, df = 4, p-value = 0.9466
                                                                                         %
-                                                                                        %> 1-pchisq(0.7377,2)
+                                                                                        %1-pchisq(0.7377,2)
                                                                                         %[1] 0.6915291
                                                                                         
                                                                                         \item \verb?0.313 NO?
                                                                                           
-                                                                                          %> set.seed(2014)
-                                                                                        %> x=rchisq(25,10)
-                                                                                        %> ks.test(x,"pnorm",mean=10,sd=3.16)
+                                                                                          %set.seed(2014)
+                                                                                        %x=rchisq(25,10)
+                                                                                        %ks.test(x,"pnorm",mean=10,sd=3.16)
                                                                                         %
                                                                                         %	One-sample Kolmogorov-Smirnov test
                                                                                         %
@@ -1072,9 +1052,9 @@ dagoTest(x)
                                                                                         
                                                                                         \item \verb?0 SI?
                                                                                           
-                                                                                          %> x=c(4.6, 0.97,  0.3,  1.11,  2.16, 15.52,  1.13,  0.17,
+                                                                                          %x=c(4.6, 0.97,  0.3,  1.11,  2.16, 15.52,  1.13,  0.17,
                                                                                                  %+     0.64,  2.00)
-                                                                                          %> lillie.test(x)
+                                                                                          %lillie.test(x)
                                                                                           %
                                                                                           %	Lilliefors (Kolmogorov-Smirnov) normality test
                                                                                           %
@@ -1083,11 +1063,11 @@ dagoTest(x)
                                                                                           
                                                                                           \item \verb?0.117 NO?
                                                                                             
-                                                                                            %> set.seed(2014)
-                                                                                          %> x=rnorm(15,2,0.8)
-                                                                                          %> set.seed(1007)
-                                                                                          %> y=rexp(25,0.5)
-                                                                                          %> ks.test(x,y)
+                                                                                            %set.seed(2014)
+                                                                                          %x=rnorm(15,2,0.8)
+                                                                                          %set.seed(1007)
+                                                                                          %y=rexp(25,0.5)
+                                                                                          %ks.test(x,y)
                                                                                           %
                                                                                           %	Two-sample Kolmogorov-Smirnov test
                                                                                           %
