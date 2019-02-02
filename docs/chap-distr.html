@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,6 +152,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Respuestas sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="chap-bondad.html"><a href="chap-bondad.html"><i class="fa fa-check"></i><b>6</b> Bondad de ajuste</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-bondad.html"><a href="chap-bondad.html#pruebas-graficas-q-q-plots"><i class="fa fa-check"></i><b>6.1</b> Pruebas gráficas: Q-Q-plots</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-chi2-de-pearson"><i class="fa fa-check"></i><b>6.2</b> El test <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-chi2-para-distribuciones-continuas"><i class="fa fa-check"></i><b>6.3</b> El test <span class="math inline">\(\chi^2\)</span> para distribuciones continuas</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-de-kolgomorov-smirnov"><i class="fa fa-check"></i><b>6.4</b> El test de Kolgomorov-Smirnov</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-bondad.html"><a href="chap-bondad.html#tests-de-normalidad"><i class="fa fa-check"></i><b>6.5</b> Tests de normalidad</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-bondad.html"><a href="chap-bondad.html#guia-rapida-4"><i class="fa fa-check"></i><b>6.6</b> Guía rápida</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-bondad.html"><a href="chap-bondad.html#ejercicios-7"><i class="fa fa-check"></i><b>6.7</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="chap-bondad.html"><a href="chap-bondad.html#modelo-de-test-5"><i class="fa fa-check"></i>Modelo de test</a></li>
+<li class="chapter" data-level="" data-path="chap-bondad.html"><a href="chap-bondad.html#respuestas-al-test-5"><i class="fa fa-check"></i>Respuestas al test</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/cescrossello/AprendeR-II" target="blank">Publicado con  bookdown</a></li>
 
@@ -255,14 +267,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Un vector aleatorio de 10 valores generado con la variable aleatoria <span class="math inline">\(X\)</span>:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.3</span>)</code></pre></div>
-<pre><code>##  [1] 5 5 3 9 8 8 5 8 6 4</code></pre>
+<pre><code>##  [1] 10  8  8  8  7  6  4  6  5  7</code></pre>
 <ul>
 <li>Dos vectores aleatorios más, de 10 valores cada uno, generados con la variable aleatoria <span class="math inline">\(X\)</span>:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.3</span>) </code></pre></div>
-<pre><code>##  [1]  2  6  6  7 12  8  7  5  7  9</code></pre>
+<pre><code>##  [1] 1 3 9 7 8 5 6 8 5 8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="fl">0.3</span>)</code></pre></div>
-<pre><code>##  [1]  9  4 10  6 10  6  6  4  8  3</code></pre>
+<pre><code>##  [1] 5 5 6 8 3 5 4 4 4 3</code></pre>
 <p>Del mismo modo, si estamos trabajando con una variable aleatoria <span class="math inline">\(Y\)</span> de Poisson con parámetro <span class="math inline">\(\lambda=5\)</span>:</p>
 <ul>
 <li><span class="math inline">\(P(Y=8)\)</span>:</li>
@@ -283,7 +295,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Un vector aleatorio de 20 valores generado con la variable aleatoria <span class="math inline">\(Y\)</span>:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rpois</span>(<span class="dv">20</span>,<span class="dv">5</span>)</code></pre></div>
-<pre><code>##  [1]  3 10  4  5  5  3  4  6  4  6  4  2  4  2  4  4  4  2  4  3</code></pre>
+<pre><code>##  [1]  2  6  1  6  6  4  0  6  4  4  6  2  2 10  5  5  5  4  6  3</code></pre>
 <p>Si no entramos ningún parámetro en las funciones asociadas a la distribución normal, R entiende que se trata de la normal estándar (con media <span class="math inline">\(\mu=0\)</span> y desviación típica <span class="math inline">\(\sigma=1\)</span>): por ejemplo, las dos instrucciones siguientes nos dan el valor <span class="math inline">\(f_Z(0.3)\)</span> de la función densidad de una normal estándar <span class="math inline">\(Z\)</span> aplicada a 0.3 (que <em>no</em> es igual a <span class="math inline">\(P(Z=0.3)\)</span>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dnorm</span>(<span class="fl">0.3</span>)</code></pre></div>
 <pre><code>## [1] 0.3813878</code></pre>
@@ -316,13 +328,9 @@ Figura 1.2: Función distribución de una variable N(0,1)
 <div id="respuestas-al-test" class="section level4 unnumbered">
 <h4>Respuestas al test</h4>
 <p><em>(1)</em> 0.3222</p>
-<p>(Lo hemos calculado con <code>round(dnorm(0.5,0.2,1.2),4)</code>)</p>
 <p><em>(2)</em> 0.0098</p>
-<p>(Lo hemos calculado con <code>round(pnorm(7,0.2,1.2)-pnorm(3,0.2,1.2),4)</code>)</p>
 <p><em>(3)</em> 0.3221</p>
-<p>(Lo hemos calculado con <code>round(pbinom(7,10,0.2)-pbinom(2,10,0.2),4)</code>. También obtenemos el resultado correcto con <code>round(sum(dbinom(3:7,10,0.2)),4)</code>. En cambio, con <code>round(pbinom(7,10,0.2)-pbinom(3,10,0.2),4)</code> no se obtiene el resultado correcto: da 0.1208. Pensad por qué aquí hay que restar <code>pbinom(2,10,0.2)</code> y en la pregunta anterior restábamos <code>pnorm(3,0.2,1.2)</code>.)</p>
 <p><em>(4)</em> <code>median(rbinom(20,10,0.2))</code></p>
-<p>(También sería correcto <code>median(rbinom(20,size=10,prob=0.2))</code>, pero no es necesario dar los nombres de los parámetros si entráis sus valores en el orden correcto, y por eso no los hemos explicado.)</p>
 
 </div>
 </div>

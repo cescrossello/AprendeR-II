@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1549127751601.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "960415901",
+    "id" : "B4D9BE11",
+    "lastKnownWriteTime" : 1549127817,
+    "last_content_update" : 1549127817752,
+    "path" : "~/Documents/GitHub/AprendeR-II/04-Intervalos_de_confianza.Rmd",
+    "project_path" : "04-Intervalos_de_confianza.Rmd",
+    "properties" : {
+        "cursorPosition" : "454,3",
+        "scrollLine" : "441"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

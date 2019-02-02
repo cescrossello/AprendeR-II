@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-02-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -150,6 +150,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#ejercicios-6"><i class="fa fa-check"></i>Ejercicios</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-al-test-4"><i class="fa fa-check"></i>Respuestas al test</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Respuestas sucintas a los ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-bondad.html"><a href="chap-bondad.html"><i class="fa fa-check"></i><b>6</b> Bondad de ajuste</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-bondad.html"><a href="chap-bondad.html#pruebas-graficas-q-q-plots"><i class="fa fa-check"></i><b>6.1</b> Pruebas gráficas: Q-Q-plots</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-chi2-de-pearson"><i class="fa fa-check"></i><b>6.2</b> El test <span class="math inline">\(\chi^2\)</span> de Pearson</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-chi2-para-distribuciones-continuas"><i class="fa fa-check"></i><b>6.3</b> El test <span class="math inline">\(\chi^2\)</span> para distribuciones continuas</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-bondad.html"><a href="chap-bondad.html#el-test-de-kolgomorov-smirnov"><i class="fa fa-check"></i><b>6.4</b> El test de Kolgomorov-Smirnov</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-bondad.html"><a href="chap-bondad.html#tests-de-normalidad"><i class="fa fa-check"></i><b>6.5</b> Tests de normalidad</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-bondad.html"><a href="chap-bondad.html#guia-rapida-4"><i class="fa fa-check"></i><b>6.6</b> Guía rápida</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-bondad.html"><a href="chap-bondad.html#ejercicios-7"><i class="fa fa-check"></i><b>6.7</b> Ejercicios</a><ul>
+<li class="chapter" data-level="" data-path="chap-bondad.html"><a href="chap-bondad.html#modelo-de-test-5"><i class="fa fa-check"></i>Modelo de test</a></li>
+<li class="chapter" data-level="" data-path="chap-bondad.html"><a href="chap-bondad.html#respuestas-al-test-5"><i class="fa fa-check"></i>Respuestas al test</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -311,18 +323,7 @@ y</code></pre></div>
 <div id="respuestas-al-test-2" class="section level4 unnumbered">
 <h4>Respuestas al test</h4>
 <p><em>(1)</em> 2.116</p>
-<p>Podemos obtener la respuesta con</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="kw">c</span>(<span class="fl">2.46</span>, <span class="fl">2.28</span>, <span class="fl">1.7</span>, <span class="fl">0.62</span>, <span class="fl">0.87</span>, <span class="fl">2.81</span>, <span class="fl">2.35</span>, <span class="fl">2.08</span>, <span class="fl">2.11</span>, <span class="fl">1.72</span>)
-<span class="kw">round</span>(<span class="kw">fitdistr</span>(x,<span class="st">&quot;weibull&quot;</span>)<span class="op">$</span>estimate,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## shape scale 
-##  3.43  2.12</code></pre>
 <p><em>(2)</em> 0.038</p>
-<p>Podemos obtener la respuesta con</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
-x=<span class="kw">rgeom</span>(<span class="dv">100</span>,<span class="fl">0.6</span>)
-<span class="kw">round</span>(<span class="kw">fitdistr</span>(x,<span class="st">&quot;geometric&quot;</span>)<span class="op">$</span>sd,<span class="dv">3</span>)</code></pre></div>
-<pre><code>##  prob 
-## 0.038</code></pre>
 
 </div>
 </div>

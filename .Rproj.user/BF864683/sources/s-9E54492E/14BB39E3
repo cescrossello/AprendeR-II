@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1549127691660.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "14BB39E3",
+    "lastKnownWriteTime" : 1549127703,
+    "last_content_update" : 1549127703973,
+    "path" : "~/Documents/GitHub/AprendeR-II/02-Muestreo.Rmd",
+    "project_path" : "02-Muestreo.Rmd",
+    "properties" : {
+        "cursorPosition" : "523,1",
+        "scrollLine" : "515"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
