@@ -525,10 +525,11 @@ sort(sapply(Y,FUN=function(x){sample(x+20*(0:4),3,replace=FALSE)}))
 ```
 
 
+```{r,include=FALSE,eval=FALSE}
 ### Soluciones sucintas a los ejercicios {-}
 
 **1)** *(a)*
-```{r}
+#```{r}
 DCR=read.table("http://www.hofroe.net/stat557/data/crab.txt",header=TRUE)
 M=function(n,N,s){
 set.seed(s)
@@ -537,28 +538,28 @@ Res=round(c(mean(Muestras),sd(Muestras)),2)
 attr(Res,"names")=c("Media","Desv. Típica")
 Res
 }
-```
+#```
 
 *(b)*
-```{r}
+#```{r}
 M(30,100,00)
-```
+#```
 
 *(c)* El TCL predice como media la de la población (el vector de pesos)
 
-```{r} 
+#```{r} 
 round(mean(DCR$Weight),2)
-``` 
+#``` 
 
 y como desviación típica la desviación típica de la población dividida por la raíz cuadrada del tamaño de las muestras
 
-```{r} 
+#```{r} 
 round((sd(DCR$Weight)*sqrt(length(DCR$Weight)-1)/sqrt(length(DCR$Weight)))/sqrt(30),2)
-``` 
+#``` 
 
 **2)** Por ejemplo
 
-```{r}
+#```{r}
 Clust_sample=function(DF,Fact,n){
   attach(DF)
   Tamaños=round(prop.table(table(Fact))*n)
@@ -570,11 +571,11 @@ Clust_sample=function(DF,Fact,n){
   sort(Muestra)  
 }
 Clust_sample(iris,Species,15)
-```
+#```
 
 Una construcción equivalente, sin usar un bucle **for**
 
-```{r}
+#```{r}
 Clust_sample=function(DF,Fact,n){
   attach(DF)
   M=length(levels(Fact))
@@ -585,7 +586,7 @@ Clust_sample=function(DF,Fact,n){
   Muestra 
 }
 Clust_sample(iris,Species,15)
+#```
 ```
-
 
 

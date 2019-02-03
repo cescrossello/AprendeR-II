@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-02-02">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -120,7 +120,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#modelo-de-test-1"><i class="fa fa-check"></i>Modelo de test</a></li>
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#ejercicios-2"><i class="fa fa-check"></i>Ejercicios</a></li>
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#respuestas-al-test-1"><i class="fa fa-check"></i>Respuestas al test</a></li>
-<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#soluciones-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Soluciones sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estimacion.html"><a href="estimacion.html"><i class="fa fa-check"></i><b>3</b> Estimación puntual</a><ul>
@@ -149,7 +148,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#modelo-de-test-4"><i class="fa fa-check"></i>Modelo de test</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#ejercicios-6"><i class="fa fa-check"></i>Ejercicios</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-al-test-4"><i class="fa fa-check"></i>Respuestas al test</a></li>
-<li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Respuestas sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-bondad.html"><a href="chap-bondad.html"><i class="fa fa-check"></i><b>6</b> Bondad de ajuste</a><ul>
@@ -226,7 +224,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>Y bueno, tras todo este vocabulario, ¿cuál sería la conclusión? El p-valor obtenido significa que si la moneda no estuviera trucada, la probabilidad de obtener el número de caras que hemos obtenido o más es muy pequeña, lo que hace difícil de creer que la moneda no esté trucada. En particular, si trabajamos con un nivel de significación del 5%, como el p-valor es más pequeño que 0.05, rechazamos la hipótesis nula. Equivalentemente, como el intervalo de confianza del 95% para la <span class="math inline">\(p\)</span> está completamente a la derecha del valor que contrastamos, 0.5, con este nivel de confianza hemos de concluir que <span class="math inline">\(p&gt;0.5\)</span>.</p>
 <p>En resumen, aceptando una probabilidad de error de tipo I (de decidir que una moneda honrada está trucada) del 5%, rechazamos la hipótesis nula y concluimos que la moneda está trucada a favor de cara.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-120"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-115"></span>
 <img src="http://imgs.xkcd.com/comics/null_hypothesis.png" alt="&quot;Hipótesis Nula&quot; (recuperado de  http://imgs.xkcd.com/comics/null_hypothesis.png (CC-BY-NC 2.5))"  />
 <p class="caption">
 Figura 5.1: “Hipótesis Nula” (recuperado de <a href="http://imgs.xkcd.com/comics/null_hypothesis.png" class="uri">http://imgs.xkcd.com/comics/null_hypothesis.png</a> (CC-BY-NC 2.5))
@@ -610,7 +608,7 @@ H_{1}:\mu_n&gt; \mu_f
 <p>El p-valor es 0.726, la conclusión es la misma. El mensaje de advertencia nos avisa de que la muestra ha contenido valores iguales al valor de la mediana contrastado, por lo que el p-valor obtenido no es exacto. Solo os tenéis que preocupar de un mensaje como este si el p-valor fuera muy cercano al nivel de significación deseado, que no es el caso.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-145" class="example"><strong>Ejemplo 5.8  </strong></span>Si las diferencias en promedios de horas de sueño no siguen distribuciones normales, el test t realizado en el Ejemplo <a href="chap-contrastes.html#exm:sueño">5.5</a> no sirve para nada. En este caso, vamos a usar un test de Wilcoxon para muestras emparejadas. Este test en realidad contrastará la <em>hipótesis nula</em> de que si para cada individuo calculamos la diferencia entre el aumento promedio de horas de sueño cuando toma hiosciamina y el aumento promedio tomando hioscina, la <strong>mediana</strong> de la variable aleatoria que define estas diferencias es 0, y como hipótesis alternativa que esta mediana es menor que 0 (y que por lo tanto más de la mitad de las veces es negativa, es decir, que a más de la mitad de la población la hioscina le añade más tiempo promedio de sueño que la hiosciamina). Si las variables “aumento de horas de sueño” en juego son simétricas, estas medianas coinciden con las correspondientes medias y llevamos a cabo el contraste del Ejemplo <a href="chap-contrastes.html#exm:sueño">5.5</a>. Si no son simétricas, igualmente estamos contrastando si la hioscina es más efectiva que la hiosciamina, solo que planteándolo de otra manera.</p>
+<p><span id="exm:unnamed-chunk-140" class="example"><strong>Ejemplo 5.8  </strong></span>Si las diferencias en promedios de horas de sueño no siguen distribuciones normales, el test t realizado en el Ejemplo <a href="chap-contrastes.html#exm:sueño">5.5</a> no sirve para nada. En este caso, vamos a usar un test de Wilcoxon para muestras emparejadas. Este test en realidad contrastará la <em>hipótesis nula</em> de que si para cada individuo calculamos la diferencia entre el aumento promedio de horas de sueño cuando toma hiosciamina y el aumento promedio tomando hioscina, la <strong>mediana</strong> de la variable aleatoria que define estas diferencias es 0, y como hipótesis alternativa que esta mediana es menor que 0 (y que por lo tanto más de la mitad de las veces es negativa, es decir, que a más de la mitad de la población la hioscina le añade más tiempo promedio de sueño que la hiosciamina). Si las variables “aumento de horas de sueño” en juego son simétricas, estas medianas coinciden con las correspondientes medias y llevamos a cabo el contraste del Ejemplo <a href="chap-contrastes.html#exm:sueño">5.5</a>. Si no son simétricas, igualmente estamos contrastando si la hioscina es más efectiva que la hiosciamina, solo que planteándolo de otra manera.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(Hiosciamina, Hioscina, <span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
@@ -627,7 +625,7 @@ H_{1}:\mu_n&gt; \mu_f
 <p>En este caso R nos avisa de nuevo de que el p-valor no es exacto, pero esto no afecta a la conclusión dado que el p-valor es muy pequeño: rechazamos la hipótesis nula en favor de la alternativa y también concluimos con este test no paramétrico que la hioscina tiene un mayor efecto somnífero que la hiosciamina.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-147" class="example"><strong>Ejemplo 5.9  </strong></span>Nos preguntamos si los hijos de madres de 20 años tienen el mismo peso medio al nacer que los de madres de 30 años, o no. Vamos a responder esta pregunta con un contraste bilateral de estos pesos medios usando la muestra recogida en la tabla de datos <code>birthwt</code> del paquete <strong>MASS</strong>, que contiene la variable <code>age</code> con la edad de las madres.</p>
+<p><span id="exm:unnamed-chunk-142" class="example"><strong>Ejemplo 5.9  </strong></span>Nos preguntamos si los hijos de madres de 20 años tienen el mismo peso medio al nacer que los de madres de 30 años, o no. Vamos a responder esta pregunta con un contraste bilateral de estos pesos medios usando la muestra recogida en la tabla de datos <code>birthwt</code> del paquete <strong>MASS</strong>, que contiene la variable <code>age</code> con la edad de las madres.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hijos.<span class="dv">20</span>=birthwt[birthwt<span class="op">$</span>age<span class="op">==</span><span class="dv">20</span>,<span class="st">&quot;bwt&quot;</span>]
@@ -654,7 +652,7 @@ hijos.<span class="dv">30</span>=birthwt[birthwt<span class="op">$</span>age<spa
 \]</span> que, si la hipótesis nula <span class="math inline">\(\sigma^2=\sigma_0^2\)</span> es verdadera, sigue una distribución <span class="math inline">\(\chi^2_{n-1}\)</span>, de ahí su nombre. Dicho test está convenientemente implementado en la función <code>sigma.test</code> del paquete <strong>TeachingDemos</strong>. Su sintaxis es la misma que la de la función <code>t.test</code> para una muestra, substituyendo el parámetro <code>mu</code> de <code>t.test</code> por el parámetro <code>sigma</code> (para especificar el valor de la desviación típica que contrastamos, <span class="math inline">\(\sigma_0\)</span>) o <code>sigmasq</code> (por “sigma al cuadrado”, para especificar el valor de la varianza que contrastamos, <span class="math inline">\(\sigma_0^2\)</span>). Como siempre, los valores por defecto de <code>alternative</code> y <code>conf.level</code> son <code>&quot;two.sided&quot;</code> y 0.95, respectivamente. La salida de la función es también similar a la de <code>t.test</code>. Veamos un ejemplo.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-150" class="example"><strong>Ejemplo 5.10  </strong></span>Se ha realizado un experimento para estudiar el tiempo <span class="math inline">\(X\)</span> (en minutos) que tarda un lagarto del desierto en llegar a los 45<sup>o</sup> partiendo de su temperatura normal mientras está a la sombra. Los tiempos obtenidos (en minutos) en una muestra aleatoria de lagartos fueron los siguientes:</p>
+<p><span id="exm:unnamed-chunk-145" class="example"><strong>Ejemplo 5.10  </strong></span>Se ha realizado un experimento para estudiar el tiempo <span class="math inline">\(X\)</span> (en minutos) que tarda un lagarto del desierto en llegar a los 45<sup>o</sup> partiendo de su temperatura normal mientras está a la sombra. Los tiempos obtenidos (en minutos) en una muestra aleatoria de lagartos fueron los siguientes:</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TL45=<span class="kw">c</span>(<span class="fl">10.1</span>,<span class="fl">12.5</span>,<span class="fl">12.2</span>,<span class="fl">10.2</span>,<span class="fl">12.8</span>,<span class="fl">12.1</span>,<span class="fl">11.2</span>,<span class="fl">11.4</span>,<span class="fl">10.7</span>,<span class="fl">14.9</span>,<span class="fl">13.9</span>,<span class="fl">13.3</span>)</code></pre></div>
@@ -707,7 +705,7 @@ V=iris[iris<span class="op">$</span>Species<span class="op">==</span><span class
 <p>Puede ser conveniente remarcar aquí que el intervalo de confianza obtenido con <code>var.test</code> es para <em>el cociente de varianzas poblacionales</em> <span class="math inline">\(\sigma^2_x/\sigma^2_y\)</span>, no para su diferencia. Por lo tanto, para contrastar si las varianzas son iguales o diferentes, hay que mirar si el 1 pertenece o no al intervalo obtenido. En este ejemplo, el intervalo de confianza al 95% ha sido [0.174, 0.541] y no contiene el 1, lo que confirma la evidencia de que las varianzas son diferentes.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-155" class="example"><strong>Ejemplo 5.12  </strong></span>Queremos contrastar si los gatos adultos macho pesan más que los gatos adultos hembra. Para ello usaremos los datos recogidos en el <em>dataframe</em> <code>cats</code> del paquete <strong>MASS</strong>, que contiene información sobre el peso de una muestra de gatos adultos, separados por su sexo.</p>
+<p><span id="exm:unnamed-chunk-150" class="example"><strong>Ejemplo 5.12  </strong></span>Queremos contrastar si los gatos adultos macho pesan más que los gatos adultos hembra. Para ello usaremos los datos recogidos en el <em>dataframe</em> <code>cats</code> del paquete <strong>MASS</strong>, que contiene información sobre el peso de una muestra de gatos adultos, separados por su sexo.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cats)</code></pre></div>
@@ -756,7 +754,7 @@ H_{1}:\mu_m&gt;\mu_h
 <p>Hemos insistido en que el test F solo es válido si las dos poblaciones cuyas varianzas comparamos son normales. ¿Qué podemos hacer si dudamos de su normalidad? Usar un test no paramétrico que no presuponga esta hipótesis. Hay diversos tests no paramétricos para realizar contrastes bilaterales de dos varianzas. Aquí os recomendamos el <strong>test de Fligner-Killeen</strong>, implementado en la función <code>fligner.test</code>. Se aplica o bien a una <code>list</code> formada por las dos muestras, o bien a una fórmula que separe un vector numérico en dos muestras por medio de un factor de dos niveles.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-159" class="example"><strong>Ejemplo 5.13  </strong></span>Si queremos contrastar si las varianzas de las longitudes de los sépalos de las flores iris setosa y virginica son iguales o no sin presuponer que siguen leyes normales, podemos usar el test de Fligner-Killeen de la manera siguiente:</p>
+<p><span id="exm:unnamed-chunk-154" class="example"><strong>Ejemplo 5.13  </strong></span>Si queremos contrastar si las varianzas de las longitudes de los sépalos de las flores iris setosa y virginica son iguales o no sin presuponer que siguen leyes normales, podemos usar el test de Fligner-Killeen de la manera siguiente:</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(<span class="kw">list</span>(S,V))</code></pre></div>
@@ -768,7 +766,7 @@ H_{1}:\mu_m&gt;\mu_h
 <p>El p-valor es 0.0016, por lo que podemos concluir que las varianzas son diferentes.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-161" class="example"><strong>Ejemplo 5.14  </strong></span>Si queremos contrastar si las varianzas de los pesos de los gatos y las gatas adultos son iguales o no sin presuponer que dichos pesos tienen distribuciones normales, podemos usar el test de Fligner-Killeen de la manera siguiente:</p>
+<p><span id="exm:unnamed-chunk-156" class="example"><strong>Ejemplo 5.14  </strong></span>Si queremos contrastar si las varianzas de los pesos de los gatos y las gatas adultos son iguales o no sin presuponer que dichos pesos tienen distribuciones normales, podemos usar el test de Fligner-Killeen de la manera siguiente:</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fligner.test</span>(Bwt<span class="op">~</span>Sex, <span class="dt">data=</span>cats)</code></pre></div>
@@ -794,7 +792,7 @@ H_{1}:\mu_m&gt;\mu_h
 <p>Puede ser útil saber que el intervalo de confianza para la <span class="math inline">\(p\)</span> que da <code>binom.test</code> en un contraste bilateral es el de Clopper-Pearson.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-164" class="example"><strong>Ejemplo 5.15  </strong></span>Recordemos el Ejemplo <a href="chap-contrastes.html#exm:monedabase">5.1</a>, donde, en una serie de 20 lanzamientos de una moneda, había obtenido 15 caras. ¿Podemos sospechar que la moneda está trucada a favor de cara? Como comentamos en ese ejemplo, si llamamos <span class="math inline">\(p\)</span> a la probabilidad de obtener cara con esta moneda, el contraste que queremos realizar es <span class="math display">\[
+<p><span id="exm:unnamed-chunk-159" class="example"><strong>Ejemplo 5.15  </strong></span>Recordemos el Ejemplo <a href="chap-contrastes.html#exm:monedabase">5.1</a>, donde, en una serie de 20 lanzamientos de una moneda, había obtenido 15 caras. ¿Podemos sospechar que la moneda está trucada a favor de cara? Como comentamos en ese ejemplo, si llamamos <span class="math inline">\(p\)</span> a la probabilidad de obtener cara con esta moneda, el contraste que queremos realizar es <span class="math display">\[
 \left\{\begin{array}{l}
 H_{0}:p=0.5\\
 H_{1}:p&gt; 0.5
@@ -831,7 +829,7 @@ H_{1}:p&gt; 0.5
 <p>Veamos algunos ejemplos más.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-167" class="example"><strong>Ejemplo 5.16  </strong></span>Queremos contrastar si la proporción de estudiantes zurdos en la UIB es diferente del 10%, el porcentaje estimado de zurdos en España. Es decir, si llamamos <span class="math inline">\(p\)</span> a la proporción de estudiantes zurdos en la UIB, queremos realizar el contraste <span class="math display">\[
+<p><span id="exm:unnamed-chunk-162" class="example"><strong>Ejemplo 5.16  </strong></span>Queremos contrastar si la proporción de estudiantes zurdos en la UIB es diferente del 10%, el porcentaje estimado de zurdos en España. Es decir, si llamamos <span class="math inline">\(p\)</span> a la proporción de estudiantes zurdos en la UIB, queremos realizar el contraste <span class="math display">\[
 \left\{
 \begin{array}{l}
 H_0:p=0.1\\
@@ -954,7 +952,7 @@ Datos</code></pre></div>
 \]</span> y esto es equivalente a <span class="math inline">\(p_v&lt;p_n\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-174" class="example"><strong>Ejemplo 5.18  </strong></span>Para determinar si el Síndrome de Muerte Súbita del Recién Nacido (<em>SIDS</em>, por sus siglas en inglés) tiene algún componente genético, se estudiaron parejas de gemelos y mellizos en las que se dio algún caso de SIDS. Sean <span class="math inline">\(p_1\)</span> la proporción de casos con exactamente una muerte por SIDS entre las parejas de gemelos con algún caso de SIDS, y <span class="math inline">\(p_2\)</span> la proporción de casos con exactamente una muerte por SIDS entre las parejas de mellizos con algún caso de SIDS. La hipótesis de trabajo es que si el SIDS tiene componente genético, será más probable que un gemelo de un muerto por SIDS también lo sufra que si solo es mellizo, y por lo tanto que en las parejas de gemelos ha de ser más raro que haya exactamente un caso de SIDS que en las parejas de mellizos. Es decir, que <span class="math inline">\(p_1&lt;p_2\)</span>. Así pues, queremos realizar el contraste <span class="math display">\[
+<span id="exm:unnamed-chunk-169" class="example"><strong>Ejemplo 5.18  </strong></span>Para determinar si el Síndrome de Muerte Súbita del Recién Nacido (<em>SIDS</em>, por sus siglas en inglés) tiene algún componente genético, se estudiaron parejas de gemelos y mellizos en las que se dio algún caso de SIDS. Sean <span class="math inline">\(p_1\)</span> la proporción de casos con exactamente una muerte por SIDS entre las parejas de gemelos con algún caso de SIDS, y <span class="math inline">\(p_2\)</span> la proporción de casos con exactamente una muerte por SIDS entre las parejas de mellizos con algún caso de SIDS. La hipótesis de trabajo es que si el SIDS tiene componente genético, será más probable que un gemelo de un muerto por SIDS también lo sufra que si solo es mellizo, y por lo tanto que en las parejas de gemelos ha de ser más raro que haya exactamente un caso de SIDS que en las parejas de mellizos. Es decir, que <span class="math inline">\(p_1&lt;p_2\)</span>. Así pues, queremos realizar el contraste <span class="math display">\[
 \left\{\begin{array}{l}
 H_0:p_1=p_2\\
 H_1:p_1&lt; p_2
@@ -1047,7 +1045,7 @@ Datos</code></pre></div>
 <span class="math inline">\(p_{10}=p_{01}\)</span> y cualquier hipótesis alternativa se traduce en la misma desigualdad, pero para <span class="math inline">\(p_{10}\)</span> y <span class="math inline">\(p_{01}\)</span>: <span class="math inline">\(p_1\neq p_2\)</span> es equivalente a <span class="math inline">\(p_{10}\neq p_{01}\)</span>; <span class="math inline">\(p_1&lt; p_2\)</span> es equivalente a <span class="math inline">\(p_{10}&lt; p_{01}\)</span>; y <span class="math inline">\(p_1&gt; p_2\)</span> es equivalente a <span class="math inline">\(p_{10}&gt; p_{01}\)</span>. Por lo tanto podemos traducir el contraste sobre <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span> al mismo contraste sobre <span class="math inline">\(p_{10}\)</span> y <span class="math inline">\(p_{01}\)</span>. La gracia ahora está en que si la hipótesis nula <span class="math inline">\(p_{10}=p_{01}\)</span> es cierta, entonces, en el total de casos discordantes, el número de sujetos en los que la característica 1 da Sí y la característica 2 da No sigue una ley binomial con <span class="math inline">\(p=0.5\)</span>. Por lo tanto, podemos efectuar el contraste usando un test binomial exacto tomando como muestra los casos discordantes de nuestra muestra, de tamaño <span class="math inline">\(b+c\)</span>, como éxitos los sujetos que han dado Sí en la característica 1 y No en la característica 2, de tamaño <span class="math inline">\(c\)</span>, con proporción a contrastar <span class="math inline">\(p=0.5\)</span> y con hipótesis alternativa la que corresponda. La ventaja de este test es que su validez no requiere de ninguna hipótesis sobre los tamaños de las muestras. El inconveniente es que el intervalo de confianza que nos dará será para <span class="math inline">\(p_{10}/(p_{10}+p_{01})\)</span>, y no permite obtener un intervalo de confianza para la diferencia o el cociente de las probabilidades <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span> de interés.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-178" class="example"><strong>Ejemplo 5.20  </strong></span>Usemos el test binomial para llevar a cabo el contraste bilateral del Ejemplo <a href="chap-contrastes.html#exm:asma1">5.19</a>. Habíamos obtenido 30+48=78 casos discordantes, de los que 48 eran casos en los que el tratamiento A había dado Sí y el tratamiento B había dado No.</p>
+<p><span id="exm:unnamed-chunk-173" class="example"><strong>Ejemplo 5.20  </strong></span>Usemos el test binomial para llevar a cabo el contraste bilateral del Ejemplo <a href="chap-contrastes.html#exm:asma1">5.19</a>. Habíamos obtenido 30+48=78 casos discordantes, de los que 48 eran casos en los que el tratamiento A había dado Sí y el tratamiento B había dado No.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(<span class="dv">48</span>, <span class="dv">78</span>, <span class="dt">p=</span><span class="fl">0.5</span>)</code></pre></div>
@@ -1065,7 +1063,7 @@ Datos</code></pre></div>
 <p>Obtenemos de nuevo un p-valor en la zona de penumbra, ligeramente superior a 0.05.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-180" class="example"><strong>Ejemplo 5.21  </strong></span>Para determinar si un test casero de VIH basado en un frotis bucal da más positivos (que seguramente serán falsos positivos) que el test de VIH de referencia, basado en una analítica de sangre que detecta la presencia del virus, se tomó una muestra aleatoria de 241 individuos en situación de riesgo, y a todos se les realizaron ambos tests. Los resultados se resumen en la tabla siguiente:
+<span id="exm:unnamed-chunk-175" class="example"><strong>Ejemplo 5.21  </strong></span>Para determinar si un test casero de VIH basado en un frotis bucal da más positivos (que seguramente serán falsos positivos) que el test de VIH de referencia, basado en una analítica de sangre que detecta la presencia del virus, se tomó una muestra aleatoria de 241 individuos en situación de riesgo, y a todos se les realizaron ambos tests. Los resultados se resumen en la tabla siguiente:
 </div>
 
 <p><span class="math display">\[
@@ -1351,52 +1349,6 @@ H_{1}:\mu_n&gt; \mu_f
 <p><em>(2)</em> 0.083 SI</p>
 <p><em>(3)</em> 0.078 1.465 NO</p>
 <p><em>(4)</em> 0.145 NO</p>
-</div>
-<div id="respuestas-sucintas-a-los-ejercicios" class="section level3 unnumbered">
-<h3>Respuestas sucintas a los ejercicios</h3>
-<p><strong>(1)</strong> <em>(a)</em> No:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">O2=<span class="kw">c</span>(<span class="fl">9.1</span>,<span class="fl">6.8</span>,<span class="fl">7.0</span>,<span class="fl">7.5</span>,<span class="fl">8.7</span>,<span class="fl">3.2</span>,<span class="fl">5.4</span>,<span class="fl">8.1</span>,<span class="fl">4.4</span>,<span class="fl">5.1</span>,<span class="fl">6.2</span>,<span class="fl">6.9</span>,<span class="fl">6.9</span>,<span class="fl">4.3</span>,
-    <span class="fl">8.0</span>,<span class="fl">5.3</span>,<span class="fl">6.2</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="fl">5.8</span>,<span class="fl">6.9</span>,<span class="fl">7.7</span>,<span class="fl">5.2</span>,<span class="fl">5.8</span>,<span class="fl">6.3</span>,<span class="fl">5.9</span>,<span class="fl">8.5</span>,<span class="fl">7.5</span>,<span class="fl">8.9</span>,
-    <span class="fl">5.6</span>,<span class="fl">6.6</span>,<span class="fl">5.3</span>,<span class="fl">5.7</span>,<span class="fl">6.9</span>,<span class="fl">6.6</span>)
-<span class="kw">t.test</span>(O2,<span class="dt">mu=</span><span class="fl">6.5</span>,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</code></pre></div>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  O2
-## t = 0.124, df = 34, p-value = 0.549
-## alternative hypothesis: true mean is less than 6.5
-## 95 percent confidence interval:
-##     -Inf 6.91816
-## sample estimates:
-## mean of x 
-##   6.52857</code></pre>
-<p><em>(b)</em> Tampoco:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(TeachingDemos)
-<span class="kw">sigma.test</span>(O2, <span class="dt">sigma=</span><span class="fl">1.2</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</code></pre></div>
-<pre><code>## 
-##  One sample Chi-squared test for variance
-## 
-## data:  O2
-## X-squared = 43.87, df = 34, p-value = 0.12
-## alternative hypothesis: true variance is greater than 1.44
-## 95 percent confidence interval:
-##  1.29976     Inf
-## sample estimates:
-## var of O2 
-##   1.85798</code></pre>
-<p><strong>(2)</strong> Nop:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">binom.test</span>(<span class="dv">3</span>,<span class="dv">11</span>, <span class="dt">p=</span><span class="fl">0.5</span>)</code></pre></div>
-<pre><code>## 
-##  Exact binomial test
-## 
-## data:  3 and 11
-## number of successes = 3, number of trials = 11, p-value = 0.227
-## alternative hypothesis: true probability of success is not equal to 0.5
-## 95 percent confidence interval:
-##  0.0602177 0.6097426
-## sample estimates:
-## probability of success 
-##               0.272727</code></pre>
 
 </div>
 </div>

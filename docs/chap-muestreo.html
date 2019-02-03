@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-02-02">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -120,7 +120,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#modelo-de-test-1"><i class="fa fa-check"></i>Modelo de test</a></li>
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#ejercicios-2"><i class="fa fa-check"></i>Ejercicios</a></li>
 <li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#respuestas-al-test-1"><i class="fa fa-check"></i>Respuestas al test</a></li>
-<li class="chapter" data-level="" data-path="chap-muestreo.html"><a href="chap-muestreo.html#soluciones-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Soluciones sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estimacion.html"><a href="estimacion.html"><i class="fa fa-check"></i><b>3</b> Estimación puntual</a><ul>
@@ -149,7 +148,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#modelo-de-test-4"><i class="fa fa-check"></i>Modelo de test</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#ejercicios-6"><i class="fa fa-check"></i>Ejercicios</a></li>
 <li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-al-test-4"><i class="fa fa-check"></i>Respuestas al test</a></li>
-<li class="chapter" data-level="" data-path="chap-contrastes.html"><a href="chap-contrastes.html#respuestas-sucintas-a-los-ejercicios"><i class="fa fa-check"></i>Respuestas sucintas a los ejercicios</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-bondad.html"><a href="chap-bondad.html"><i class="fa fa-check"></i><b>6</b> Bondad de ajuste</a><ul>
@@ -358,14 +356,14 @@ Figura 2.11: Una muestra polietápica
 <p>Los dos primeros parámetros han de entrarse en este orden o igualados a los parámetros <code>x</code> y <code>size</code>, respectivamente.</p>
 <p>Así, por ejemplo, para obtener una m.a.s. de 15 números entre 1 y 100, podemos entrar:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1]  65  47   3  53  80  77 100  81  60  23  50  47  73  51  58</code></pre>
+<pre><code>##  [1] 74 63 57 94 49 66 44 71 81 82 39 93 34 70 27</code></pre>
 <p>Naturalmente, y como ya nos encontramos en la Lección <a href="chap-distr.html#chap:distr">1</a> cuando generábamos vectores aleatorios con una distribución dada, cada ejecución de <code>sample</code> con los mismos parámetros puede dar lugar a muestras diferentes, y todas ellas tienen la misma probabilidad de aparecer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 91 63 77 63 58 63 54  9 54 96 56 74 13 51 55</code></pre>
+<pre><code>##  [1]  2 29 59 69 43 68 55 71 51 86 77 20  5 86 56</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 42 67 40  7 69 77 51 73 19  1 84 62 56 53 65</code></pre>
+<pre><code>##  [1] 86 84 50 54 30 51  3 49 67 14 81 81 54 85 67</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">100</span>,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 10 22 30 12 34 46 10 76 59 69  8 16 25 28 53</code></pre>
+<pre><code>##  [1]  52  55 100  58  63  59  62   3  52  81   5  91  28   1  44</code></pre>
 <p>Veamos cómo extraer una m.a.s de una tabla de datos. Recordemos el <em>data frame</em> <code>iris</code>, que recoge medidas de pétalos y sépalos de 150 flores de tres especies de iris.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(iris)</code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
@@ -379,29 +377,29 @@ Figura 2.11: Una muestra polietápica
 muestra_iris=iris[x,] <span class="co">#La m.a.s. de la tabla iris</span>
 muestra_iris</code></pre></div>
 <pre><code>##      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-## 39            4.4         3.0          1.3         0.2     setosa
-## 36            5.0         3.2          1.2         0.2     setosa
-## 58            4.9         2.4          3.3         1.0 versicolor
-## 15            5.8         4.0          1.2         0.2     setosa
-## 17            5.4         3.9          1.3         0.4     setosa
-## 20            5.1         3.8          1.5         0.3     setosa
-## 149           6.2         3.4          5.4         2.3  virginica
-## 44            5.0         3.5          1.6         0.6     setosa
-## 69            6.2         2.2          4.5         1.5 versicolor
-## 92            6.1         3.0          4.6         1.4 versicolor
-## 20.1          5.1         3.8          1.5         0.3     setosa
+## 132           7.9         3.8          6.4         2.0  virginica
+## 23            4.6         3.6          1.0         0.2     setosa
+## 144           6.8         3.2          5.9         2.3  virginica
+## 31            4.8         3.1          1.6         0.2     setosa
+## 5             5.0         3.6          1.4         0.2     setosa
+## 21            5.4         3.4          1.7         0.2     setosa
+## 79            6.0         2.9          4.5         1.5 versicolor
+## 78            6.7         3.0          5.0         1.7 versicolor
+## 100           5.7         2.8          4.1         1.3 versicolor
+## 40            5.1         3.4          1.5         0.2     setosa
+## 21.1          5.4         3.4          1.7         0.2     setosa
+## 48            4.6         3.2          1.4         0.2     setosa
+## 46            4.8         3.0          1.4         0.3     setosa
 ## 104           6.3         2.9          5.6         1.8  virginica
-## 24            5.1         3.3          1.7         0.5     setosa
-## 116           6.4         3.2          5.3         2.3  virginica
-## 4             4.6         3.1          1.5         0.2     setosa</code></pre>
+## 134           6.3         2.8          5.1         1.5  virginica</code></pre>
 <p>Recordad que <code>dim</code> aplicado a un <code>dataframe</code> nos da un vector con sus dimensiones: sus números de filas y de columnas, en este orden. Por lo tanto, <code>dim(iris)[1]</code> es el número de filas de <code>iris</code>.</p>
 <p>Si solo quisiéramos una muestra aleatoria de longitudes de pétalos, podríamos aplicar directamente la función <code>sample</code> al vector correspondiente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestra_long_pet=<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)
 muestra_long_pet</code></pre></div>
-<pre><code>##  [1] 1.3 4.2 4.6 4.5 4.2 4.5 6.1 1.7 5.7 1.4 4.2 3.3 1.4 6.7 4.5</code></pre>
+<pre><code>##  [1] 3.5 5.6 5.7 6.9 4.6 5.1 4.7 4.2 4.9 5.2 5.5 1.4 4.2 1.6 4.2</code></pre>
 <p>El hecho de que funciones como <code>sample</code> o los generadores de vectores aleatorios con una cierta distribución de probabilidad fijada, como <code>rnorm</code> o <code>rbinom</code>, produzcan… pues eso, vectores aleatorios, puede tener inconvenientes a la hora de reproducir una simulación. R permite “fijar” el resultado de una función aleatoria con la instrucción <code>set.seed</code>. Sin entrar en detalles sobre cómo funcionan, los diferentes algoritmos que usa R para generar números aleatorios usan una <strong>semilla de aleatoriedad</strong>, que se modifica después de la ejecución del algoritmo, y por eso cada vez dan un resultado distinto. Pero, para una semilla fija, el algoritmo da el mismo resultado siempre. Lo que hace la función <code>set.seed</code> es igualar esta semilla al valor que le entramos. Si tras aplicar esta función a un número concreto ejecutamos una instrucción que genere un vector aleatorio de una longitud fija con una distribución fija, el resultado será siempre el mismo. Veamos un ejemplo de su efecto, generando muestras aleatorias simples de 10 longitudes de pétalos de flores iris con diferentes semillas de aleatoriedad:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>##  [1] 5.7 5.1 5.8 5.9 1.4 1.2 4.3 3.8 5.4 5.2</code></pre>
+<pre><code>##  [1] 1.4 1.6 1.4 1.4 4.0 5.6 4.0 1.6 4.6 1.7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">20</span>)
 <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">10</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>##  [1] 6.4 5.3 1.3 3.5 5.7 5.2 1.1 1.5 1.4 4.5</code></pre>
@@ -438,52 +436,52 @@ muestra_long_pet</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1]  6  3 10</code></pre>
+<pre><code>## [1] 7 4 6</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## [1] 4 3 5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="ot">NULL</span>)
 <span class="kw">sample</span>(<span class="dv">10</span>,<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 5 6 3</code></pre>
+<pre><code>## [1] 3 7 4</code></pre>
 <p>A veces querremos tomar diversas muestras aleatorias de una misma población y calcular algo sobre ellas. Para hacerlo podemos usar la función <code>replicate</code>. La sintaxis básica es</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(n, instrucción)</code></pre></div>
 <p>donde <code>n</code> es el número de repeticiones de la <code>instrucción</code>. Por ejemplo, para tomar 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podemos hacer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">muestras=<span class="kw">replicate</span>(<span class="dv">10</span>, <span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>))
 muestras</code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-##  [1,]  3.6  1.4  4.7  1.6  5.1  3.3  1.5  1.7  5.7   1.0
-##  [2,]  6.4  4.5  1.3  6.4  1.4  1.5  4.9  6.0  4.5   5.4
-##  [3,]  3.9  4.7  1.5  3.9  4.0  6.0  1.4  3.5  5.0   5.1
-##  [4,]  6.4  3.5  5.5  5.4  5.0  5.1  5.8  3.3  3.5   1.4
-##  [5,]  4.5  1.5  6.0  5.6  5.6  4.5  4.6  4.4  4.0   1.0
-##  [6,]  4.7  4.5  3.9  4.5  5.3  1.4  4.1  1.5  1.5   4.5
-##  [7,]  1.7  4.1  1.5  5.1  1.4  5.5  4.7  1.3  5.5   1.6
-##  [8,]  1.6  3.9  4.5  6.9  4.4  5.7  1.4  3.0  4.8   4.0
-##  [9,]  4.1  1.4  4.5  4.5  4.9  4.5  1.7  5.7  4.4   5.7
-## [10,]  6.4  4.7  3.9  1.6  3.8  1.6  5.0  6.3  1.7   3.3
-## [11,]  1.4  5.2  5.6  1.7  6.0  4.6  4.5  4.0  4.9   3.9
-## [12,]  1.4  1.4  4.3  3.5  5.4  5.9  6.4  4.0  5.0   1.4
-## [13,]  1.5  4.6  4.5  5.4  4.8  5.9  1.6  4.5  1.6   1.4
-## [14,]  1.3  4.5  6.7  4.5  1.5  4.6  4.7  4.0  5.4   1.5
-## [15,]  5.5  3.3  1.2  5.6  6.7  3.8  5.1  3.3  5.8   5.6</code></pre>
+##  [1,]  1.5  1.6  4.2  5.1  1.1  5.9  5.1  4.8  3.9   4.9
+##  [2,]  1.2  5.1  4.5  5.3  6.6  1.6  1.5  1.4  4.3   4.5
+##  [3,]  1.5  4.1  5.1  4.8  1.4  4.9  1.4  5.1  3.6   6.7
+##  [4,]  5.1  1.5  4.7  1.9  1.4  1.6  1.6  1.4  1.5   6.0
+##  [5,]  1.6  4.8  4.9  3.5  6.4  5.1  1.1  4.5  1.6   4.9
+##  [6,]  5.6  1.4  1.5  4.8  4.5  6.6  5.6  6.1  5.0   1.4
+##  [7,]  1.5  1.5  3.5  4.1  1.2  6.1  1.7  4.3  1.3   1.5
+##  [8,]  4.5  4.5  4.0  4.5  3.3  6.9  3.0  1.5  1.6   4.5
+##  [9,]  1.6  4.2  4.9  4.5  5.6  1.3  1.3  1.6  5.1   6.0
+## [10,]  4.5  4.2  4.0  1.3  5.9  4.8  1.5  4.9  6.0   6.7
+## [11,]  1.2  6.1  5.2  1.4  6.1  5.1  4.1  4.5  5.1   1.1
+## [12,]  6.9  5.7  4.2  6.0  1.4  4.5  1.6  5.0  5.1   3.9
+## [13,]  1.1  1.9  5.5  6.3  1.5  1.6  4.6  6.9  4.2   4.7
+## [14,]  4.1  1.3  4.6  4.8  4.8  3.9  1.5  4.0  1.3   5.4
+## [15,]  4.7  3.7  1.6  4.3  1.3  1.7  1.9  4.0  5.7   1.3</code></pre>
 <p>Observad que R ha organizado los 10 vectores generados con el <code>replicate</code> como columnas de una matriz.</p>
 <p>Si solo nos hubiera interesado calcular las medias, redondeadas a 2 cifras decimales, de 10 muestras aleatorias simples de 15 longitudes de pétalos de flores iris, podríamos haber hecho</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">medias=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))
 medias</code></pre></div>
-<pre><code>##  [1] 4.03 3.80 3.50 3.81 3.86 4.99 4.15 3.91 3.39 3.89</code></pre>
+<pre><code>##  [1] 4.12 4.11 3.64 3.81 3.52 3.86 4.31 3.63 3.31 3.03</code></pre>
 <p>En este caso, como el resultado de la instrucción que iteramos es un solo número, los resultados del <code>replicate</code> forman un vector.</p>
 <p>¿Y si quisiéramos la media y la desviación típica muestral de 10 muestras de estas? No podemos usar sin más dos <code>replicate</code>, como en</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">mean</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 3.43 4.93 4.14 3.76 3.61 3.99 4.07 3.38 3.11 3.69</code></pre>
+<pre><code>##  [1] 4.24 4.57 3.36 3.45 3.69 4.18 3.12 3.48 3.91 4.41</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">round</span>(<span class="kw">sd</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)),<span class="dv">2</span>))</code></pre></div>
-<pre><code>##  [1] 2.19 1.56 2.00 1.56 1.97 1.92 1.57 1.74 1.71 1.36</code></pre>
+<pre><code>##  [1] 1.74 1.40 1.61 2.12 1.83 1.52 1.74 1.67 2.10 2.14</code></pre>
 <p>porque el conjunto de muestras de las que hemos calculado la media en el primer <code>replicate</code> muy probablemente habrá sido diferente del conjunto de muestras de las que hemos calculado la desviación típica en el segundo <code>replicate</code>. Lo más adecuado es definir una función que calcule un vector con estos dos valores, y luego usarla dentro de un único <code>replicate</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">info=<span class="cf">function</span>(x){<span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">mean</span>(x),<span class="kw">sd</span>(x)),<span class="dv">2</span>)}
 info_lp=<span class="kw">replicate</span>(<span class="dv">10</span>,<span class="kw">info</span>(<span class="kw">sample</span>(iris<span class="op">$</span>Petal.Length,<span class="dv">15</span>,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
 info_lp</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
-## [1,] 3.45 3.92 4.65 3.52 4.29 3.56 3.55 4.52 4.30  3.47
-## [2,] 1.69 1.91 1.41 2.00 1.63 1.93 1.94 1.08 1.63  1.83</code></pre>
+## [1,] 3.97 3.60 4.11 2.88 3.44 3.81 3.53 4.06 4.28  4.23
+## [2,] 1.81 1.83 1.79 1.65 1.78 2.13 1.60 1.63 1.66  1.90</code></pre>
 <p>En este último caso, R ha organizado la información obtenida como columnas de una matriz: la primera fila son las medias y la segunda las desviaciones típicas.</p>
 <p>Naturalmente, la función <code>set.seed</code> permite “fijar” el resultado de un <code>replicate</code> que incluya la generación de números aleatorios:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1000</span>)
@@ -600,53 +598,6 @@ Y=<span class="kw">sample</span>(<span class="dv">20</span>,<span class="dv">5</
 <p><em>(2)</em> <code>mean(sample(X,15))</code></p>
 <p><em>(3)</em> <code>muestra=iris[sample(dim(iris)[1],40),]</code></p>
 <p><em>(4)</em> <code>medias=replicate(100,mean(sample(X,20)))</code></p>
-</div>
-<div id="soluciones-sucintas-a-los-ejercicios" class="section level3 unnumbered">
-<h3>Soluciones sucintas a los ejercicios</h3>
-<p><strong>1)</strong> <em>(a)</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DCR=<span class="kw">read.table</span>(<span class="st">&quot;http://www.hofroe.net/stat557/data/crab.txt&quot;</span>,<span class="dt">header=</span><span class="ot">TRUE</span>)
-M=<span class="cf">function</span>(n,N,s){
-<span class="kw">set.seed</span>(s)
-Muestras=<span class="kw">replicate</span>(N,<span class="kw">mean</span>(<span class="kw">sample</span>(DCR<span class="op">$</span>Weight,n,<span class="dt">replace=</span><span class="ot">TRUE</span>)))
-Res=<span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">mean</span>(Muestras),<span class="kw">sd</span>(Muestras)),<span class="dv">2</span>)
-<span class="kw">attr</span>(Res,<span class="st">&quot;names&quot;</span>)=<span class="kw">c</span>(<span class="st">&quot;Media&quot;</span>,<span class="st">&quot;Desv. Típica&quot;</span>)
-Res
-}</code></pre></div>
-<p><em>(b)</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">M</span>(<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">00</span>)</code></pre></div>
-<pre><code>##        Media Desv. Típica 
-##         2428          110</code></pre>
-<p><em>(c)</em> El TCL predice como media la de la población (el vector de pesos)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">mean</span>(DCR<span class="op">$</span>Weight),<span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 2437</code></pre>
-<p>y como desviación típica la desviación típica de la población dividida por la raíz cuadrada del tamaño de las muestras</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>((<span class="kw">sd</span>(DCR<span class="op">$</span>Weight)<span class="op">*</span><span class="kw">sqrt</span>(<span class="kw">length</span>(DCR<span class="op">$</span>Weight)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(DCR<span class="op">$</span>Weight)))<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>),<span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 105</code></pre>
-<p><strong>2)</strong> Por ejemplo</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Clust_sample=<span class="cf">function</span>(DF,Fact,n){
-  <span class="kw">attach</span>(DF)
-  Tamaños=<span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(Fact))<span class="op">*</span>n)
-  Muestra=<span class="kw">c</span>()
-  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(<span class="kw">levels</span>(Fact))){
-     Muestra=<span class="kw">c</span>(Muestra,<span class="kw">sample</span>(<span class="kw">which</span>(Fact<span class="op">==</span><span class="kw">levels</span>(Fact)[i]),Tamaños[i]))
-  }
-  <span class="kw">detach</span>(DF)
-  <span class="kw">sort</span>(Muestra)  
-}
-<span class="kw">Clust_sample</span>(iris,Species,<span class="dv">15</span>)</code></pre></div>
-<pre><code>##  [1]   9  19  24  27  40  59  67  83  91  97 107 121 138 139 148</code></pre>
-<p>Una construcción equivalente, sin usar un bucle <strong>for</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Clust_sample=<span class="cf">function</span>(DF,Fact,n){
-  <span class="kw">attach</span>(DF)
-  M=<span class="kw">length</span>(<span class="kw">levels</span>(Fact))
-  Tamaños=<span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(Fact))<span class="op">*</span>n)
-  F=<span class="cf">function</span>(i){<span class="kw">sample</span>(<span class="kw">which</span>(Fact<span class="op">==</span><span class="kw">levels</span>(Fact)[i]),Tamaños[i])}
-  Muestra=<span class="kw">sort</span>(<span class="kw">sapply</span>(<span class="dv">1</span><span class="op">:</span>M,<span class="dt">FUN=</span>F))
-  <span class="kw">detach</span>(DF)
-  Muestra 
-}
-<span class="kw">Clust_sample</span>(iris,Species,<span class="dv">15</span>)</code></pre></div>
-<pre><code>##  [1]   4  23  34  35  46  52  56  58  69  97 106 107 115 123 128</code></pre>
 
 </div>
 </div>
