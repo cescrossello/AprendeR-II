@@ -25,7 +25,7 @@
 <meta name="author" content="The AprendeR team">
 
 
-<meta name="date" content="2019-02-03">
+<meta name="date" content="2019-02-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,10 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">AprendeR: Parte II</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#historial"><i class="fa fa-check"></i>Historial</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#preguntas"><i class="fa fa-check"></i>Preguntas</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
 <li class="part"><span><b>Parte II: Estadística inferencial</b></span></li>
 <li class="chapter" data-level="1" data-path="chap-distr.html"><a href="chap-distr.html"><i class="fa fa-check"></i><b>1</b> Distribuciones de probabilidad</a><ul>
 <li class="chapter" data-level="1.1" data-path="chap-distr.html"><a href="chap-distr.html#ejercicios"><i class="fa fa-check"></i><b>1.1</b> Ejercicios</a></li>
@@ -184,7 +181,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="chap:bondad" class="section level1">
 <h1><span class="header-section-number">Lección 6</span> Bondad de ajuste</h1>
-<p>Una de las condiciones habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído sigue una determinada distribución. En la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso comprobábamos gráficamente el ajuste de una muestra a una distribución normal mediante histogramas y dibujando las curvas de densidad muestral y de densidad de la normal. En esta lección presentamos algunas instrucciones que implementan <strong>tests de bondad de ajuste</strong>,<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> técnicas cuantitativas que permiten contrastar si los datos de una muestra provienen o no de una determinada distribución de probabilidad.</p>
+<p>Una de las condiciones habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído siga una determinada distribución. En la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso comprobábamos gráficamente el ajuste de una muestra a una distribución normal mediante histogramas y dibujando las curvas de densidad muestral y de densidad de la normal. En esta lección presentamos algunas instrucciones que implementan <strong>tests de bondad de ajuste</strong>,<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> técnicas cuantitativas que permiten contrastar si los datos de una muestra provienen o no de una determinada distribución de probabilidad.</p>
 <p>Los tests de bondad de ajuste tienen el mismo significado que los contrastes de parámetros estudiados en la Lección <a href="chap-contrastes.html#chap:contrastes">5</a>. Se contrasta una hipótesis nula</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: La muestra proviene de una población con distribución <span class="math inline">\(X\)</span></li>
@@ -193,7 +190,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><span class="math inline">\(H_1\)</span>: La muestra <em>no</em> proviene de una población con distribución <span class="math inline">\(X\)</span></li>
 </ul>
-<p>Si el resultado del test permite rechazar la hipótesis nula, es porque hemos obtenido evidencia significativa de que la muestra no proviene de una población con distribución <span class="math inline">\(X\)</span>. Pero que el test no permita rechazar la hipótesis nula no nos da evidencia de que la muestra sí que provenga de una población con distribución <span class="math inline">\(X\)</span>: simplemente nos dice que no lo podemos rechazar. Naturalmente, a efectos prácticos, estamos dispuestos a aceptar “por defecto” la hipótesis nula si no la podemos rechazar, pero la mayoría de las veces, si no disponemos de algún argumento teórico que respalde esta conclusión, se trata de un abuso de lenguaje.</p>
+<p>Si el resultado del test permite rechazar la hipótesis nula, es porque hemos obtenido evidencia significativa de que la muestra no proviene de una población con distribución <span class="math inline">\(X\)</span>, es decir, porque sería muy raro que siguiera esta distribución. Pero que el test no permita rechazar la hipótesis nula no nos da evidencia de que la muestra sí que provenga de una población con distribución <span class="math inline">\(X\)</span>: simplemente nos dice que no lo podemos rechazar. Naturalmente, a efectos prácticos, estamos dispuestos a aceptar “por defecto” la hipótesis nula si no la podemos rechazar, pero la mayoría de las veces, si no disponemos de algún argumento teórico que respalde esta conclusión, se trata de un abuso de lenguaje.</p>
 <p>Los pasos habituales para contrastar la bondad del ajuste de una muestra a una distribución son los siguientes:</p>
 <ol style="list-style-type: decimal">
 <li><p>Fijar la familia de distribuciones teóricas a la que queremos ajustar los datos. Esta familia estará parametrizada por uno o varios parámetros. Recordemos los ejemplos más comunes:</p>
@@ -217,19 +214,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <div id="pruebas-graficas-q-q-plots" class="section level2">
 <h2><span class="header-section-number">6.1</span> Pruebas gráficas: Q-Q-plots</h2>
-<p>Para comparar la distribución de una muestra con una distribución poblacional teòrica se pueden realizar diversas pruebas gráficas. En la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso usábamos para ello histogramas con densidades estimadas y teóricas. En esta sección explicamos otro tipo de gráficos que pueden usarse con el mismo fin, los <strong>gráficos cuantil-cuantil</strong>, o, para abreviar, <strong>Q-Q-plots</strong>. Este tipo de gráficos compara los cuantiles observados de la muestra con los cuantiles teóricos de la distribución teórica.</p>
-<p>La Figura <a href="chap-bondad.html#fig:qqp1">6.1</a> muestra un Q-Q-plot. Cada punto corresponde a un cuantil: <em>grosso modo</em>, hay un punto para cada <span class="math inline">\(k/n\)</span>-cuantil, siendo <span class="math inline">\(n\)</span> la longitud de la muestra y <span class="math inline">\(k=1,\ldots,n\)</span>. Para cada uno de estos cuantiles, el <strong>Q-Q-punto</strong> correspondiente tiene abscisa el cuantil de la distribución teórica (en este caso, una t de Student con 4 grados de libertad) y ordenada el cuantil de la muestra. Por lo tanto, si el ajuste es bueno, para cada <span class="math inline">\(k/n\)</span>, el cuantil muestral y el cuantil teórico han de ser parecidos, de manera que los puntos del gráfico (les llamaremos , para abreviar) han de estar cerca de la diagonal <span class="math inline">\(y=x\)</span>, que hemos añadido al gráfico. En general, se considera que un Q-Q-plot muestra un buen ajuste cuando no se observa una tendencia marcada de desviación respecto de la diagonal. Sin embargo, a menudo los Q-Q-plots son difíciles de interpretar, y es conveniente combinarlos con algún contraste de bondad de ajuste.</p>
+<p>Para comparar la distribución de una muestra con una distribución poblacional teórica se pueden realizar diversas pruebas gráficas. En la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso usábamos para ello histogramas con densidades estimadas y teóricas. En esta sección explicamos otro tipo de gráficos que pueden usarse con el mismo fin, los <strong>gráficos cuantil-cuantil</strong>, o, para abreviar, <strong>Q-Q-plots</strong>. Este tipo de gráficos compara los cuantiles observados de la muestra con los cuantiles teóricos de la distribución teórica.</p>
 <div class="figure" style="text-align: center"><span id="fig:qqp1"></span>
 <img src="AprendeR-Parte-II_files/figure-html/qqp1-1.png" alt="Q-Q-plot básico de la muestra del Ejemplo \@ref(exm:qqp-1) contra una t de Student con 4 grados de libertad." width="480" />
 <p class="caption">
 Figura 6.1: Q-Q-plot básico de la muestra del Ejemplo <a href="chap-bondad.html#exm:qqp-1">6.1</a> contra una t de Student con 4 grados de libertad.
 </p>
 </div>
+<p>La Figura <a href="chap-bondad.html#fig:qqp1">6.1</a> muestra un Q-Q-plot. Cada punto corresponde a un cuantil: <em>grosso modo</em>, hay un punto para cada <span class="math inline">\(k/n\)</span>-cuantil, siendo <span class="math inline">\(n\)</span> la longitud de la muestra y <span class="math inline">\(k=1,\ldots,n\)</span>. Para cada uno de estos cuantiles, el punto correspondiente tiene abscisa el cuantil de la distribución teórica (en este caso, una t de Student con 4 grados de libertad) y ordenada el cuantil de la muestra. Por lo tanto, si el ajuste es bueno, para cada <span class="math inline">\(k/n\)</span>, el cuantil muestral y el cuantil teórico han de ser parecidos, de manera que los puntos del gráfico (les llamaremos <strong>Q-Q-puntos</strong>, para abreviar) han de estar cerca de la diagonal <span class="math inline">\(y=x\)</span>, que hemos añadido al gráfico. En general, se considera que un Q-Q-plot muestra un buen ajuste cuando no se observa una tendencia marcada de desviación respecto de la diagonal. Sin embargo, a menudo los Q-Q-plots son difíciles de interpretar, y es conveniente combinarlos con algún contraste de bondad de ajuste.</p>
 <p>Hay varias maneras de producir Q-Q-plots con R. Aquí solo explicaremos una: la función <code>qqPlot</code> del paquete <strong>car</strong>. Su sintaxis básica es</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(x, <span class="dt">distribution=</span>...,  parámetros, <span class="dt">id=</span><span class="ot">FALSE</span>, ...)?</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(x, <span class="dt">distribution=</span>...,  parámetros, <span class="dt">id=</span><span class="ot">FALSE</span>, ...)</code></pre></div>
 <p>donde:</p>
 <ul>
-<li><p>`x es el vector con la muestra.</p></li>
+<li><p><code>x</code> es el vector con la muestra.</p></li>
 <li><p>El parámetro <code>distribution</code> se ha de igualar al nombre de la familia de distribuciones entre comillas, y puede tomar como valor cualquier familia de distribuciones de la que R sepa calcular la densidad y los cuantiles: esto incluye las distribuciones que hemos estudiado hasta el momento: <code>&quot;norm&quot;</code>, <code>&quot;binom&quot;</code>, <code>&quot;poisson&quot;</code>, <code>&quot;t&quot;</code>, etc.</p></li>
 <li><p>A continuación, se tienen que entrar los parámetros de la distribución, igualando su nombre habitual (<code>mean</code> para la media, <code>sd</code> para la desviación típica, <code>df</code> para los grados de libertad, etc.) a su valor. En algunos casos, si no se especifican los parámetros, <code>qqPlot</code> toma sus valores por defecto: por ejemplo, si queremos realizar un Q-Q-plot contra una normal y no especificamos los valores de la media y la desviación típica de la distribución teórica, <code>qqPlot</code> los toma iguales a 0 y 1, respectivamente.</p></li>
 <li><p>Por defecto, el gráfico obtenido con la función <code>qqPlot</code> identifica los dos Q-Q-puntos con ordenadas más extremas. Para omitirlos, usad el parámetro <code>id=FALSE</code>.</p></li>
@@ -257,7 +254,7 @@ Figura 6.1: Q-Q-plot básico de la muestra del Ejemplo <a href="chap-bondad.html
 <p>Queremos comprobar gráficamente si sigue una distribución t de Student de 4 grados de libertad. Vamos a usar la función <code>qqPlot</code> con sus parámetros por defecto:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
 <span class="kw">qqPlot</span>(muestra, <span class="dt">distribution=</span><span class="st">&quot;t&quot;</span>, <span class="dt">df=</span><span class="dv">4</span>, <span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-198-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-199-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Como todos los Q-Q-puntos están dentro de la región de confianza del 95%, podemos aceptar que la muestra proviene de una t de Student.</p>
 <p>El Q-Q-plot básico de la Figura <a href="chap-bondad.html#fig:qqp1">6.1</a> se ha obtenido con el código siguiente:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(muestra, <span class="dt">distribution=</span><span class="st">&quot;t&quot;</span>, <span class="dt">df=</span><span class="dv">4</span>, <span class="dt">envelope=</span><span class="ot">FALSE</span>, <span class="dt">xlab=</span><span class="st">&quot;Cuantiles de t&quot;</span>,
@@ -278,20 +275,20 @@ sigma=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quo
 <pre><code>##  mean    sd 
 ## 5.843 0.825</code></pre>
 <p>y ahora generamos el Q-Q-plot usando estos parámetros</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(iris.sl, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span>mu, <span class="dt">sd=</span>sigma,<span class="dt">xlab=</span><span class="st">&quot;Cuantiles de la normal&quot;</span>,
-   <span class="dt">ylab=</span><span class="st">&quot;Cuantiles de la muestra&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Normal-plot de longitudes de sépalos de flores iris&quot;</span>,<span class="dt">id=</span><span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-201-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqPlot</span>(iris.sl, <span class="dt">distribution=</span><span class="st">&quot;norm&quot;</span>, <span class="dt">mean=</span>mu, <span class="dt">sd=</span>sigma,<span class="dt">xlab=</span><span class="st">&quot;Cuantiles de la normal&quot;</span>,<span class="dt">id=</span><span class="ot">FALSE</span>,
+   <span class="dt">ylab=</span><span class="st">&quot;Cuantiles de la muestra&quot;</span>,<span class="dt">main=</span><span class="st">&quot;Normal-plot de longitudes de sépalos de flores iris&quot;</span>)</code></pre></div>
+<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-202-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Vemos cómo los primeros puntos salen de la región de confianza del 95%. Esto significa que los datos están más desplazados hacia la izquierda de la media que lo que se esperaría en una muestra aleatoria de una normal. El <em>boxplot</em> siguiente muestra este desplazamiento.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(iris.sl, <span class="dt">main=</span><span class="st">&quot;Boxplot de longitudes de sépalos de flores iris&quot;</span>)</code></pre></div>
-<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-202-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-203-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Interpretamos el Q-Q-plot anterior como evidencia de que estas longitudes no siguen una distribución normal. Más adelante usaremos tests de normalidad específicos para contrastar la normalidad de estos datos.</p>
 </div>
 <div id="el-test-chi2-de-pearson" class="section level2">
 <h2><span class="header-section-number">6.2</span> El test <span class="math inline">\(\chi^2\)</span> de Pearson</h2>
-<p>El test <span class="math inline">\(\chi^2\)</span> de Pearson contrasta si una muestra ha sido generada o no con una cierta distribución, cuantificando si sus valores aparecen con una frecuencia cercana a la que sería de esperar si la muestra siguiera esa distribución. Esto se lleva a cabo calculando el estadístico de contraste</p>
+<p>El test <span class="math inline">\(\chi^2\)</span> de Pearson contrasta si una muestra ha sido generada o no con una cierta distribución, cuantificando si sus valores aparecen con una frecuencia cercana a la que sería de esperar si la muestra siguiera esa distribución. Esto se lleva a cabo por medio del estadístico de contraste</p>
 <p><span class="math display">\[
 X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbox{frec. esperada}_i}
-\]</span> donde <em>k</em> es el número de clases e <em>i</em> es el índice de las clases, de manera que <em>frec. observada<sub>i</sub></em> y <em>frec. esperada<sub>i</sub></em> denotan, respectivamente, la frecuencia observada de la clase <em>i</em>-ésima y su frecuencia esperada bajo la distribución que contrastamos. Si se satisfacen una serie de condiciones, este estadístico sigue aproximadamente una ley <span class="math inline">\(\chi^2\)</span> con un número de grados de libertad igual al número de clases menos uno y menos el número de parámetros de la distribución teórica que hayamos estimado. Las condiciones que se han de satisfacer son:</p>
+\]</span> donde <em>k</em> es el número de clases e <em>i</em> es el índice de las clases, de manera que “frec. observada<sub>i</sub>” y “frec. esperada<sub>i</sub>” denotan, respectivamente, la frecuencia observada de la clase <em>i</em>-ésima y su frecuencia esperada bajo la distribución que contrastamos. Si se satisfacen una serie de condiciones, este estadístico sigue aproximadamente una ley <span class="math inline">\(\chi^2\)</span> con un número de grados de libertad igual al número de clases menos uno y menos el número de parámetros de la distribución teórica que hayamos estimado. Las condiciones que se han de satisfacer son:</p>
 <ul>
 <li><p>La muestra ha de ser grande, digamos que de tamaño como mínimo 30;</p></li>
 <li><p>Si los posibles valores son infinitos, hay que agruparlos en un número finito <em>k</em> de clases que cubran todos los posibles valores (recordad que en la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso ya explicamos cómo agrupar variables aleatorias continuas con la función <code>cut</code>);</p></li>
@@ -301,7 +298,7 @@ X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbo
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(x, <span class="dt">p=</span>..., <span class="dt">rescale.p=</span>..., <span class="dt">simulate.p.value=</span>...)</code></pre></div>
 <p>donde:</p>
 <ul>
-<li><p><code>x</code> es el vector o la tabla de frecuencias absolutas observadas de las clases en la muestra.</p></li>
+<li><p><code>x</code> es el vector (o la tabla, calculada con <code>table</code>) de frecuencias absolutas observadas de las clases en la muestra.</p></li>
 <li><p><code>p</code> es el vector de probabilidades teóricas de las clases para la distribución que queremos contrastar. Si no lo especificamos, se entiende que la probabilidad es la misma para todas las clases. Obviamente, estas probabilidades se tienen que especificar en el mismo orden que las frecuencias de <code>x</code> y, como son las probabilidades de todos los resultados posibles, en principio tienen que sumar 1; esta condición se puede relajar con el siguiente parámetro.</p></li>
 <li><p><code>rescale.p</code> es un parámetro lógico que, si se iguala a <code>TRUE</code>, indica que los valores de <code>p</code> no son probabilidades, sino solo proporcionales a las probabilidades; esto hace que R tome como probabilidades teóricas los valores de <code>p</code> partidos por su suma, para que sumen 1. Por defecto vale <code>FALSE</code>, es decir, se supone que el vector que se entra como <code>p</code> son probabilidades y por lo tanto debe sumar 1, y si esto no pasa se genera un mensaje de error indicándolo. Igualarlo a <code>TRUE</code> puede ser útil, porque nos permite especificar las probabilidades mediante las frecuencias esperadas o mediante porcentajes. Pero también es peligroso, porque si nos hemos equivocado y hemos entrado un vector en <code>p</code> que no corresponda a una probabilidad, R no nos avisará.</p></li>
 <li><p><code>simulate.p.value</code> es un parámetro lógico que indica a la función si debe optar por una simulación para el cálculo del p-valor del contraste. Por defecto vale <code>FALSE</code>, en cuyo caso este p-valor no se simula sino que se calcula mediante la distribución <span class="math inline">\(\chi^2\)</span> correspondiente. Si se especifica como <code>TRUE</code>, R realiza una serie de replicaciones aleatorias de la situación teórica: por defecto, 2000, pero su número se puede especificar mediante el parámetro <code>B</code>. Es decir, genera un conjunto de vectores aleatorios de frecuencias con la distribución que queremos contrastar, cada uno de suma total la de <code>x</code>. A continuación, calcula la proporción de estas repeticiones en las que el estadístico de contraste es mayor o igual que el obtenido para <code>x</code>, y éste es el p-valor que da. Cuando no se satisfacen las condiciones para que <span class="math inline">\(X^2\)</span> siga aproximadamente una distribución <span class="math inline">\(\chi^2\)</span>, estimar el p-valor mediante simulaciones es una buena alternativa.</p></li>
@@ -346,7 +343,7 @@ X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbo
 </tr>
 </tbody>
 </table>
-<p>Si el dado está equilibrado, la probabilidad de cada resultado es 1/6 y por lo tanto la frecuencia esperada de cada resultado es 40/6=6.667. Como la muestra tiene más de 30 elementos y las frecuencias esperadas son todas mayores que 5, podemos realizar de manera segura un test <span class="math inline">\(\chi^2\)</span>. Por lo tanto, entraremos estas frecuencias en un vector y le aplicaremos la función <code>chisq.test</code>. Como las probabilidades que contrastamos son todas iguales, no hace falta especificar el valor del parámetro <code>p</code>.</p>
+<p>Si el dado está equilibrado, la probabilidad de cada resultado es 1/6 y por lo tanto la frecuencia esperada de cada resultado es 40/6=6.667. Como la muestra tiene más de 30 elementos y las frecuencias esperadas son todas mayores que 5, podemos realizar de manera segura un test <span class="math inline">\(\chi^2\)</span>. Por lo tanto, entraremos estas frecuencias en un vector y le aplicaremos la función <code>chisq.test</code>. Como contrastamos si todas las clases tienen la misma probabilidad, no hace falta especificar el valor del parámetro <code>p</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freqs=<span class="kw">c</span>(<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">7</span>,<span class="dv">12</span>)
 <span class="kw">chisq.test</span>(freqs)</code></pre></div>
 <pre><code>## 
@@ -354,7 +351,7 @@ X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbo
 ## 
 ## data:  freqs
 ## X-squared = 7.7, df = 5, p-value = 0.174</code></pre>
-<p>Observemos la estructura del resultado de un <code>chisq.test</code>. Nos da el valor del estadístico <span class="math inline">\(X^2\)</span> (<code>X-squared</code>), el p-valor del contraste (<code>p-value</code>), y los grados de libertad de la distribución <span class="math inline">\(\chi^2\)</span> que ha usado para calcularlo (<code>df</code>). En este caso, el p-valor es 0.174, y por lo tanto no podemos rechazar que el dado esté equilibrado. Queremos remarcar que, como R no sabe si hemos estimado o no parámetros, el número de grados de libertad que usa <code>chisq.test</code> es simplemente el número de clases menos 1. Si no hemos estimado parámetros para calcular las probabilidades teóricas, ya va bien, pero si lo hemos hecho y por lo tanto el número de grados de libertad no es el adecuado, tendremos que calcular el p-valor correcto a partir del valor del estadístico. Ya lo veremos en un ejemplo más adelante.</p>
+<p>Observemos la estructura del resultado de un <code>chisq.test</code>. Nos da el valor del estadístico <span class="math inline">\(X^2\)</span> (<code>X-squared</code>), el p-valor del contraste (<code>p-value</code>), y los grados de libertad de la distribución <span class="math inline">\(\chi^2\)</span> que ha usado para calcularlo (<code>df</code>). En este caso, el p-valor es 0.174, y por lo tanto no podemos rechazar que el dado esté equilibrado. Queremos remarcar que, como R no sabe si hemos estimado o no parámetros, el número de grados de libertad que usa <code>chisq.test</code> es simplemente el número de clases menos 1. Si no hemos estimado parámetros para calcular las probabilidades teóricas, ya va bien, pero si lo hemos hecho y por lo tanto el número de grados de libertad no es el adecuado, tendremos que calcular el p-valor correcto a partir del valor del estadístico. Veremos varios ejemplos más adelante.</p>
 <p>El resultado de un <code>chisq.test</code> es una <code>list</code>, de la que podemos extraer directamente la información que deseemos con los sufijos adecuados. En concreto, podemos obtener el valor del estadístico <span class="math inline">\(X^2\)</span> con el sufijo <code>$statistic</code>, los grados de libertad con el sufijo <code>$parameter</code> y el p-valor con el sufijo <code>$p.value</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(freqs)<span class="op">$</span>statistic</code></pre></div>
 <pre><code>## X-squared 
@@ -416,14 +413,15 @@ X^2=\sum_{i=1}^k\frac{(\mbox{frec. observada}_i-\mbox{frec. esperada}_i)^2}{\mbo
 <pre><code>## [1] 0.717656</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(freqs2,<span class="dt">simulate.p.value=</span><span class="ot">TRUE</span>,<span class="dt">B=</span><span class="dv">5000</span>)<span class="op">$</span>p.value</code></pre></div>
 <pre><code>## [1] 0.708858</code></pre>
-<p>Todos los p-valores son similares. Por curiosidad, ¿qué p-valor da el test <span class="math inline">\(\chi^2\)</span> usando la distribución de <span class="math inline">\(\chi^2_5\)</span>?</p>
+<p>Como vemos, los p-valores son todos similares.</p>
+<p>Por curiosidad, ¿qué p-valor da el test <span class="math inline">\(\chi^2\)</span> usando la distribución de <span class="math inline">\(\chi^2_5\)</span>?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(freqs2)<span class="op">$</span>p.value</code></pre></div>
 <pre><code>## Warning in chisq.test(freqs2): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>## [1] 0.63857</code></pre>
-<p>El p-valor no es muy diferente y la conclusión sería la misma, pero fijaos en el mensaje de advertencia: para la muestra dada, la aproximación de <span class="math inline">\(X^2\)</span> mediante una <span class="math inline">\(\chi^2_5\)</span> puede ser incorrecta.</p>
+<p>El p-valor no es muy diferente y la conclusión en este caso sería la misma, pero fijaos en el mensaje de advertencia: para la muestra dada, la aproximación de <span class="math inline">\(X^2\)</span> mediante una <span class="math inline">\(\chi^2_5\)</span> no tiene por qué ser correcta.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-212" class="example"><strong>Ejemplo 6.4  </strong></span>Vamos a estudiar las frecuencias de los nucleótidos en una cadena de ADN, y contrastar si aparecen los cuatro con la misma probabilidad o no. En este caso, el espacio muestral son los cuatro nucleótidos: adenina (A), citosina (C), guanina (G) y timina (T). Identificaremos una cadena de ADN con un vector de letras <code>a</code>, <code>c</code>, <code>g</code> y <code>t</code>. Si llamamos <span class="math inline">\(p_a\)</span>, <span class="math inline">\(p_g\)</span>, <span class="math inline">\(p_c\)</span> y <span class="math inline">\(p_t\)</span> a las probabilidades de aparición de estas letras, el contraste que queremos realizar es</p>
+<p><span id="exm:unnamed-chunk-213" class="example"><strong>Ejemplo 6.4  </strong></span>Vamos a estudiar las frecuencias de los nucleótidos en una cadena de ADN, y contrastar si aparecen los cuatro con la misma probabilidad o no. En este caso, el espacio muestral son los cuatro nucleótidos: adenina (A), citosina (C), guanina (G) y timina (T). Identificaremos una cadena de ADN con un vector de letras <code>a</code>, <code>c</code>, <code>g</code> y <code>t</code>. Si llamamos <span class="math inline">\(p_a\)</span>, <span class="math inline">\(p_c\)</span>, <span class="math inline">\(p_g\)</span> y <span class="math inline">\(p_t\)</span> a las probabilidades de aparición de estas letras, el contraste que queremos realizar es</p>
 </div>
 
 <p><span class="math display">\[
@@ -450,7 +448,7 @@ myoglobin.exon3=<span class="kw">read.GenBank</span>(<span class="st">&quot;M146
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myoglobin.exon1.nuc=myoglobin.exon1[[<span class="dv">1</span>]]
 myoglobin.exon2.nuc=myoglobin.exon2[[<span class="dv">1</span>]]
 myoglobin.exon3.nuc=myoglobin.exon3[[<span class="dv">1</span>]]</code></pre></div>
-<p>Nos preguntamos si en alguna de estas tres secuencias las cuatro bases aparecen de manera equiprobable. Para responder esta pregunta, calculamos las frecuencias de las letras en cada secuencia (con <code>table</code>) y aplicamos el test <span class="math inline">\(\chi^2\)</span> a los resultados. Puesto que miramos si todos los resultados aparecen con la misma probabilidad, no hace falta especificar el vector <code>p</code> de probabilidades.</p>
+<p>Nos preguntamos si en alguna de estas tres secuencias las cuatro bases aparecen de manera equiprobable. Para responder esta pregunta, calculamos las frecuencias de las letras en cada secuencia (con <code>table</code>) y aplicamos el test <span class="math inline">\(\chi^2\)</span> a los resultados. Puesto que miramos si todos los resultados aparecen con la misma probabilidad, no hace falta especificar el vector <code>p</code> de probabilidades. Empecemos con el primer exón.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(myoglobin.exon1.nuc)</code></pre></div>
 <pre><code>## myoglobin.exon1.nuc
 ##   a   c   g   t 
@@ -482,10 +480,10 @@ myoglobin.exon3.nuc=myoglobin.exon3[[<span class="dv">1</span>]]</code></pre></d
 ## 
 ## data:  table(myoglobin.exon3.nuc)
 ## X-squared = 26.86, df = 3, p-value = 6.29e-06</code></pre>
-<p>En los tres contrastes tenemos que rechazar la hipótesis nula: en ninguna de las tres cadenas parece que las bases aparezcan con la misma probabilidad.</p>
+<p>En los tres contrastes tenemos que rechazar la hipótesis nula: en ninguna de las tres cadenas es creíble que las bases aparezcan con la misma probabilidad.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-219" class="example"><strong>Ejemplo 6.5  </strong></span>Siguiendo con el ejemplo anterior, vamos a contrastar ahora si las bases del exón 1 siguen una distribución en la que A y G aparecen un 50% de veces más que C y T. Usaremos <code>p=c(1.5,1,1.5,1)</code> para especificar estas proporciones.</p>
+<p><span id="exm:unnamed-chunk-220" class="example"><strong>Ejemplo 6.5  </strong></span>Siguiendo con el ejemplo anterior, vamos a contrastar ahora si las bases del exón 1 siguen una distribución en la que A y G aparecen un 50% de veces más que C y T. Usaremos <code>p=c(1.5,1,1.5,1)</code> para especificar estas proporciones.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(<span class="kw">table</span>(myoglobin.exon1.nuc),<span class="dt">p=</span><span class="kw">c</span>(<span class="fl">1.5</span>,<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">1</span>))</code></pre></div>
@@ -496,17 +494,17 @@ myoglobin.exon3.nuc=myoglobin.exon3[[<span class="dv">1</span>]]</code></pre></d
 <p>De nuevo, tenemos que rechazar la hipótesis nula.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-222" class="example"><strong>Ejemplo 6.6  </strong></span>Vamos a realizar otro experimento con los datos de los ejemplos anteriores. Construiremos una cadena formada por los tres exones, y vamos a comparar si la frecuencia de bases en cada exón es similar a la de la cadena total, que hará de distribución teórica.</p>
+<p><span id="exm:unnamed-chunk-223" class="example"><strong>Ejemplo 6.6  </strong></span>Vamos a realizar otro experimento con los datos de los ejemplos anteriores. Construiremos una cadena formada por los tres exones, y vamos a comparar si la frecuencia de bases en cada exón es similar a la de la cadena total, que hará de distribución teórica.</p>
 </div>
 
 <p>Definimos la cadena completa:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myoglobin.todos.nuc=<span class="kw">c</span>(myoglobin.exon1.nuc,myoglobin.exon2.nuc,myoglobin.exon3.nuc)</code></pre></div>
 <p>Calculemos la tabla de frecuencias relativas de las bases en la cadena completa</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">probs.tot=<span class="kw">prop.table</span>(<span class="kw">table</span>(myoglobin.todos.nuc))
-probs.tot</code></pre></div>
+<span class="kw">round</span>(probs.tot,<span class="dv">3</span>)</code></pre></div>
 <pre><code>## myoglobin.todos.nuc
-##        a        c        g        t 
-## 0.256840 0.217222 0.301839 0.224099</code></pre>
+##     a     c     g     t 
+## 0.257 0.217 0.302 0.224</code></pre>
 <p>Vamos a usar esta tabla como parámetro <code>p</code> de la función <code>chisq.test</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(<span class="kw">table</span>(myoglobin.exon1.nuc),<span class="dt">p=</span>probs.tot)<span class="op">$</span>p.value</code></pre></div>
 <pre><code>## [1] 9.78458e-06</code></pre>
@@ -514,22 +512,23 @@ probs.tot</code></pre></div>
 <pre><code>## [1] 0.253398</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(<span class="kw">table</span>(myoglobin.exon3.nuc),<span class="dt">p=</span>probs.tot)<span class="op">$</span>p.value</code></pre></div>
 <pre><code>## [1] 0.000132497</code></pre>
-<p>Los exones 1 y 3 dan unos p-valores muy pequeños, y por lo tanto podemos rechazar que en estos exones las bases aparezcan con la misma probabilidad que en la cadena total. En cambio, el exón 2 da un <span class="math inline">\(p\)</span>-valor de 0.253, por lo que para este exón no podemos rechazar la hipótesis nula y podemos concluir que las bases aparecen en él con la misma probabilidad que en la cadena total. Podemos ilustrar estas conclusiones gráficamente mediante un diagrama de barras conjunto.</p>
+<p>Los exones 1 y 3 dan unos p-valores muy pequeños, y por lo tanto podemos rechazar que en estos exones las bases aparezcan con la misma probabilidad que en la cadena total. En cambio, el exón 2 da un <span class="math inline">\(p\)</span>-valor de 0.253, por lo que para este exón no podemos rechazar la hipótesis nula y podemos concluir que las bases aparecen en él con las mismas frecuencias relativas que en la cadena total. Podemos ilustrar estas conclusiones gráficamente mediante un diagrama de barras conjunto.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">barplot</span>(<span class="kw">rbind</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(myoglobin.todos.nuc)),
   <span class="kw">prop.table</span>(<span class="kw">table</span>(myoglobin.exon1.nuc)),
   <span class="kw">prop.table</span>(<span class="kw">table</span>(myoglobin.exon2.nuc)),
   <span class="kw">prop.table</span>(<span class="kw">table</span>(myoglobin.exon3.nuc))),
   <span class="dt">beside=</span><span class="ot">TRUE</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&quot;Totales&quot;</span>,<span class="st">&quot;Exon1&quot;</span>,<span class="st">&quot;Exon2&quot;</span>,<span class="st">&quot;Exon3&quot;</span>),
-  <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.45</span>),<span class="dt">main=</span><span class="st">&quot;Frecuencias relativas de las bases en los tres exones</span><span class="ch">\n</span><span class="st"> de la mioglobina humana y en la cadena total.&quot;</span>)</code></pre></div>
+  <span class="dt">args.legend=</span><span class="kw">list</span>(<span class="dt">x=</span><span class="st">&quot;topleft&quot;</span>,<span class="dt">cex=</span><span class="fl">0.8</span>),<span class="dt">col=</span><span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.45</span>),
+<span class="dt">main=</span><span class="st">&quot;Frecuencias relativas de las bases en los tres exones</span><span class="ch">\n</span><span class="st"> de la mioglobina humana y en la cadena total&quot;</span>)</code></pre></div>
 <p><img src="AprendeR-Parte-II_files/figure-html/gof1-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>El gráfico que obtenemos confirma que las frecuencias relativas de las bases en el exón 2 se ajustan bastante a las globales.</p>
+<p>El gráfico que obtenemos confirma que las frecuencias relativas de las bases en el exón 2 se parecen bastante a las globales.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-226" class="example"><strong>Ejemplo 6.7  </strong></span>Ahora vamos a llevar a cabo el experimento siguiente. Queremos contrastar si la aparición de pares “cg” en la mioglobina humana es aleatoria, en el sentido de que se debe simplemente a las apariciones al azar de sus dos bases, o si por el contrario hay algún otro mecanismo que los produce.</p>
+<p><span id="exm:unnamed-chunk-227" class="example"><strong>Ejemplo 6.7  </strong></span>Ahora vamos a llevar a cabo el experimento siguiente. Queremos contrastar si la aparición de pares “cg” en la mioglobina humana es aleatoria, en el sentido de que se debe simplemente a las apariciones al azar de sus dos bases, o si por el contrario hay algún otro mecanismo que los produce.</p>
 </div>
 
 <p>Para ello, tomaremos la secuencia completa de la mioglobina humana, que tenemos almacenada en <code>myoglobin.todos.nuc</code>, y repetiremos 100 veces el proceso siguiente: extraemos una muestra aleatoria simple de 20 posiciones de la secuencia y contamos cuántas de ellas contienen el par de bases “cg”. Luego contrastaremos si la muestra así obtenida proviene de una distribución binomial con la probabilidad de aparición de “cg” como si las dos bases fueran independientes.</p>
-<p>Fijamos la semilla de aleatoriedad para que se pueda reproducir el experimento. El código, que luego explicamos, y el resultado son los siguientes:</p>
+<p>Fijamos la semilla de aleatoriedad para que se pueda reproducir el experimento.<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> El código, que luego explicamos, y el resultado son los siguientes:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cg.in.sample=<span class="cf">function</span>(x,S){<span class="co">#x un vector, S vector de índices</span>
   <span class="kw">length</span>(<span class="kw">which</span>(x[S]<span class="op">==</span><span class="st">&quot;c&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x[S<span class="op">+</span><span class="dv">1</span>]<span class="op">==</span><span class="st">&quot;g&quot;</span>))
 }
@@ -540,10 +539,10 @@ muestra</code></pre></div>
 <pre><code>##   [1] 2 1 1 0 0 0 0 2 1 0 2 0 0 0 2 0 0 0 1 0 1 0 1 1 0 0 0 0 0 0 0 1 0 2 0
 ##  [36] 0 0 0 0 0 1 0 0 0 0 0 0 1 1 0 1 0 0 0 0 1 1 0 0 0 1 0 1 1 0 0 1 0 0 1
 ##  [71] 1 0 0 0 1 0 0 0 0 2 0 0 0 0 1 0 0 0 0 1 1 0 1 0 0 0 1 0 0 0</code></pre>
-<p>La función <code>cg.in.sample</code> que hemos definido toma un vector <code>x</code> y un vector de índices <code>S</code> y cuenta el número de índices <code>s</code> en los que <code>x[s]</code> es <code>c</code> y <code>x[s+1]</code> es <code>g</code>. Entonces, con el <code>replicate</code>, hemos repetido 100 veces el proceso de extraer una muestra aleatoria simple de índices de <code>myoglobin.todos.nuc</code> (excluyendo el último, para que sean posiciones donde empieza un par de letras) y aplicar la función <code>cg.in.sample</code> a <code>myoglobin.todos.nuc</code> y a esta muestra de índices.</p>
+<p>La función <code>cg.in.sample</code> que hemos definido toma un vector <code>x</code> y un vector de índices <code>S</code> y cuenta el número de índices <code>s</code> en los que <code>x[s]</code> es <code>c</code> y <code>x[s+1]</code> es <code>g</code>. Entonces, con el <code>replicate</code>, hemos repetido 100 veces el proceso de extraer una muestra aleatoria simple de 20 índices de <code>myoglobin.todos.nuc</code> (excluyendo el último, para que sean posiciones donde empieza un par de letras) y aplicar la función <code>cg.in.sample</code> a <code>myoglobin.todos.nuc</code> y a este vector de índices.</p>
 <p>Queremos determinar si esta muestra sigue una distribución binomial. En concreto, vamos a plantear tres casos de esta pregunta:</p>
 <ul>
-<li><p>Con probabilidad de aparición de la pareja “cg” <span class="math inline">\(0.25\cdot 0.25=0.0625\)</span>, que correspondería al hecho de que las dos bases aparecieran de manera equiprobable e independiente.</p></li>
+<li><p>Con probabilidad de aparición de la pareja “cg” 0.25·0.25=0.0625, que correspondería al hecho de que las dos bases aparecieran de manera equiprobable e independiente.</p></li>
 <li><p>Con probabilidad de aparición de la pareja “cg” el producto de las frecuencias relativas de las bases en la secuencia global, que correspondería al hecho de que las dos bases aparecieran de manera independiente, pero no equiprobable sino con sus probabilidades dentro de la secuencia de la mioglobina.</p></li>
 <li><p>Estimando el valor “real” de <span class="math inline">\(p\)</span>, lo que correspondería al hecho de que su probabilidad de aparición no tuviera nada que ver con las probabilidades individuales de sus dos bases.</p></li>
 </ul>
@@ -558,7 +557,7 @@ muestra</code></pre></div>
 <p>Las frecuencias teóricas a partir de 4 son inferiores a 5 (recordad que la primera frecuencia corresponde al 0), y además su suma no llega a 5. Por lo tanto, vamos a agrupar en una sola clase los resultados mayores o iguales que 3. La nueva tabla de frecuencias esperadas es:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">c</span>(<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">20</span>,<span class="fl">0.0625</span>),<span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="fl">0.0625</span>))<span class="op">*</span><span class="dv">100</span>,<span class="dv">2</span>)</code></pre></div>
 <pre><code>## [1] 27.51 36.67 23.23 12.59</code></pre>
-<p>Ahora tenemos dos opciones: o bien tomamos como resultados posibles “0”, “1”, “2” y “3 o más”, en cuyo caso contaríamos que hemos observado 0 veces este último resultado en nuestra muestra, o bien tomamos como resultados posibles “0”, “1”, y “2 o más”, que se corresponde con los valores observados. Como norma general, es recomendable usar el mayor número de clases, ya que de esta manera aumenta la potencia del contraste. Por consiguiente, vamos a optar por la primera estrategia: 4 clases y no 3.</p>
+<p>Ahora tenemos dos opciones: o bien tomamos como resultados posibles “0”, “1”, “2” y “3 o más”, en cuyo caso contaríamos que hemos observado 0 veces este último resultado en nuestra muestra, o bien tomamos como resultados posibles “0”, “1”, y “2 o más”, que se corresponde con los valores observados. Como norma general, es recomendable usar el mayor número de clases posible. Por consiguiente, vamos a optar por la primera estrategia: 4 clases y no 3.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">freq.obs=<span class="kw">c</span>(<span class="kw">table</span>(muestra),<span class="dv">0</span>)
 prob.teor=<span class="kw">c</span>(<span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">20</span>,<span class="fl">0.0625</span>),<span class="dv">1</span><span class="op">-</span><span class="kw">pbinom</span>(<span class="dv">2</span>,<span class="dv">20</span>,<span class="fl">0.0625</span>))
 <span class="kw">chisq.test</span>(freq.obs,<span class="dt">p=</span>prob.teor)<span class="op">$</span>p.value</code></pre></div>
@@ -606,7 +605,7 @@ prob.teor=<span class="kw">c</span>(<span class="kw">dbinom</span>(<span class="
 ## data:  freq.obs
 ## X-squared = 0.05747, df = 2, p-value = 0.972</code></pre>
 <p>¡Cuidado! Este p-valor no es el correcto. Hemos estimado un parámetro, pero R no lo sabe. Por lo tanto tenemos que bajar en 1 los grados de libertad y calcular el p-valor a mano, mediante <span class="math display">\[
-  1-P(\chi_1^2\geq  X^2)=1-P(\chi_1^2\geq  0.057)
+  P(\chi_1^2\geq  X^2)=1-P(\chi_1^2\leq  0.057)
 \]</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="kw">pchisq</span>(<span class="kw">chisq.test</span>(freq.obs,<span class="dt">p=</span>prob.teor)<span class="op">$</span>statistic,<span class="dv">1</span>)</code></pre></div>
 <pre><code>## X-squared 
@@ -616,11 +615,11 @@ prob.teor=<span class="kw">c</span>(<span class="kw">dbinom</span>(<span class="
 </div>
 <div id="el-test-chi2-para-distribuciones-continuas" class="section level2">
 <h2><span class="header-section-number">6.3</span> El test <span class="math inline">\(\chi^2\)</span> para distribuciones continuas</h2>
-<p>El procedimiento de contraste de bondad de ajuste mediante el test <span class="math inline">\(\chi^2\)</span> para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El proceso es similar al que estudiamos en su momento<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> para dibujar histogramas. Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias absolutas observadas, y con las funciones <code>cut</code> y <code>table</code> obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.</p>
+<p>El procedimiento de contraste de bondad de ajuste mediante el test <span class="math inline">\(\chi^2\)</span> para variables continuas tiene la particularidad de que es necesario un paso preliminar que consiste en definir los intervalos de clase para los que realizaremos el conteo de las frecuencias observadas. El proceso es similar al que estudiamos en la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso para dibujar histogramas. Por lo tanto, necesitaremos definir unos intervalos de clase para el conteo de frecuencias absolutas observadas, y con las funciones <code>cut</code> y <code>table</code> obtendremos las frecuencias observadas de estas clases en la muestra de la variable continua.</p>
 <p>Para obtener los intervalos podemos seguir dos estrategias razonables: reutilizar los generados por la función <code>hist</code>, o dividir el rango de la variable en un número prefijado <span class="math inline">\(k\)</span> de intervalos de amplitud fija. Vamos a ver en detalle un ejemplo de cada tipo.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-239" class="example"><strong>Ejemplo 6.8  </strong></span>Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos <code>iris</code> siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo <a href="chap-bondad.html#exm:irisqq">6.2</a> mostraba evidencia de que no la siguen.</p>
+<p><span id="exm:unnamed-chunk-240" class="example"><strong>Ejemplo 6.8  </strong></span>Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos <code>iris</code> siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo <a href="chap-bondad.html#exm:irisqq">6.2</a> mostraba evidencia de que no la siguen.</p>
 </div>
 
 <p>Primero vamos a estimar de nuevo la media y la desviación típica de la distribución de estas longitudes.</p>
@@ -656,7 +655,7 @@ extremo.izq</code></pre></div>
 <pre><code>## [1] -Inf  4.5  5.0  5.5  6.0  6.5  7.0  7.5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">extremo.der</code></pre></div>
 <pre><code>## [1] 4.5 5.0 5.5 6.0 6.5 7.0 7.5 Inf</code></pre>
-<p>Ahora podemos calcular las probabilidades téoricas y las frecuencias esperadas de todos los intervalos de golpe. La probabilidades teóricas:</p>
+<p>Ahora podemos calcular las probabilidades teóricas y las frecuencias esperadas de todos los intervalos de golpe. La probabilidades teóricas:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">probs.teor=<span class="kw">pnorm</span>(extremo.der,mu,sigma)<span class="op">-</span><span class="kw">pnorm</span>(extremo.izq,mu,sigma) 
 probs.teor</code></pre></div>
 <pre><code>## [1] 0.0517955 0.1016307 0.1852753 0.2365772 0.2116091 0.1325812 0.0581747
@@ -683,7 +682,7 @@ freq.obs2=<span class="kw">c</span>(freq.obs[<span class="dv">1</span><span clas
 <p>El p-valor es inferior a 0.05, por tanto obtenemos evidencia de que la muestra no proviene de una población normal, es decir, de que las longitudes de los sépalos de las flores iris no siguen una ley normal.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-249" class="example"><strong>Ejemplo 6.9  </strong></span>Vamos a repetir el estudio del ejemplo anterior, pero ahora calculando a mano los intervalos. En general, el número de intervalos debe ser suficiente para cubrir toda la forma de la distribución, pero tampoco conviene que haya muchos para evitar frecuencias esperadas pequeñas que obliguen a agrupar intervalos. Para una distribución normal se recomienda tomar entre 5 y 15 intervalos. Otra posibilidad es decidir el número de intervalos con alguna de las reglas explicadas en la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso.</p>
+<p><span id="exm:unnamed-chunk-250" class="example"><strong>Ejemplo 6.9  </strong></span>Vamos a repetir el estudio del ejemplo anterior, pero ahora calculando a mano los intervalos. En general, el número de intervalos debe ser suficiente para cubrir toda la forma de la distribución, pero tampoco conviene que haya muchos para evitar frecuencias esperadas pequeñas que obliguen a agrupar intervalos. Para una distribución normal se recomienda tomar entre 5 y 15 intervalos. Otra posibilidad es decidir el número de intervalos con alguna de las reglas explicadas en la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso.</p>
 </div>
 
 <p>En nuestro ejemplo, vamos a usar 10 intervalos. Para calcularlos, tomamos el máximo y el mínimo de las observaciones, los restamos y dividimos por el número de intervalos (y, si fuera necesario, redondearíamos adecuadamente).</p>
@@ -707,9 +706,7 @@ frec.obs</code></pre></div>
 ##           9          23          14          27          22          20 
 ## (6.46,6.82] (6.82,7.18] (7.18,7.54] (7.54, Inf] 
 ##          18           6           5           6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mu=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quot;</span>)<span class="op">$</span>estimate[<span class="dv">1</span>]
-sigma=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quot;</span>)<span class="op">$</span>estimate[<span class="dv">2</span>]
-extremo.izq=breaks2[<span class="op">-</span><span class="kw">length</span>(breaks2)]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">extremo.izq=breaks2[<span class="op">-</span><span class="kw">length</span>(breaks2)]
 extremo.der=breaks2[<span class="op">-</span><span class="dv">1</span>]
 prob.teor=<span class="kw">pnorm</span>(extremo.der,mu,sigma)<span class="op">-</span><span class="kw">pnorm</span>(extremo.izq,mu,sigma)
 frec.esp=<span class="kw">round</span>(prob.teor<span class="op">*</span><span class="kw">length</span>(iris.sl),<span class="dv">2</span>)
@@ -727,7 +724,7 @@ test.iris.<span class="dv">2</span>=<span class="kw">chisq.test</span>(frec.obs2
 <div id="el-test-de-kolgomorov-smirnov" class="section level2">
 <h2><span class="header-section-number">6.4</span> El test de Kolgomorov-Smirnov</h2>
 <p>El <strong>test de Kolgomorov-Smirnov</strong> (<strong>K-S</strong>) es un test genérico para contrastar la bondad de ajuste a distribuciones continuas. Se puede usar con muestras pequeñas (se suele recomendar 5 elementos como el tamaño mínimo para que el resultado sea significativo), pero la muestra no puede contener valores repetidos: si los contiene, la distribución del estadístico de contraste bajo la hipótesis nula no es la que predice la teoría sino que solo se aproxima a ella, y por lo tanto los p-valores que se obtienen son aproximados.</p>
-<p>Hay que tener en cuenta que el test K-S realiza un contraste en el que la hipótesis nula es que la muestra proviene de una distribución contínua completamente especificada. Es decir, no sirve para contrastar si la muestra proviene, pongamos, de “alguna” distribución normal, sino solo para contrastar si proviene de una distribución normal con una media y una desviación típica concretas. Así pues, si queremos contrastar que la muestra proviene de alguna distribución de una familia concreta y estimamos sus parámetros a partir de la muestra, el test K-S solo nos permite rechazar o no la hipótesis de que la muestra proviene de la distribución de esa familia con exactamente esos parámetros. Por lo tanto, si el resultado es rechazar la hipótesis nula, esto no excluye que la muestra provenga de una distribución de la misma familia con otros parámetros. En la próxima sección veremos algunos tests que permiten contrastar, en general, si una muestra proviene de alguna distribución normal.</p>
+<p>Hay que tener en cuenta que el test K-S realiza un contraste en el que la hipótesis nula es que la muestra proviene de una distribución continua completamente especificada. Es decir, no sirve para contrastar si la muestra proviene, pongamos, de “alguna” distribución normal, sino solo para contrastar si proviene de una distribución normal con una media y una desviación típica concretas. Así pues, si queremos contrastar que la muestra proviene de alguna distribución de una familia concreta y estimamos sus parámetros a partir de la muestra, el test K-S solo nos permite rechazar o no la hipótesis de que la muestra proviene de la distribución de esa familia con exactamente esos parámetros. Por lo tanto, si el resultado es rechazar la hipótesis nula, esto no excluye que la muestra provenga de una distribución de la misma familia con otros parámetros. En la próxima sección veremos algunos tests que permiten contrastar, en general, si una muestra proviene de alguna distribución normal.</p>
 <p>La función básica para realizar el test K-S es <code>ks.test</code>. Su sintaxis básica para una muestra es</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ks.test</span>(x, y, parámetros)</code></pre></div>
 <p>donde:</p>
@@ -738,13 +735,10 @@ test.iris.<span class="dv">2</span>=<span class="kw">chisq.test</span>(frec.obs2
 </ul>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-255" class="example"><strong>Ejemplo 6.10  </strong></span>Efectuemos el test de Kolmogorov-Smirnov para contrastar si las longitudes de sépalos de flores iris siguen una distribución normal de media y desviación típica sus estimaciones máximo verosímiles a partir la muestra:</p>
+<p><span id="exm:unnamed-chunk-256" class="example"><strong>Ejemplo 6.10  </strong></span>Efectuemos el test de Kolmogorov-Smirnov para contrastar si las longitudes de sépalos de flores iris siguen una distribución normal de media y desviación típica sus estimaciones máximo verosímiles a partir la muestra <code>iris.sl</code>. Recordemos que tenemos guardados de los dos últimos ejemplos los valores de estas estimaciones en las variables <code>mu</code> y <code>sigma</code>:</p>
 </div>
 
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris.sl=iris<span class="op">$</span>Sepal.Length
-mu=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quot;</span>)<span class="op">$</span>estimate[<span class="dv">1</span>]
-sigma=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quot;</span>)<span class="op">$</span>estimate[<span class="dv">2</span>]
-<span class="kw">round</span>(<span class="kw">c</span>(mu,sigma),<span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">c</span>(mu,sigma),<span class="dv">3</span>)</code></pre></div>
 <pre><code>##  mean    sd 
 ## 5.843 0.825</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ks.test</span>(iris.sl, <span class="st">&quot;pnorm&quot;</span>, <span class="dt">mean=</span>mu, <span class="dt">sd=</span>sigma)</code></pre></div>
@@ -756,8 +750,8 @@ sigma=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quo
 ## data:  iris.sl
 ## D = 0.08945, p-value = 0.181
 ## alternative hypothesis: two-sided</code></pre>
-<p>Obtenemos un p-valor de 0.181, que no nos permite rechazar la hipótesis de que siguen una ley N(5.843, 0.825). Pero R nos avisa de que hay empates. ¿Hay muchos?</p>
-<p>La función <code>unique</code> aplicada a un vector nos da el vector de sus elementos sin repeticiones. De esta manera podemos saber cuántos elements diferentes hay en un vector, y por consiguiente también cuántas repeticiones.</p>
+<p>Obtenemos un p-valor de 0.181, que no nos permite rechazar la hipótesis de que siguen una ley N(5.843, 0.825). Pero R nos avisa de que hay empates. ¿Hay muchos? Vamos a calcular su frecuencia.</p>
+<p>La función <code>unique</code> aplicada a un vector nos da el vector de sus elementos sin repeticiones. De esta manera podemos saber cuántos elementos diferentes hay en un vector, y por consiguiente también cuántas repeticiones.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(<span class="kw">unique</span>(iris.sl))</code></pre></div>
 <pre><code>## [1] 35</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="kw">length</span>(<span class="kw">unique</span>(iris.sl))<span class="op">/</span><span class="kw">length</span>(iris.sl)</code></pre></div>
@@ -766,7 +760,7 @@ sigma=<span class="kw">fitdistr</span>(iris.sl,<span class="st">&quot;normal&quo
 <p>Como hemos comentado, el test K-S también se puede usar para contrastar si dos muestras se han obtenido de poblaciones con la misma distribución continua. Para hacerlo, se ha de aplicar la función <code>ks.test</code> a las dos muestras.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-258" class="example"><strong>Ejemplo 6.11  </strong></span>La tabla de datos <code>Salaries</code> del paquete <strong>car</strong> contiene información sobre los sueldos de 397 profesores de una universidad norteamericana en el curso 2008-09. Démosle un vistazo.</p>
+<p><span id="exm:unnamed-chunk-259" class="example"><strong>Ejemplo 6.11  </strong></span>La tabla de datos <code>Salaries</code> del paquete <strong>car</strong> contiene información sobre los sueldos de 397 profesores de una universidad norteamericana en el curso 2008-09. Démosle un vistazo.</p>
 </div>
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
@@ -795,9 +789,10 @@ sal.male=Salaries[Salaries<span class="op">$</span>sex<span class="op">==</span>
 ## data:  sal.male and sal.female
 ## D = 0.2472, p-value = 0.0271
 ## alternative hypothesis: two-sided</code></pre>
-<p>El p-valor pequeño nos permite rechazar que los salarios de hombres y mujeres sigan la misma distribución. Si dibujamos un boxplot de los salarios según el sexo, observaremos que los sueldos de los hombres tienen mayor mediana y variabilidad que los de las mujeres, incluyendo algunos valores atípicos grandes (¿el rector y otros altos cargos académicos?).</p>
+<p>El p-valor pequeño nos permite rechazar que los salarios de hombres y mujeres sigan la misma distribución. Pero no nos paremos aquí.</p>
+<p>Si dibujamos un boxplot de los salarios según el sexo, observaremos que los sueldos de los hombres tienen mayor mediana y variabilidad que los de las mujeres, incluyendo algunos valores atípicos grandes (¿el rector y otros altos cargos académicos?).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(salary<span class="op">~</span>sex, <span class="dt">data=</span>Salaries, <span class="dt">main=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
-<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-262-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="AprendeR-Parte-II_files/figure-html/unnamed-chunk-263-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Si cancelamos este efecto, estandarizando las muestras, ¿siguen saliendo distribuciones diferentes?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ks.test</span>(<span class="kw">scale</span>(sal.male),<span class="kw">scale</span>(sal.female))</code></pre></div>
 <pre><code>## Warning in ks.test(scale(sal.male), scale(sal.female)): p-value will be
@@ -808,7 +803,7 @@ sal.male=Salaries[Salaries<span class="op">$</span>sex<span class="op">==</span>
 ## data:  scale(sal.male) and scale(sal.female)
 ## D = 0.139, p-value = 0.505
 ## alternative hypothesis: two-sided</code></pre>
-<p>Al estandarizar, ya no tenemos evidencia de que provengan de distribuciones diferentes. Es decir, podemos aceptar que siguen distribuciones del mismo tipo, solo que de media y desviación típica difrentes.</p>
+<p>Al estandarizar, ya no tenemos evidencia de que provengan de distribuciones diferentes. Es decir, podemos aceptar que sus valores tipificados siguen la misma distribución.</p>
 </div>
 <div id="tests-de-normalidad" class="section level2">
 <h2><span class="header-section-number">6.5</span> Tests de normalidad</h2>
@@ -863,7 +858,7 @@ x=<span class="kw">rt</span>(<span class="dv">50</span>,<span class="dv">3</span
 ## 
 ## data:  x
 ## W = 0.8949, p-value = 0.000329</code></pre>
-<p>Un último inconveniente que afecta a todos los tests explicados hasta ahora es el de los empates. Sus estadísticos tienen las distribuciones que se usan para calcular los p-valores cuando la muestra no tiene datos repetidos, y por lo tanto, si hay muchos, el p-valor puede no tener ningún significado. De los tres, el menos sensible a repeticiones es el S-W, pero si hay muchas es conveniente usar un test que no sea sensible a ellas, como por ejemplo el <strong>test omnibus de D’Agostino-Pearson</strong>. Este test se encuentra implementado en la función <code>dagoTest</code> del paquete <strong>fBasics</strong>, y lo que hace es cuantificar lo diferentes que son la asimetría y la curtosis de la muestra (dos parámetros estadísticos relacionados con la forma de la gráfica de la función densidad) respecto de los esperados en una distribución normal, y resume esta discrepancia en un p-valor con el significado usual.</p>
+<p>Un último inconveniente que afecta a todos los tests explicados hasta ahora es el de los empates. Sus estadísticos tienen las distribuciones que se usan para calcular los p-valores cuando la muestra no tiene datos repetidos, y por lo tanto, si hay muchos, el p-valor puede no tener ningún significado. De los tres, el menos sensible a repeticiones es el S-W, pero si hay muchas es conveniente usar un test que no sea sensible a ellas, como por ejemplo el <strong>test omnibus de D’Agostino-Pearson</strong>. Este test se encuentra implementado en la función <code>dagoTest</code> del paquete <strong>fBasics</strong>, y lo que hace es cuantificar lo diferentes que son la asimetría y la curtosis de la muestra (dos parámetros estadísticos relacionados con la forma de la gráfica de la función de densidad muestral) respecto de los esperados en una distribución normal, y resume esta discrepancia en un p-valor con el significado usual.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fBasics)
 <span class="kw">dagoTest</span>(iris.sl)</code></pre></div>
 <pre><code>## 
@@ -881,7 +876,7 @@ x=<span class="kw">rt</span>(<span class="dv">50</span>,<span class="dv">3</span
 ##     Kurtosis Test: 0.07421 
 ## 
 ## Description:
-##  Sun Feb  3 19:53:36 2019 by user:</code></pre>
+##  Mon Feb  4 17:51:55 2019 by user:</code></pre>
 <p>El p-valor relevante es el del <em>“Omnibus test”</em>, en este caso 0.0568 cae en la zona de penumbra.</p>
 <p>Queremos hacer una última advertencia en esta sección. Aunque los tests que hemos explicado se pueden aplicar a muestras pequeñas, es muy difícil rechazar la normalidad de una muestra muy pequeña. Por ejemplo, una muestra de 10 valores escogidos con distribución uniforme entre 0 y 5 pasa holgadamente todos los tests de normalidad (salvo el de D’Agostino-Pearson, que requiere una muestra de al menos 20 elementos):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">100</span>)
@@ -931,7 +926,7 @@ x=<span class="kw">runif</span>(<span class="dv">10</span>,<span class="dv">0</s
 <li><p><code>lillie.test</code> del paquete <strong>nortest</strong>, realiza el test de normalidad de Kolmogorov-Smirnov-Lilliefors.</p></li>
 <li><p><code>ad.test</code> del paquete <strong>nortest</strong>, realiza el test de normalidad de Anderson-Darling.</p></li>
 <li><p><code>shapiro.test</code>, realiza el test de normalidad de Shapiro-Wilk.</p></li>
-<li><p><code>dagoTest</code> del paquete <strong>fBasics</strong>, realiza el test omnibus de D’Agostino-Pearson. \end{itemize}</p></li>
+<li><p><code>dagoTest</code> del paquete <strong>fBasics</strong>, realiza el test ómnibus de D’Agostino-Pearson.</p></li>
 </ul>
 </div>
 <div id="ejercicios-7" class="section level2">
@@ -978,9 +973,9 @@ x=<span class="kw">runif</span>(<span class="dv">10</span>,<span class="dv">0</s
 <div class="footnotes">
 <hr />
 <ol start="8">
-<li id="fn8"><p>En inglés se utiliza el acrónimo <em>GOF</em>, de <em>goodness of fit</em>.<a href="chap-bondad.html#fnref8">↩</a></p></li>
+<li id="fn8"><p>En inglés se utiliza la abreviatura <em>GOF</em>, de <em>goodness of fit</em>.<a href="chap-bondad.html#fnref8">↩</a></p></li>
 <li id="fn9"><p>A las repeticiones se las suele llamar empates, <em>ties</em> en inglés, porque la función de distribución acumulada muestral ordena los datos y las repeticiones producen empates en las posiciones de valores sucesivos.<a href="chap-bondad.html#fnref9">↩</a></p></li>
-<li id="fn10"><p>En la Lección <a href="#chap:agrup"><strong>??</strong></a> de la primera parte del curso.<a href="chap-bondad.html#fnref10">↩</a></p></li>
+<li id="fn10"><p>Lo confesamos, hemos elegido la semilla de aleatoriedad no porque seamos fans de <a href="https://es.wikipedia.org/wiki/Alessandro_Scarlatti">Scarlatti</a> sino para que la muestra obtenida solo contenga ceros, unos y doses, lo que, como veréis, motivará una pequeña discusión sobre qué clases tomar.<a href="chap-bondad.html#fnref10">↩</a></p></li>
 <li id="fn11"><p>Véase N. M. Razali, Y. B. Wah, “Power comparisons of Shapiro-Wilk, Kolmogorov-Smirnov, Lilliefors and Anderson-Darling tests.” <em>S. Stat. Model. Anal.</em> 2 (2011), pp. 21–33.<a href="chap-bondad.html#fnref11">↩</a></p></li>
 </ol>
 </div>
