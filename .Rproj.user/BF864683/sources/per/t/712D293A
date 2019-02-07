@@ -1,22 +1,22 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1549269863624.000,
-    "dirty" : false,
+    "created" : 1549566704001.000,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3755904347",
-    "id" : "2D4EA74B",
-    "lastKnownWriteTime" : 1549298807,
-    "last_content_update" : 1549298807543,
+    "hash" : "982184547",
+    "id" : "712D293A",
+    "lastKnownWriteTime" : 1549555474,
+    "last_content_update" : 1549566713290,
     "path" : "~/Documents/GitHub/AprendeR-II/06-BondadAjuste.Rmd",
     "project_path" : "06-BondadAjuste.Rmd",
     "properties" : {
-        "cursorPosition" : "55,0",
+        "cursorPosition" : "227,17",
         "ignored_words" : "ref,chap,parametrizada,plot,plots,p,chi,replicaciones,á,ó,genes,exones,mioglobina,polipeptídica,equiprobable,exón,ú,cg,fans,c,g,agrup,é,í,ñ,boxplot,t,realizarlo,Razali,Wah,Power,comparisons,of,Shapiro,Wilk,Kolmogorov,Smirnov,Lilliefors,and,Anderson,Darling,pp,asimetría,curtosis,D'Agostino,end,itemize\n",
-        "scrollLine" : "53"
+        "scrollLine" : "224"
     },
-    "relative_order" : 2,
+    "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

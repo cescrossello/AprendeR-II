@@ -1188,7 +1188,7 @@ Excepto en las que decimos lo contrario, todas las funciones para realizar contr
 
 *(4)*  Tenemos dos variables aleatorias de Bernoulli de proporciones poblacionales $p_1$ y $p_2$, respectivamente. En una muestra de 100 observaciones de la primera hemos obtenido 20 éxitos, y en una muestra de 150 observaciones de la segunda, hemos obtenido 40 éxitos. Usando la función `prop.test`, calculad el p-valor (redondeado a 3 cifras decimales, sin ceros innecesarios a la derecha) del contraste $H_0: p_1=p_2$ contra $H_1:p_1<p_2$ y decid (contestando SI, sin acento, o NO) si podemos rechazar la hipótesis nula en favor de la alternativa a un nivel de significación de 0.05. Tenéis que dar las dos respuestas en este orden, separadas por un único espacio en blanco.
 
-
+```{r,include=FALSE,eval=FALSE}
 ### Ejercicios {-}
 
 **(1)** Para satisfacer las necesidades respiratorias de los peces de agua caliente, el contenido de oxígeno disuelto debe presentar un promedio de
@@ -1197,11 +1197,11 @@ Cuando la temperatura del agua crece, el oxígeno disuelto disminuye, y esto cau
 
 Se realizó un estudio sobre los efectos del calor en verano en el contenido de oxígeno disuelto en un gran lago. Después de un período particularmente caluroso, se tomaron muestras de agua en $35$ lugares aleatoriamente seleccionados
 en el lago, y se determinó el contenido de oxígeno disuelto. Los resultados (en ppm) fueron los siguientes:
-```{r}
+#```{r}
 O2=c(9.1,6.8,7.0,7.5,8.7,3.2,5.4,8.1,4.4,5.1,6.2,6.9,6.9,4.3,
     8.0,5.3,6.2,6.4,7.8,5.8,6.9,7.7,5.2,5.8,6.3,5.9,8.5,7.5,8.9,
     5.6,6.6,5.3,5.7,6.9,6.6)
-```
+#```
 Suponemos que estos contenidos de oxígeno siguen una distribución normal.
 
 *(a)*  ¿Hay evidencia de que el contenido medio de oxígeno en el lago sea inferior al nivel aceptable de $6.5$ ppm?
@@ -1218,7 +1218,7 @@ $$
 $$
 
 Contrastad si ambas técnicas de diagnóstico tienen la misma probabilidad de dar positivo.
-
+```
 
 
 

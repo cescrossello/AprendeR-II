@@ -1,4 +1,4 @@
-# Bondad de ajuste {#chap:bondad}
+# Contrastes de bondad de ajuste {#chap:bondad}
 
 Una de las condiciones  habituales que requerimos sobre una muestra, por ejemplo, al razonar sobre la distribución  de sus estadísticos o al realizar contrastes de hipótesis, es que la población de la que la hemos extraído siga una determinada distribución. En la Lección \@ref(chap:agrup) de la primera parte del curso comprobábamos gráficamente el ajuste de una muestra a una distribución normal mediante  histogramas y dibujando las curvas de densidad muestral y de densidad de la normal. En esta lección presentamos algunas instrucciones que implementan **tests de bondad de ajuste**,^[En inglés se utiliza la abreviatura *GOF*,  de *goodness of fit*.] técnicas cuantitativas que permiten contrastar si los datos de una muestra provienen o no de una determinada distribución de probabilidad.
 
@@ -515,7 +515,7 @@ El procedimiento de contraste de bondad de ajuste mediante el test $\chi^2$ para
 
 Para obtener los intervalos podemos seguir dos estrategias razonables:  reutilizar  los generados por la función `hist`, o dividir el rango de la variable en un número prefijado $k$ de intervalos  de amplitud fija. Vamos a ver en detalle un ejemplo de cada tipo.
 
-```{example}
+```{example,label=testnormiris1}
 Vamos a contrastar si las longitudes de los sépalos de las plantas iris recogidas en la tabla de datos `iris` siguen una distribución normal. Recordaréis que el Q-Q-plot de estas longitudes que obteníamos en el Ejemplo \@ref(exm:irisqq) mostraba evidencia de que no la siguen.
 
 

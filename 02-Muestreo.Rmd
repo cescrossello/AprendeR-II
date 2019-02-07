@@ -484,6 +484,7 @@ sort(sapply(Y,FUN=function(x){sample(x+20*(0:4),3,replace=FALSE)}))
 *(4)* Con una sola instrucción, calculad un vector formado por las medias de 100 muestras aleatorias sin reposición de 20 elementos cada una escogidos de un vector numérico llamado $X$ y llamadlo `medias`.
 
 
+```{r,include=FALSE,eval=FALSE}
 ### Ejercicios {-}
 
 **1)** Considerad la tabla de datos que encontraréis en http://www.hofroe.net/stat557/data/crab.txt y que contiene información sobre una muestra de  cangrejos. Cargadla en un `dataframe`.
@@ -495,7 +496,7 @@ sort(sapply(Y,FUN=function(x){sample(x+20*(0:4),3,replace=FALSE)}))
 *(c)* ¿Qué valores predice el Teorema Central del Límite que se deberían obtener? ¿Habéis obtenido resultados similares a los predichos por dicho teorema?
 
 **2)** Extraed una muestra aleatoria estratificada de 15 flores de la tabla `iris` manteniendo en la muestra las proporciones de las diferentes especies en la tabla. Procurad que el método empleado sea lo más general posible, para poderlo aplicar a cualquier `data frame`, cualquier tamaño de muestra (aproximadamente) y una clasificación definida por cualquier factor del `data frame`. 
-
+```
 
 
 

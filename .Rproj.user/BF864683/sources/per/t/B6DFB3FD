@@ -1,19 +1,19 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1549219754135.000,
+    "created" : 1549557584541.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "3698452598",
-    "id" : "8CE0B71C",
+    "id" : "B6DFB3FD",
     "lastKnownWriteTime" : 1549299081,
-    "last_content_update" : 1549299081941,
+    "last_content_update" : 1549299081,
     "path" : "~/Documents/GitHub/AprendeR-II/index.Rmd",
     "project_path" : "index.Rmd",
     "properties" : {
         "cursorPosition" : "45,23",
-        "scrollLine" : "37"
+        "scrollLine" : "0"
     },
     "relative_order" : 2,
     "source_on_save" : false,
