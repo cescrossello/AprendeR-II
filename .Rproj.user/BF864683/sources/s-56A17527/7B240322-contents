@@ -25,26 +25,36 @@ En ambos contrastes, la hipótesis nula es que las variables son independientes,
 Para ilustrar esta lección, hemos generado una muestra aleatoria de cadenas formadas por las 
 bases  "a", "c", "g" y "t". En concreto, hemos generado cadenas de longitud 100 de tres tipos: *A*, *B*  y  *C.* Estos tipos se distinguen por los vectores de probabilidades  que han determinado las frecuencias de  las cuatro bases en las secuencias.  Queremos  investigar si hay relación entre el tipo (A, B o C) de una cadena, y la base de frecuencia máxima en ella. 
 
-Los datos y el método de generación se pueden descargar del *url* siguiente: 
-http://bioinfo.uib.es/~recerca/MAT2/datos/bases/. Este directorio contiene:
+Los datos y el método de generación se encuentran en el repositorio de GitHub https://github.com/biocom-uib/Experimento-Cadenas. Este directorio contiene:
  
-* El fichero *LeemeGeneracionDatos.html*, que contiene el código de generación
-de las muestras.
+* El fichero *LeemeGeneracionDatos.Rmd*, que contiene y explica el código de generación
+de las muestras. El html resultante de compilar este fichero *R Markdown* se puede leer en https://biocom-uib.github.io/Experimento-Cadenas/.
 
 * El fichero *MuestraTotalBases.txt*, que contiene una tabla de datos de 10000 observaciones  de las dos variables siguientes sobre cadenas: el `tipo`, que es un factor con los niveles
-`A`, `B` y `C`, y  `max.frec`, que es otro factor que indica qué base tiene mayor frecuencia en la cadena. Este fichero es de formato texto, con una primera fila con el nombre de las variables y sus columnas separadas por tabuladores.
+`A`, `B` y `C`, y  `max.frec`, que es otro factor que indica qué base tiene mayor frecuencia en la cadena. Este fichero es de formato texto, con una primera fila con el nombre de las variables y sus columnas separadas por comas.
+
+* Los ficheros *MuestraTipoAbases.txt*, *MuestraTipoBbases.txt* y *MuestraTipoCbases.txt*, que contienen las subtablas de datos de la anterior formadas solo por las cadenas de tipo A, de tipo B y de tipo C, respectivamente.
  
+Los *url* de estos ficheros para poderlos cargar en una seisón de R se pueden consultar en el *Readme* del repositorio.
+
+El bloque de código siguientes carga en un *data frame* la tabla global *MuestraTotalBases.txt* y comprueba que no ha habido problemas. Como su *url* empieza con *https*, hay que usar la construcción especial para cargarlo que ya explicamos en la Lección \@ref(chap:df) de la primera parte.
 
 
-Los bloques de código siguientes cargan la tabla de datos, comprueban que no ha habido problemas, y extraen tres subtablas, una para cada tipo de cadena:
 ```{r}
-poblacion= read.table("http://bioinfo.uib.es/~recerca/MAT2/datos/bases/MuestraTotalBases.txt", sep="\t", header=TRUE)
+library(RCurl)
+poblacion=read.csv(text=getURL("https://raw.githubusercontent.com/biocom-uib/Experimento-Cadenas/master/MuestraTotalBases.txt"))
 str(poblacion)
 head(poblacion)
+```
+
+A continuación extraemos de este *data frame* tres subtablas, una para cada tipo de cadena:
+```{r}
 poblacionA=subset(poblacion,tipo=="A")
 poblacionB=subset(poblacion,tipo=="B")
 poblacionC=subset(poblacion,tipo=="C")
 ```
+También podríamos haber definido estos *data frames* a partr de los ficheros  *MuestraTipoAbases.txt*, *MuestraTipoBbases.txt* y *MuestraTipoCbases.txt* de manera similar a como hemos cargado el fichero *MuestraTotalBases.txt* en el *data frame* `poblacion`.
+
 
 ## Tablas de contingencia
 
